@@ -2562,6 +2562,89 @@ body{
     transform:scale(.96) !important;
   }
 }
+
+/* === v4.7.1 MOBILE TOPBAR FIX === */
+@media(max-width:768px){
+  .topbar{
+    position:sticky !important;
+    top:0 !important;
+    z-index:100 !important;
+    height:auto !important;
+    max-height:60px !important;
+    overflow:hidden !important;
+  }
+  .tb-inner{
+    padding:.5rem 1rem !important;
+    gap:.5rem !important;
+    flex-wrap:nowrap !important;
+    height:50px !important;
+  }
+  .tb-inner .brand{
+    flex:1 !important;
+    min-width:0 !important;
+  }
+  .tb-inner .brand .t{
+    font-size:.85rem !important;
+    letter-spacing:.1em !important;
+  }
+  .tb-inner .brand .s{
+    display:none !important;
+  }
+  .nav-main{
+    display:none !important;
+  }
+  .mobile-menu-btn{
+    display:flex !important;
+    order:-1 !important;
+  }
+  .icon-btn.menu-toggle{
+    display:none !important;
+  }
+  #searchInput{
+    display:none !important;
+  }
+  /* Show search as expandable */
+  .search-mobile-toggle{
+    display:flex !important;
+  }
+}
+
+/* Mobile search overlay */
+.mobile-search-overlay{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;
+  background:var(--paper);
+  z-index:1500;
+  padding:1rem;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+.mobile-search-overlay.open{
+  display:block;
+}
+.mobile-search-overlay input{
+  width:100%;
+  padding:.8rem 1rem;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--bg);
+  font-size:1rem;
+  outline:none;
+}
+.mobile-search-overlay input:focus{
+  border-color:var(--wine);
+}
+.mobile-search-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  background:none;
+  border:none;
+  font-size:1.2rem;
+  cursor:pointer;
+  padding:.5rem;
+}
 </style>
 
 </head>
@@ -2574,7 +2657,7 @@ body{
 <button data-go="home">发现</button><button data-go="emotions">主题</button><button data-go="dramas">剧集</button><button data-go="characters">人物</button><button data-go="scenes">场景</button><button data-go="rank">精选</button><button data-go="favorites">我的台词书</button>
 </nav>
 <div class="tb-actions">
-<label class="searchbox hide-sm"><span>⌕</span><input id="searchInput" placeholder="搜韩文 / 中文 / 剧名 / 类型…"></label>
+<button class="search-mobile-toggle" onclick="toggleMobileSearch()" style="display:none;align-items:center;justify-content:center;width:40px;height:40px;background:none;border:none;cursor:pointer;font-size:1.1rem;">⌕</button><label class="searchbox hide-sm"><span>⌕</span><input id="searchInput" placeholder="搜韩文 / 中文 / 剧名 / 类型…"></label>
 <button class="icon-btn" id="koBtn" title="纯韩文模式">가</button>
 <button class="icon-btn" id="randBtn" title="随机情绪旅程">∿</button>
 <button class="icon-btn" id="favBtn" title="我的台词书">♡</button>
@@ -2835,6 +2918,25 @@ window.addEventListener('scroll',function(){
 },{passive:true});
 
 
+
+// Mobile search
+function toggleMobileSearch(){
+  var o=document.getElementById('mobileSearchOverlay');
+  if(o){
+    o.classList.toggle('open');
+    if(o.classList.contains('open')){
+      setTimeout(function(){document.getElementById('mobileSearchInput').focus()},100);
+    }
+  }
+}
+function handleMobileSearch(q){
+  if(typeof S !== 'undefined'){
+    S.search=q;
+    S.view='search';
+    render();
+  }
+}
+
 // Mobile drawer
 function toggleMobileDrawer(){
   var d=document.getElementById('mobileDrawer');
@@ -2884,6 +2986,11 @@ window.addEventListener('scroll',()=>{
     <div class="drawer-link" onclick="go('sameword');toggleMobileDrawer()">同词·不同情绪</div>
     <div class="drawer-link" onclick="go('subtitle');toggleMobileDrawer()">原文与字幕距离</div>
   </div>
+</div>
+
+<div class="mobile-search-overlay" id="mobileSearchOverlay">
+  <button class="mobile-search-close" onclick="toggleMobileSearch()">✕</button>
+  <input type="text" id="mobileSearchInput" placeholder="搜韩文 / 中文 / 剧名 / 角色..." oninput="handleMobileSearch(this.value)">
 </div>
 </body>
 </html>
