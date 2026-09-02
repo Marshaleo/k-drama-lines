@@ -3167,6 +3167,86 @@ body{
   .emo-grid{grid-template-columns:1fr !important}
   .hero h1{font-size:clamp(2rem,11vw,3rem)}
 }
+
+/* === v4.9.1 NAVIGATION FIX - overrides all conflicts === */
+.nav-main{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  gap:.2rem !important;
+  margin-left:1rem !important;
+  padding:0 !important;
+  height:auto !important;
+}
+.nav-main button{
+  display:inline-flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:.8rem !important;
+  padding:.45rem .8rem !important;
+  color:var(--mute) !important;
+  background:none !important;
+  border:none !important;
+  cursor:pointer !important;
+  white-space:nowrap !important;
+  width:auto !important;
+  height:auto !important;
+  min-height:auto !important;
+}
+.nav-main button.on{
+  color:var(--ink) !important;
+  font-weight:600 !important;
+}
+.nav-main .mobile-menu-btn{
+  display:none !important;
+}
+.search-mobile-toggle{
+  display:none !important;
+}
+.topbar{
+  height:auto !important;
+  max-height:none !important;
+  overflow:visible !important;
+}
+.tb-inner{
+  height:auto !important;
+  flex-wrap:nowrap !important;
+  padding:.6rem 1.5rem !important;
+}
+
+/* Mobile: hide nav, show hamburger */
+@media(max-width:768px){
+  .nav-main{
+    display:none !important;
+  }
+  .nav-main .mobile-menu-btn{
+    display:flex !important;
+  }
+  .mobile-menu-btn{
+    display:flex !important;
+  }
+  .searchbox{
+    display:none !important;
+  }
+  .search-mobile-toggle{
+    display:flex !important;
+  }
+  .tb-inner{
+    flex-wrap:wrap !important;
+  }
+}
+
+/* Hide original menu toggle on desktop */
+.icon-btn.menu-toggle{
+  display:none !important;
+}
+@media(max-width:768px){
+  .icon-btn.menu-toggle{
+    display:flex !important;
+  }
+}
 </style>
 
 </head>
