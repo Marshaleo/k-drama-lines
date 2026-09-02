@@ -3247,6 +3247,67 @@ body{
     display:flex !important;
   }
 }
+
+/* === v4.9.2 COMPLETE LAYOUT FIX === */
+.shell{
+  display:block !important;
+  max-width:100% !important;
+  padding:0 !important;
+}
+/* Hide side navigation and right rail - top nav has all links */
+.sidenav,.rail,.sidebar,.right-rail{
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+  overflow:hidden !important;
+}
+#view,.view-enter{
+  display:block !important;
+  width:100% !important;
+  max-width:100% !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+/* Center all content sections */
+#view > section,
+#view > div,
+.view-enter > section,
+.view-enter > div{
+  max-width:960px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:1rem !important;
+  padding-right:1rem !important;
+}
+/* Hero full width */
+.hero{
+  max-width:100% !important;
+  padding-left:1rem !important;
+  padding-right:1rem !important;
+}
+/* Grids should not exceed container */
+.poster-grid,.lgrid,.emo-grid,.study-grid,.shelf-grid{
+  max-width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+/* Ensure body has no weird class */
+body.ko-only .stage-zh,
+body.ko-only .lzh,
+body.ko-only .pzh,
+body.ko-only .tzh{
+  /* keep ko-only behavior if user enabled it */
+}
+
+/* Center lede paragraphs */
+.lede{
+  max-width:960px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:1rem !important;
+  padding-right:1rem !important;
+  text-align:center !important;
+}
 </style>
 
 </head>
