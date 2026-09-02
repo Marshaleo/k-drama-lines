@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-Drama Lines｜韩剧台词私人博物馆 · Words That Stay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* === K-Drama Lines · Visual Redesign v4 === */
+:root{
+  --paper:#F7F4EE;
+  --paper-2:#EFEBE1;
+  --card:#FDFBF6;
+  --ink:#1C1A17;
+  --ink-2:#4A463F;
+  --mute:#9A9388;
+  --hair:#E2DDD2;
+  --hair2:#CFC8B8;
+  --wine:#7A2E2E;
+  --wine-soft:rgba(122,46,46,.08);
+  --wine-line:rgba(122,46,46,.15);
+  --inkblue:#2C3E50;
+  --brown:#8B6F47;
+  --gold:#B8956A;
+  --shadow-sm:0 1px 2px rgba(28,26,23,.04);
+  --shadow:0 2px 8px rgba(28,26,23,.06),0 24px 48px -28px rgba(28,26,23,.18);
+  --shadow-lg:0 4px 16px rgba(28,26,23,.08),0 40px 80px -32px rgba(28,26,23,.25);
+  --serif-ko:'Noto Serif KR',serif;
+  --serif-zh:'Noto Serif SC','Songti SC',serif;
+  --display:'Cormorant Garamond',serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+[data-theme="dark"]{
+  --paper:#11100E;
+  --paper-2:#181614;
+  --card:#1E1C18;
+  --ink:#EDE8DC;
+  --ink-2:#B8B0A0;
+  --mute:#706A5E;
+  --hair:#2A2722;
+  --hair2:#3A362E;
+  --wine:#C47A6A;
+  --wine-soft:rgba(196,122,106,.1);
+  --wine-line:rgba(196,122,106,.2);
+  --inkblue:#8FA8C0;
+  --brown:#C4A87A;
+  --gold:#D4B896;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+  --shadow:0 2px 8px rgba(0,0,0,.4),0 24px 48px -28px rgba(0,0,0,.6);
+  --shadow-lg:0 4px 16px rgba(0,0,0,.5),0 40px 80px -32px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif-zh);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  transition:background .6s var(--ease),color .6s var(--ease);
+  font-feature-settings:"palt";
+  font-size:15px;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--wine);color:var(--paper)}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.hidden{display:none!important}
+.mono{font-family:var(--mono);letter-spacing:.06em;font-size:.92em}
+.en{font-family:var(--display)}
+.ko{font-family:var(--serif-ko)}
+mark{background:var(--wine-soft);color:var(--wine);border-radius:2px;padding:0 3px}
+
+/* === Top Bar === */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid var(--hair);
+}
+.perf{
+  height:6px;
+  background-image:radial-gradient(circle,var(--hair2) 1px,transparent 1.2px);
+  background-size:14px 6px;background-position:bottom;background-repeat:repeat-x;
+  opacity:.4;
+}
+.tb-inner{max-width:1320px;margin:0 auto;padding:.7rem 1.6rem;display:flex;align-items:center;gap:1rem}
+.brand{cursor:pointer;line-height:1.15;transition:opacity .3s var(--ease)}
+.brand:hover{opacity:.7}
+.brand .t{font-family:var(--display);font-weight:600;font-size:1.2rem;letter-spacing:.22em}
+.brand .s{font-size:.58rem;color:var(--mute);letter-spacing:.38em;margin-top:3px;text-transform:uppercase}
+.nav-main{display:flex;gap:.1rem;margin-left:1.5rem}
+.nav-main button{
+  font-size:.8rem;padding:.4rem .8rem;border-radius:4px;color:var(--mute);
+  letter-spacing:.08em;transition:all .3s var(--ease);position:relative;
+}
+.nav-main button:hover{color:var(--ink)}
+.nav-main button.on{color:var(--ink);font-weight:600}
+.nav-main button.on::after{
+  content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:18px;height:1.5px;background:var(--wine);
+}
+.tb-actions{margin-left:auto;display:flex;align-items:center;gap:.3rem}
+.icon-btn{
+  width:36px;height:36px;border-radius:6px;display:grid;place-items:center;
+  color:var(--ink-2);transition:all .3s var(--ease);font-size:1.05rem;
+}
+.icon-btn:hover{background:var(--paper-2);color:var(--wine)}
+.searchbox{
+  display:flex;align-items:center;gap:.5rem;
+  border:1px solid var(--hair);border-radius:8px;
+  padding:.4rem .9rem;background:var(--card);
+  min-width:200px;transition:all .3s var(--ease);
+}
+.searchbox:focus-within{border-color:var(--wine-line);box-shadow:0 0 0 3px var(--wine-soft)}
+.searchbox input{
+  border:none;background:none;outline:none;font-family:var(--serif-zh);
+  color:var(--ink);font-size:.82rem;width:100%;letter-spacing:.02em;
+}
+.searchbox input::placeholder{color:var(--mute)}
+.menu-toggle{display:none}
+
+/* === Layout === */
+.shell{
+  max-width:1320px;margin:0 auto;padding:0 1.6rem;
+  display:grid;grid-template-columns:200px minmax(0,1fr) 240px;gap:2.5rem;
+  position:relative;z-index:2;
+}
+.sidenav{padding:2.5rem 0 4rem;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 90px);overflow:auto}
+.sidenav h4{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;color:var(--mute);
+  font-weight:500;margin:1.5rem 0 .6rem;text-transform:uppercase;
+}
+.sidenav h4:first-child{margin-top:0}
+.navi{
+  display:flex;align-items:center;padding:.38rem .6rem;font-size:.84rem;
+  color:var(--ink-2);cursor:pointer;transition:all .25s var(--ease);
+  border-radius:4px;letter-spacing:.02em;
+}
+.navi:hover{color:var(--ink);background:var(--paper-2)}
+.navi.on{color:var(--wine);font-weight:600;background:var(--wine-soft)}
+.navi .c{margin-left:auto;font-family:var(--mono);font-size:.62rem;color:var(--mute)}
+main{padding:2.5rem 0 6rem;min-width:0}
+.rail{padding:2.5rem 0 4rem;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 90px);overflow:auto}
+.rail-card{
+  border:1px solid var(--hair);border-radius:8px;background:var(--card);
+  padding:1.1rem 1.2rem;margin-bottom:1rem;transition:all .3s var(--ease);
+}
+.rail-card:hover{border-color:var(--hair2)}
+.rail-card h5{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.28em;color:var(--mute);
+  font-weight:500;margin-bottom:.7rem;text-transform:uppercase;
+}
+.rail-line{font-size:.76rem;color:var(--ink-2);padding:.3rem 0;cursor:pointer;display:block;transition:color .2s;line-height:1.5}
+.rail-line:hover{color:var(--wine)}
+.rail-line small{display:block;color:var(--mute);font-size:.66rem;margin-top:2px}
+
+/* === Crumb & Section Headers === */
+.crumb{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--mute);
+  margin-bottom:1.6rem;display:flex;gap:.5rem;flex-wrap:wrap;
+}
+.crumb span{cursor:pointer;transition:color .2s}
+.crumb span:hover{color:var(--wine)}
+.sh{display:flex;align-items:baseline;gap:1rem;margin:2.8rem 0 1.2rem}
+.sh h2{font-weight:600;font-size:1.5rem;letter-spacing:.06em}
+.sh .sub{font-family:var(--display);font-style:italic;color:var(--mute);font-size:1.05rem;font-weight:400}
+.sh .more{margin-left:auto;font-size:.74rem;color:var(--wine);cursor:pointer;letter-spacing:.1em;transition:opacity .2s}
+.sh .more:hover{opacity:.7}
+.lede{color:var(--ink-2);font-size:.9rem;max-width:48em;margin-bottom:1.5rem;line-height:2.1}
+
+/* === Badges & Tags === */
+.badge{
+  font-size:.58rem;padding:.15rem .55rem;border-radius:3px;letter-spacing:.1em;
+  font-family:var(--mono);font-weight:500;
+}
+.badge.v{background:rgba(44,62,80,.1);color:var(--inkblue)}
+.badge.c{background:var(--wine-soft);color:var(--wine)}
+.badge.r{background:rgba(139,111,71,.12);color:var(--brown)}
+.tag{
+  display:inline-block;font-size:.64rem;padding:.15rem .6rem;border-radius:3px;
+  border:1px solid var(--hair);color:var(--ink-2);letter-spacing:.06em;
+  margin:0 .2rem .25rem 0;transition:all .25s var(--ease);cursor:pointer;
+}
+.tag:hover{border-color:var(--wine-line);color:var(--wine);background:var(--wine-soft)}
+.tag.lt{border-color:var(--wine-line);color:var(--wine)}
+.tag.rel{border-color:rgba(44,62,80,.2);color:var(--inkblue)}
+
+/* === Toast === */
+.toast{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(12px);
+  background:var(--ink);color:var(--paper);padding:.7rem 1.4rem;border-radius:6px;
+  font-size:.78rem;opacity:0;pointer-events:none;transition:all .35s var(--ease);z-index:90;
+  letter-spacing:.04em;box-shadow:var(--shadow);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* === Hero === */
+.hero{
+  padding:4.5rem 0 3rem;position:relative;margin-bottom:2.5rem;
+  border-bottom:1px solid var(--hair);
+}
+.hero::after{
+  content:"";position:absolute;bottom:-1px;left:0;width:60px;height:2px;background:var(--wine);
+}
+.hero .kick{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.45em;color:var(--wine);
+  text-transform:uppercase;margin-bottom:1.2rem;
+}
+.hero h1{
+  font-family:var(--display);font-weight:500;font-size:clamp(3rem,8vw,5.5rem);
+  line-height:1.0;letter-spacing:-.01em;margin:.5rem 0 .3rem;
+}
+.hero .zhtitle{
+  font-family:var(--serif-zh);font-size:1.15rem;color:var(--ink-2);
+  letter-spacing:.5em;margin-bottom:2rem;font-weight:400;
+}
+.hero .quote{
+  font-family:var(--serif-zh);font-size:1.05rem;color:var(--ink-2);
+  max-width:32em;line-height:2.2;margin-bottom:2rem;
+}
+.hero .quote em{color:var(--wine);font-style:normal;border-bottom:1px solid var(--wine-line);padding-bottom:1px}
+.hero .meta{
+  display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;
+}
+.hero .meta-item{display:flex;flex-direction:column;gap:.2rem}
+.hero .meta-num{font-family:var(--display);font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1}
+.hero .meta-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.25em;color:var(--mute);text-transform:uppercase}
+.hero .actions{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--ink);color:var(--paper);padding:.75rem 1.6rem;
+  border-radius:6px;font-size:.82rem;letter-spacing:.12em;
+  transition:all .3s var(--ease);font-family:var(--serif-zh);
+}
+.btn-primary:hover{background:var(--wine);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--hair2);color:var(--ink-2);padding:.75rem 1.6rem;
+  border-radius:6px;font-size:.82rem;letter-spacing:.12em;
+  transition:all .3s var(--ease);font-family:var(--serif-zh);
+}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);background:var(--card)}
+
+/* === Tonight's Line === */
+.tonight{
+  border:1px solid var(--hair);border-radius:10px;background:var(--card);
+  padding:2.5rem 2.8rem;margin-bottom:2.5rem;position:relative;overflow:hidden;
+  transition:all .4s var(--ease);
+}
+.tonight:hover{border-color:var(--hair2);box-shadow:var(--shadow)}
+.tonight .label{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.35em;color:var(--wine);
+  text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem;
+}
+.tonight .label::after{content:"";flex:1;height:1px;background:var(--hair)}
+.tonight .ko{
+  font-family:var(--serif-ko);font-size:1.65rem;line-height:1.7;color:var(--ink);
+  margin-bottom:1.2rem;font-weight:500;letter-spacing:.01em;
+}
+.tonight .zh{font-size:.95rem;color:var(--ink-2);line-height:2;margin-bottom:1.2rem;max-width:42em}
+.tonight .src{font-size:.78rem;color:var(--mute);letter-spacing:.04em}
+.tonight .src span{cursor:pointer;transition:color .2s}
+.tonight .src span:hover{color:var(--wine)}
+
+/* === Line Cards (Editor's Pick & General) === */
+.lc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.2rem}
+.lc{
+  border:1px solid var(--hair);border-radius:10px;background:var(--card);
+  padding:1.8rem 1.8rem 1.5rem;cursor:pointer;position:relative;
+  transition:all .4s var(--ease);display:flex;flex-direction:column;
+}
+.lc:hover{
+  border-color:var(--hair2);transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+.lc .num{
+  font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--wine);
+  font-weight:600;margin-bottom:.8rem;letter-spacing:.02em;
+}
+.lc .ko{
+  font-family:var(--serif-ko);font-size:1.15rem;line-height:1.75;color:var(--ink);
+  margin-bottom:.8rem;font-weight:500;
+}
+.lc .zh{font-size:.85rem;color:var(--ink-2);line-height:1.9;margin-bottom:.8rem}
+.lc .editor-note{
+  font-size:.78rem;color:var(--mute);line-height:1.8;font-style:italic;
+  padding-top:.8rem;border-top:1px solid var(--hair);margin-bottom:.8rem;
+  font-family:var(--serif-zh);
+}
+.lc .src{font-size:.72rem;color:var(--mute);letter-spacing:.03em;margin-top:auto}
+.lc .src .drama-name{cursor:pointer;transition:color .2s}
+.lc .src .drama-name:hover{color:var(--wine)}
+.lc .fav-btn{
+  position:absolute;top:1rem;right:1rem;width:28px;height:28px;
+  display:grid;place-items:center;color:var(--mute);font-size:.9rem;
+  transition:all .3s var(--ease);border-radius:4px;
+}
+.lc .fav-btn:hover{color:var(--wine);background:var(--wine-soft)}
+.lc .fav-btn.active{color:var(--wine)}
+
+/* === Emotion Cards === */
+.emo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem}
+.emo-card{
+  border:1px solid var(--hair);border-radius:8px;padding:1.2rem 1rem;
+  cursor:pointer;transition:all .35s var(--ease);background:var(--card);
+  text-align:center;
+}
+.emo-card:hover{border-color:var(--wine-line);background:var(--wine-soft);transform:translateY(-2px)}
+.emo-card .icon{font-size:1.4rem;margin-bottom:.5rem;opacity:.7}
+.emo-card .name{font-size:.85rem;color:var(--ink);font-weight:500;letter-spacing:.05em}
+.emo-card .count{font-family:var(--mono);font-size:.62rem;color:var(--mute);margin-top:.3rem;letter-spacing:.1em}
+
+/* === Drama & Character Cards === */
+.drama-grid,.char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.drama-card,.char-card{
+  border:1px solid var(--hair);border-radius:8px;padding:1.4rem 1.5rem;
+  cursor:pointer;transition:all .35s var(--ease);background:var(--card);
+}
+.drama-card:hover,.char-card:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.drama-card .dname{font-size:1rem;font-weight:600;margin-bottom:.3rem;letter-spacing:.03em}
+.drama-card .dko{font-family:var(--serif-ko);font-size:.8rem;color:var(--mute);margin-bottom:.5rem}
+.drama-card .dmeta{font-family:var(--mono);font-size:.62rem;color:var(--mute);letter-spacing:.1em;margin-bottom:.5rem}
+.drama-card .dstyle{font-size:.78rem;color:var(--ink-2);line-height:1.7}
+.char-card .cname{font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.char-card .cactor{font-size:.75rem;color:var(--mute);margin-bottom:.5rem}
+.char-card .carc{font-size:.78rem;color:var(--ink-2);line-height:1.7}
+
+/* === Rank === */
+.rank-list{display:flex;flex-direction:column;gap:.5rem}
+.rank-row{
+  display:flex;align-items:center;gap:1.2rem;padding:1rem 1.2rem;
+  border:1px solid var(--hair);border-radius:8px;background:var(--card);
+  cursor:pointer;transition:all .3s var(--ease);
+}
+.rank-row:hover{border-color:var(--hair2);transform:translateX(4px);background:var(--paper-2)}
+.rank-row .rnum{font-family:var(--display);font-size:1.4rem;font-weight:600;color:var(--wine);min-width:36px;font-style:italic}
+.rank-row .rcontent{flex:1;min-width:0}
+.rank-row .rko{font-family:var(--serif-ko);font-size:1rem;color:var(--ink);margin-bottom:.2rem}
+.rank-row .rsrc{font-size:.72rem;color:var(--mute)}
+
+/* === Archive / Detail Page === */
+.archive{max-width:760px;margin:0 auto}
+.stage{
+  border:1px solid var(--hair);border-radius:12px;padding:3rem 3.2rem;
+  margin-bottom:2rem;position:relative;overflow:hidden;
+  background:var(--card);transition:background .6s var(--ease);
+}
+.stage[data-mood="rain-night"]{background:linear-gradient(160deg,var(--card) 0%,color-mix(in srgb,var(--inkblue) 6%,var(--card)) 100%)}
+.stage[data-mood="farewell"]{padding:4rem 3.2rem}
+.stage[data-mood="suspense-dark"]{background:linear-gradient(160deg,var(--card) 0%,color-mix(in srgb,var(--ink) 8%,var(--card)) 100%)}
+.stage[data-mood="warm-indoor"]{background:linear-gradient(160deg,var(--card) 0%,color-mix(in srgb,var(--gold) 8%,var(--card)) 100%)}
+.stage-id{
+  display:flex;align-items:center;gap:.8rem;margin-bottom:2rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.3em;color:var(--mute);
+  text-transform:uppercase;
+}
+.stage-ko{
+  font-family:var(--serif-ko);font-size:1.85rem;line-height:1.8;color:var(--ink);
+  margin-bottom:1.5rem;font-weight:500;letter-spacing:.01em;
+}
+.stage-ko .vo-line{opacity:0;animation:voIn .8s var(--ease) forwards}
+.stage-zh{
+  font-size:1rem;color:var(--ink-2);line-height:2.1;margin-bottom:1.5rem;
+  max-width:38em;opacity:1;animation:voIn .8s .4s var(--ease) both;
+}
+.stage-zh.hidden-zh{display:none}
+.understand-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--wine-line);color:var(--wine);padding:.6rem 1.3rem;
+  border-radius:6px;font-size:.78rem;letter-spacing:.12em;
+  transition:all .3s var(--ease);margin-bottom:1.5rem;background:var(--wine-soft);
+}
+.understand-btn:hover{background:var(--wine);color:var(--paper);letter-spacing:.16em}
+.stage-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.stage-actions .btn-ghost{padding:.55rem 1.1rem;font-size:.76rem}
+.archive-info{display:flex;flex-direction:column;gap:0}
+.archive-info .row{
+  display:flex;padding:.9rem 0;border-bottom:1px solid var(--hair);
+  font-size:.85rem;
+}
+.archive-info .row .label{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--mute);
+  min-width:80px;text-transform:uppercase;padding-top:.25rem;
+}
+.archive-info .row .value{color:var(--ink);flex:1;line-height:1.8}
+.archive-section{margin-top:2.5rem}
+.archive-section h3{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.3em;color:var(--wine);
+  text-transform:uppercase;margin-bottom:1rem;font-weight:500;
+}
+.archive-section p{font-size:.9rem;color:var(--ink-2);line-height:2.1;margin-bottom:.8rem}
+.anatomy-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.anatomy-item{
+  border:1px solid var(--hair);border-radius:8px;padding:1.2rem;
+  background:var(--card);
+}
+.anatomy-item .alabel{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.25em;color:var(--mute);
+  text-transform:uppercase;margin-bottom:.5rem;
+}
+.anatomy-item .atext{font-size:.82rem;color:var(--ink-2);line-height:1.9}
+
+/* === Immersive / Deep Reading === */
+.imm-full{
+  position:fixed;inset:0;z-index:100;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;padding:2rem;
+  animation:fadeIn .5s var(--ease);
+}
+.imm-full .glow{
+  position:absolute;inset:0;opacity:.4;
+  background:radial-gradient(ellipse at 50% 40%,var(--wine-soft) 0%,transparent 60%);
+}
+.imm-full .inner{position:relative;z-index:2;max-width:680px;text-align:center}
+.imm-full .mono{color:var(--mute);letter-spacing:.3em;font-size:.65rem;margin-bottom:2rem;text-transform:uppercase}
+.imm-full .iko{
+  font-family:var(--serif-ko);font-size:2.2rem;line-height:1.8;color:var(--ink);
+  margin-bottom:1.5rem;font-weight:500;
+}
+.imm-full .izh{font-size:1.05rem;color:var(--ink-2);line-height:2.2;opacity:0;animation:voIn 1s 1.5s var(--ease) forwards}
+.imm-full .imeta{margin-top:2rem;font-size:.8rem;color:var(--mute);letter-spacing:.08em}
+.imm-full .iclose{
+  position:absolute;top:2rem;right:2rem;width:40px;height:40px;
+  display:grid;place-items:center;color:var(--mute);font-size:1.2rem;
+  border-radius:6px;transition:all .3s var(--ease);
+}
+.imm-full .iclose:hover{color:var(--ink);background:var(--paper-2)}
+.imm-full .imm-actions{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.8rem}
+
+/* === Empty State === */
+.empty{
+  text-align:center;padding:4rem 2rem;color:var(--mute);
+  font-size:.9rem;line-height:2;
+}
+.empty .big{font-family:var(--display);font-size:3rem;color:var(--hair2);margin-bottom:1rem;font-style:italic}
+
+/* === Journey & Word Study === */
+.journey-card{
+  border:1px solid var(--hair);border-radius:10px;padding:1.8rem;
+  background:var(--card);cursor:pointer;transition:all .35s var(--ease);margin-bottom:1rem;
+}
+.journey-card:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.journey-card .jtitle{font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.journey-card .jsteps{font-family:var(--mono);font-size:.7rem;color:var(--mute);letter-spacing:.1em}
+.word-block{
+  border:1px solid var(--hair);border-radius:10px;padding:2rem;
+  background:var(--card);margin-bottom:1.5rem;
+}
+.word-block .wko{font-family:var(--serif-ko);font-size:1.5rem;color:var(--ink);margin-bottom:.3rem}
+.word-block .wzh{font-size:.9rem;color:var(--mute);margin-bottom:1rem}
+.word-block .wlines{display:flex;flex-direction:column;gap:.8rem}
+.word-block .wline{padding:.8rem 0;border-top:1px solid var(--hair)}
+.word-block .wline .wlko{font-family:var(--serif-ko);font-size:.95rem;color:var(--ink);margin-bottom:.3rem}
+.word-block .wline .wlzh{font-size:.8rem;color:var(--ink-2)}
+.word-block .wline .wlsrc{font-size:.7rem;color:var(--mute);margin-top:.2rem}
+
+/* === Scene Cards === */
+.scene-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.scene-card{
+  border:1px solid var(--hair);border-radius:10px;padding:1.6rem;
+  background:var(--card);cursor:pointer;transition:all .35s var(--ease);
+}
+.scene-card:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.scene-card .sco{font-family:var(--serif-ko);font-size:1.05rem;color:var(--ink);margin-bottom:.5rem;line-height:1.7}
+.scene-card .szh{font-size:.82rem;color:var(--ink-2);margin-bottom:.6rem;line-height:1.8}
+.scene-card .ssrc{font-size:.7rem;color:var(--mute)}
+
+/* === Animations === */
+@keyframes voIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes heart-pop{0%{transform:scale(1)}40%{transform:scale(1.4)}70%{transform:scale(.9)}100%{transform:scale(1)}}
+@keyframes ripple-expand{to{transform:scale(4);opacity:0}}
+.view-enter{animation:viewEnter .5s var(--ease)}
+@keyframes viewEnter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.ripple-host{position:relative;overflow:hidden}
+.ripple{
+  position:absolute;border-radius:50%;background:var(--wine-soft);
+  transform:scale(0);animation:ripple-expand .6s var(--ease);pointer-events:none;
+}
+.fav-btn.bump{animation:heart-pop .5s var(--ease)}
+
+/* === Responsive === */
+@media(max-width:1024px){
+  .shell{grid-template-columns:1fr;gap:0}
+  .sidenav,.rail{display:none}
+  .menu-toggle{display:grid}
+}
+@media(max-width:640px){
+  .tb-inner{padding:.6rem 1rem}
+  .nav-main{display:none}
+  .searchbox{min-width:140px}
+  main{padding:1.5rem 0 4rem}
+  .hero{padding:3rem 0 2rem}
+  .hero h1{font-size:2.5rem}
+  .tonight{padding:1.8rem 1.5rem}
+  .tonight .ko{font-size:1.3rem}
+  .stage{padding:2rem 1.5rem}
+  .stage-ko{font-size:1.4rem}
+  .lc-grid{grid-template-columns:1fr}
+  .anatomy-grid{grid-template-columns:1fr}
+  .imm-full .iko{font-size:1.6rem}
+  .hero .meta{gap:1.5rem}
+}
+/* === Supplement: classes used by JS templates === */
+
+/* Hero */
+.hero .zht{font-family:var(--serif-zh);font-size:1.1rem;color:var(--ink-2);letter-spacing:.45em;margin-bottom:1.8rem;font-weight:400}
+.hero .spirit{font-family:var(--serif-zh);font-size:1.05rem;color:var(--ink-2);max-width:32em;line-height:2.2;margin-bottom:1.8rem}
+.hero .spirit em{color:var(--wine);font-style:normal;border-bottom:1px solid var(--wine-line);padding-bottom:1px}
+.hero-meta{display:flex;gap:1.8rem;margin-bottom:1.8rem;flex-wrap:wrap;align-items:center}
+.hero-meta span{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.hero-meta .read-progress{color:var(--ink-2)}
+.hero-act{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--paper);padding:.7rem 1.5rem;border-radius:6px;font-size:.8rem;letter-spacing:.12em;transition:all .3s var(--ease);font-family:var(--serif-zh)}
+.btn-p:hover{background:var(--wine);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-g{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--hair2);color:var(--ink-2);padding:.7rem 1.5rem;border-radius:6px;font-size:.8rem;letter-spacing:.12em;transition:all .3s var(--ease);font-family:var(--serif-zh)}
+.btn-g:hover{border-color:var(--ink);color:var(--ink);background:var(--card)}
+
+/* Tonight's Line */
+.tonight .lab{font-family:var(--mono);font-size:.6rem;letter-spacing:.32em;color:var(--wine);text-transform:uppercase;margin-bottom:1.4rem;display:flex;align-items:center;gap:.8rem}
+.tonight .lab::after{content:"";flex:1;height:1px;background:var(--hair)}
+.tonight .lko{font-family:var(--serif-ko);font-size:1.6rem;line-height:1.75;color:var(--ink);margin-bottom:1rem;font-weight:500}
+.tonight .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.92rem;color:var(--ink-2);line-height:2;margin-bottom:1rem;max-width:42em}
+.tonight .lmeta{font-size:.76rem;color:var(--mute);letter-spacing:.04em;display:flex;gap:.5rem;flex-wrap:wrap}
+.tonight .lmeta span{cursor:pointer;transition:color .2s}
+.tonight .lmeta span:hover{color:var(--wine)}
+
+/* Editor's Pick Posters */
+.poster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.1rem;margin-top:1.2rem}
+.poster{border:1px solid var(--hair);border-radius:10px;background:var(--card);padding:1.6rem 1.7rem 1.4rem;cursor:pointer;position:relative;transition:all .4s var(--ease);display:flex;flex-direction:column}
+.poster:hover{border-color:var(--hair2);transform:translateY(-3px);box-shadow:var(--shadow)}
+.poster .no{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--wine);font-weight:600;margin-bottom:.7rem}
+.poster .pko{font-family:var(--serif-ko);font-size:1.1rem;line-height:1.75;color:var(--ink);margin-bottom:.7rem;font-weight:500}
+.poster .pzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.82rem;color:var(--ink-2);line-height:1.85;margin-bottom:.7rem}
+.poster .ped{font-size:.76rem;color:var(--mute);line-height:1.8;font-style:italic;padding-top:.7rem;border-top:1px solid var(--hair);margin-bottom:.7rem;font-family:var(--serif-zh)}
+.poster .pmeta{font-size:.7rem;color:var(--mute);letter-spacing:.03em;margin-top:auto}
+.poster .pmeta span{cursor:pointer;transition:color .2s}
+.poster .pmeta span:hover{color:var(--wine)}
+.poster .star{position:absolute;top:1rem;right:1rem;width:26px;height:26px;display:grid;place-items:center;color:var(--mute);font-size:.85rem;transition:all .3s var(--ease);border-radius:4px}
+.poster .star:hover{color:var(--wine);background:var(--wine-soft)}
+.poster .star.on{color:var(--wine)}
+
+/* Emotion grid */
+.emo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin-top:1rem}
+.emo{border:1px solid var(--hair);border-radius:8px;padding:1.1rem .9rem;cursor:pointer;transition:all .35s var(--ease);background:var(--card);text-align:center;display:flex;flex-direction:column;gap:.3rem}
+.emo:hover{border-color:var(--wine-line);background:var(--wine-soft);transform:translateY(-2px)}
+.emo .en{font-family:var(--display);font-size:1.3rem;color:var(--wine);font-weight:600;line-height:1}
+.emo .ez{font-size:.82rem;color:var(--ink);font-weight:500;letter-spacing:.05em}
+.emo .ek{font-family:var(--serif-ko);font-size:.72rem;color:var(--mute)}
+
+/* Study cards */
+.study-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.study{border:1px solid var(--hair);border-radius:10px;padding:1.5rem 1.6rem;cursor:pointer;transition:all .35s var(--ease);background:var(--card)}
+.study:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.study h4{font-size:1rem;font-weight:600;margin-bottom:.3rem;letter-spacing:.03em}
+.study .sen{font-family:var(--display);font-style:italic;font-size:.85rem;color:var(--mute);display:block;margin-bottom:.6rem}
+.study p{font-size:.78rem;color:var(--ink-2);line-height:1.8}
+
+/* Detail page supplements */
+.stage-act{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.stage-act .btn-g{padding:.5rem 1rem;font-size:.74rem}
+.understand{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--wine-line);color:var(--wine);padding:.55rem 1.2rem;border-radius:6px;font-size:.76rem;letter-spacing:.1em;transition:all .3s var(--ease);background:var(--wine-soft);margin-bottom:1.2rem}
+.understand:hover{background:var(--wine);color:var(--paper);letter-spacing:.14em}
+.dinfo{display:flex;flex-direction:column;gap:0;margin-bottom:1rem}
+.dinfo .row{display:flex;padding:.8rem 0;border-bottom:1px solid var(--hair);font-size:.84rem}
+.dinfo .row .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;color:var(--mute);min-width:72px;text-transform:uppercase;padding-top:.25rem}
+.dinfo .row .v{color:var(--ink);flex:1;line-height:1.8}
+.ctx-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.ctx-grid .ctx{border:1px solid var(--hair);border-radius:8px;padding:1.2rem;background:var(--card)}
+.ctx-grid .ctx .ck{font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;color:var(--mute);text-transform:uppercase;margin-bottom:.5rem}
+.ctx-grid .ctx .ct{font-size:.82rem;color:var(--ink-2);line-height:1.9}
+.why,.nuance{margin-top:2rem}
+.why h3,.nuance h3,.anat h3,.subcmp h3{font-family:var(--mono);font-size:.62rem;letter-spacing:.28em;color:var(--wine);text-transform:uppercase;margin-bottom:.8rem;font-weight:500}
+.why p,.nuance p{font-size:.88rem;color:var(--ink-2);line-height:2.1;margin-bottom:.6rem}
+.anat{margin-top:2rem}
+.anat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.8rem}
+.anat-item{border:1px solid var(--hair);border-radius:8px;padding:1.1rem;background:var(--card)}
+.anat-item .ak{font-family:var(--mono);font-size:.56rem;letter-spacing:.22em;color:var(--mute);text-transform:uppercase;margin-bottom:.4rem}
+.anat-item .at{font-size:.8rem;color:var(--ink-2);line-height:1.85}
+.subcmp{margin-top:2rem}
+.cmp-row{border:1px solid var(--hair);border-radius:8px;padding:1.1rem 1.3rem;margin-bottom:.7rem;background:var(--card)}
+.cmp-row .crk{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:.4rem}
+.cmp-row .cr{font-size:.84rem;color:var(--ink);line-height:1.9;margin-bottom:.3rem}
+.cmp-row .crm{font-size:.76rem;color:var(--ink-2);line-height:1.8}
+.cmp-row .crz{font-family:var(--serif-ko);font-size:.9rem;color:var(--ink-2);margin-bottom:.3rem}
+
+/* Character arc timeline */
+.arc-timeline{position:relative;padding-left:1.5rem;margin-top:1rem}
+.arc-timeline::before{content:"";position:absolute;left:.4rem;top:0;bottom:0;width:1px;background:var(--hair)}
+.arc-stage{position:relative;padding-bottom:1.5rem}
+.arc-stage::before{content:"";position:absolute;left:-1.5rem;top:.4rem;width:9px;height:9px;border-radius:50%;background:var(--wine);border:2px solid var(--paper)}
+.arc-stage .as{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:.4rem}
+.arc-stage .ako{font-family:var(--serif-ko);font-size:.95rem;color:var(--ink);margin-bottom:.3rem;line-height:1.7}
+.arc-stage .azh{font-size:.8rem;color:var(--ink-2);margin-bottom:.3rem;line-height:1.8}
+.arc-stage .ameta{font-size:.68rem;color:var(--mute)}
+
+/* Drama/Character hero headers */
+.drama-hero,.char-hero{border-bottom:1px solid var(--hair);padding-bottom:1.5rem;margin-bottom:1.5rem}
+.drama-hero .dko,.char-hero .cko{font-family:var(--serif-ko);font-size:1.3rem;color:var(--ink);margin-bottom:.3rem}
+.drama-hero .dzh,.char-hero .czh{font-size:1.4rem;font-weight:600;margin-bottom:.4rem}
+.drama-hero .dmeta,.char-hero .cmeta{font-family:var(--mono);font-size:.64rem;color:var(--mute);letter-spacing:.12em;margin-bottom:.5rem}
+.drama-hero .dstyle,.char-hero .cstyle{font-size:.85rem;color:var(--ink-2);line-height:1.9;max-width:42em}
+
+/* Journey */
+.journey{border:1px solid var(--hair);border-radius:10px;padding:1.6rem 1.8rem;background:var(--card);cursor:pointer;transition:all .35s var(--ease);margin-bottom:1rem}
+.journey:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.journey .js{font-size:1rem;font-weight:600;margin-bottom:.4rem}
+.journey .jz{font-family:var(--mono);font-size:.68rem;color:var(--mute);letter-spacing:.1em}
+
+/* Favorites shelf */
+.shelf-filter{display:flex;gap:.4rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.shelf-filter .mbtn{font-size:.72rem;padding:.35rem .8rem;border-radius:4px;border:1px solid var(--hair);color:var(--ink-2);transition:all .25s var(--ease);letter-spacing:.05em}
+.shelf-filter .mbtn:hover{border-color:var(--wine-line);color:var(--wine)}
+.shelf-filter .mbtn.on{background:var(--wine-soft);border-color:var(--wine-line);color:var(--wine)}
+.ptags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.5rem}
+.ptag{font-size:.62rem;padding:.1rem .5rem;border-radius:3px;background:var(--paper-2);color:var(--ink-2);letter-spacing:.04em}
+.ptag-input{font-size:.68rem;padding:.15rem .5rem;border:1px dashed var(--hair2);border-radius:3px;background:none;color:var(--mute);width:80px;outline:none;font-family:var(--serif-zh)}
+
+/* Line cards in lists (lcard) */
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;margin-top:1rem}
+.lcard{border:1px solid var(--hair);border-radius:10px;background:var(--card);padding:1.5rem 1.6rem 1.3rem;cursor:pointer;transition:all .4s var(--ease);position:relative;display:flex;flex-direction:column}
+.lcard:hover{border-color:var(--hair2);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.lcard .lid{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;color:var(--mute);margin-bottom:.6rem}
+.lcard .lko{font-family:var(--serif-ko);font-size:1.05rem;line-height:1.75;color:var(--ink);margin-bottom:.6rem;font-weight:500}
+.lcard .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.8rem;color:var(--ink-2);line-height:1.85;margin-bottom:.6rem}
+.lcard .lzh.hidden-zh{display:none}
+.lcard .lmeta{font-size:.68rem;color:var(--mute);margin-top:auto;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.lcard .lmeta .dr{cursor:pointer;transition:color .2s}
+.lcard .lmeta .dr:hover{color:var(--wine)}
+.lcard .ltag{font-size:.6rem;padding:.08rem .4rem;border-radius:3px;border:1px solid var(--hair);color:var(--mute);letter-spacing:.04em}
+.lcard.read{opacity:.75}
+.lcard .lawnote{font-size:.72rem;color:var(--mute);font-style:italic;margin-bottom:.5rem;line-height:1.7}
+
+/* Rank body */
+.rank-body{margin-top:1rem}
+.rank-no{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--wine);font-weight:600;min-width:32px}
+
+/* Magazine section header */
+.mag-head{display:flex;align-items:baseline;gap:1rem;margin:2.5rem 0 1rem}
+.mag-head h2{font-weight:600;font-size:1.4rem;letter-spacing:.05em}
+.mag-head .sub{font-family:var(--display);font-style:italic;color:var(--mute);font-size:1rem}
+.mag-head .more{margin-left:auto;font-size:.72rem;color:var(--wine);cursor:pointer;letter-spacing:.08em}
+
+/* Word block supplements */
+.word-block .wz{font-family:var(--serif-ko);font-size:1.4rem;color:var(--ink);margin-bottom:.2rem}
+.word-block .wh{font-size:.85rem;color:var(--mute);margin-bottom:.8rem}
+.word-block .w{padding:.7rem 0;border-top:1px solid var(--hair)}
+.word-block .w .wko{font-family:var(--serif-ko);font-size:.92rem;color:var(--ink);margin-bottom:.2rem}
+.word-block .w .wzh{font-size:.78rem;color:var(--ink-2);margin-bottom:.2rem}
+.word-block .w .wnote{font-size:.72rem;color:var(--mute);font-style:italic;line-height:1.7}
+.word-block .w .wmeta{font-size:.66rem;color:var(--mute);margin-top:.2rem}
+
+/* Subtitle compare */
+.zhrev{margin-top:1.5rem}
+.zhrev .ver{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:.3rem}
+.zhrev .tzh{font-size:.88rem;color:var(--ink);line-height:2;margin-bottom:.3rem}
+.zhrev .tnote{font-size:.76rem;color:var(--ink-2);line-height:1.8;font-style:italic}
+
+/* Footer */
+.footer-note{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--hair);font-size:.72rem;color:var(--mute);line-height:2;text-align:center;letter-spacing:.04em}
+
+/* Legend */
+.legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem;font-size:.68rem;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:.3rem}
+.legend .dot{width:8px;height:8px;border-radius:2px;display:inline-block}
+
+/* Responsive supplements */
+@media(max-width:640px){
+  .hero-meta{gap:1rem}
+  .hero-meta span{font-size:.6rem}
+  .ctx-grid,.anat-grid{grid-template-columns:1fr}
+  .poster-grid,.lgrid{grid-template-columns:1fr}
+  .tonight{padding:1.6rem 1.4rem}
+  .tonight .lko{font-size:1.3rem}
+  .stage{padding:2rem 1.5rem}
+  .stage-ko{font-size:1.4rem}
+  .study-grid{grid-template-columns:1fr}
+}
+
+/* === Polish Pass v4.1 === */
+
+/* --- Topbar refinement --- */
+.topbar{border-bottom:1px solid var(--hair);box-shadow:0 1px 0 rgba(28,26,23,.02)}
+.brand .t{letter-spacing:.24em;font-size:1.15rem}
+.brand .s{letter-spacing:.34em;font-size:.56rem;margin-top:4px;opacity:.8}
+.nav-main button{padding:.45rem .85rem;font-size:.78rem;letter-spacing:.1em;border-radius:4px}
+.nav-main button.on{color:var(--ink);font-weight:600;background:none}
+.nav-main button.on::after{width:20px;height:2px;bottom:-2px}
+.searchbox{border-radius:8px;padding:.45rem 1rem;min-width:210px;border:1px solid var(--hair)}
+.searchbox:focus-within{border-color:var(--wine-line);box-shadow:0 0 0 4px var(--wine-soft);background:var(--paper)}
+.searchbox input{font-size:.8rem;letter-spacing:.03em}
+.icon-btn{border-radius:8px;width:38px;height:38px;font-size:1.1rem}
+.icon-btn:hover{background:var(--paper-2)}
+
+/* --- Sidebar navigation refinement --- */
+.sidenav h4{font-size:.56rem;letter-spacing:.32em;margin:1.8rem 0 .7rem;color:var(--mute);opacity:.8}
+.navi{padding:.5rem .8rem;font-size:.82rem;border-radius:6px;letter-spacing:.03em;color:var(--ink-2);position:relative;transition:all .25s var(--ease)}
+.navi:hover{color:var(--ink);background:var(--paper-2)}
+.navi.on{color:var(--wine);font-weight:600;background:var(--wine-soft)}
+.navi.on::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:60%;background:var(--wine);border-radius:0 2px 2px 0}
+.navi .c{font-size:.6rem;letter-spacing:.08em}
+
+/* --- Right rail refinement --- */
+.rail-card{border-radius:10px;padding:1.2rem 1.3rem;border:1px solid var(--hair);transition:all .3s var(--ease)}
+.rail-card:hover{border-color:var(--hair2);box-shadow:var(--shadow-sm)}
+.rail-card h5{font-size:.56rem;letter-spacing:.3em;margin-bottom:.8rem;opacity:.85}
+.rail-line{font-size:.74rem;padding:.35rem 0;line-height:1.6;color:var(--ink-2);transition:color .2s}
+.rail-line:hover{color:var(--wine)}
+.rail-line small{font-size:.64rem;color:var(--mute);margin-top:3px;letter-spacing:.04em}
+
+/* --- Hero statistics refinement --- */
+.hero-meta{gap:0;margin-bottom:2rem;padding:.8rem 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.hero-meta span{padding:0 1.4rem;font-size:.66rem;letter-spacing:.2em;position:relative}
+.hero-meta span:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:14px;background:var(--hair2)}
+.hero-meta .read-progress{color:var(--ink);font-weight:500}
+
+/* --- Hero actions refinement --- */
+.hero-act{gap:.8rem}
+.btn-p{padding:.75rem 1.6rem;font-size:.78rem;letter-spacing:.15em;border-radius:8px;font-weight:500}
+.btn-p:hover{background:var(--wine);box-shadow:0 8px 24px -8px rgba(122,46,46,.4)}
+.btn-p:active{transform:translateY(0) scale(.98)}
+.btn-g{padding:.75rem 1.6rem;font-size:.78rem;letter-spacing:.15em;border-radius:8px}
+.btn-g:hover{border-color:var(--ink);background:var(--card)}
+.btn-g:active{transform:scale(.98)}
+
+/* --- Tonight card refinement --- */
+.tonight{border-radius:12px;padding:2.8rem 3rem;border:1px solid var(--hair);position:relative;overflow:hidden}
+.tonight::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),transparent)}
+.tonight:hover{border-color:var(--hair2);box-shadow:var(--shadow)}
+.tonight .lab{font-size:.58rem;letter-spacing:.35em;margin-bottom:1.8rem}
+.tonight .lko{font-size:1.7rem;line-height:1.8;margin-bottom:1.2rem;font-weight:500}
+.tonight .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.95rem;line-height:2.1;margin-bottom:1.2rem;color:var(--ink-2)}
+.tonight .lmeta{font-size:.74rem;letter-spacing:.05em}
+
+/* --- Poster/editor pick cards refinement --- */
+.poster-grid{gap:1.2rem;margin-top:1.5rem}
+.poster{border-radius:12px;padding:1.8rem 1.9rem 1.5rem;border:1px solid var(--hair);transition:all .4s var(--ease)}
+.poster:hover{border-color:var(--wine-line);transform:translateY(-4px);box-shadow:var(--shadow)}
+.poster .no{font-size:1.3rem;margin-bottom:.9rem;opacity:.9}
+.poster .pko{font-size:1.12rem;line-height:1.8;margin-bottom:.8rem}
+.poster .pzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.84rem;line-height:1.9;margin-bottom:.8rem}
+.poster .ped{font-size:.76rem;line-height:1.85;padding-top:.8rem;margin-bottom:.8rem;border-top:1px solid var(--hair)}
+.poster .pmeta{font-size:.7rem;letter-spacing:.04em}
+.poster .star{width:30px;height:30px;font-size:1rem;top:1.2rem;right:1.2rem}
+
+/* --- Section headers refinement --- */
+.sh{margin:3rem 0 1.3rem}
+.sh h2{font-size:1.55rem;letter-spacing:.06em;font-weight:600}
+.sh .sub{font-size:1.05rem;opacity:.8}
+.sh .more{font-size:.72rem;letter-spacing:.12em;opacity:.85}
+.sh .more:hover{opacity:1}
+.lede{font-size:.88rem;line-height:2.1;margin-bottom:1.5rem;color:var(--ink-2)}
+
+/* --- Emotion cards refinement --- */
+.emo-grid{gap:.8rem;margin-top:1.2rem}
+.emo{border-radius:10px;padding:1.3rem 1rem;gap:.4rem;border:1px solid var(--hair)}
+.emo:hover{border-color:var(--wine-line);background:var(--wine-soft);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.emo .en{font-size:1.4rem;font-weight:600}
+.emo .ez{font-size:.84rem;font-weight:500;letter-spacing:.06em}
+.emo .ek{font-size:.7rem;opacity:.7}
+
+/* --- Study cards refinement --- */
+.study-grid{gap:1rem;margin-top:1.2rem}
+.study{border-radius:10px;padding:1.6rem 1.7rem;border:1px solid var(--hair);transition:all .35s var(--ease)}
+.study:hover{border-color:var(--wine-line);transform:translateY(-3px);box-shadow:var(--shadow-sm);background:var(--card)}
+.study h4{font-size:1.02rem;font-weight:600;margin-bottom:.4rem;letter-spacing:.04em}
+.study .sen{font-size:.82rem;opacity:.7;margin-bottom:.7rem}
+.study p{font-size:.78rem;line-height:1.85;color:var(--ink-2)}
+
+/* --- Detail page stage refinement --- */
+.archive{max-width:780px}
+.stage{border-radius:14px;padding:3.5rem 3.5rem 2.5rem;border:1px solid var(--hair);margin-bottom:2.5rem;position:relative;overflow:hidden}
+.stage::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--wine),transparent 60%)}
+.stage-id{font-size:.6rem;letter-spacing:.32em;margin-bottom:2.2rem;opacity:.85}
+.stage-ko{font-size:1.95rem;line-height:1.85;margin-bottom:1.8rem;font-weight:500;letter-spacing:.005em}
+.stage-zh{font-size:1.02rem;line-height:2.2;margin-bottom:1.5rem;max-width:40em}
+.understand{padding:.65rem 1.4rem;font-size:.76rem;letter-spacing:.12em;border-radius:8px;margin-bottom:1.8rem}
+.understand:hover{letter-spacing:.16em}
+.stage-act{gap:.6rem;margin-bottom:2rem}
+.stage-act .btn-g{padding:.55rem 1.1rem;font-size:.72rem;letter-spacing:.1em;border-radius:6px}
+
+/* --- Detail info refinement --- */
+.dinfo .row{padding:1rem 0;font-size:.86rem;border-bottom:1px solid var(--hair)}
+.dinfo .row .k{font-size:.58rem;letter-spacing:.22em;min-width:80px;opacity:.8;padding-top:.3rem}
+.dinfo .row .v{line-height:1.9;color:var(--ink)}
+.ctx-grid{gap:1.2rem;margin:2rem 0}
+.ctx-grid .ctx{border-radius:10px;padding:1.4rem 1.5rem;border:1px solid var(--hair)}
+.ctx-grid .ctx .ck{font-size:.56rem;letter-spacing:.25em;margin-bottom:.6rem;opacity:.8}
+.ctx-grid .ctx .ct{font-size:.84rem;line-height:2;color:var(--ink-2)}
+.archive-section{margin-top:2.8rem}
+.archive-section h3{font-size:.62rem;letter-spacing:.3em;margin-bottom:1rem;opacity:.9}
+.archive-section p{font-size:.9rem;line-height:2.15;color:var(--ink-2)}
+.anat-grid{gap:1rem;margin-top:1rem}
+.anat-item{border-radius:10px;padding:1.3rem 1.4rem;border:1px solid var(--hair)}
+.anat-item .ak{font-size:.56rem;letter-spacing:.24em;margin-bottom:.5rem;opacity:.8}
+.anat-item .at{font-size:.82rem;line-height:1.95;color:var(--ink-2)}
+.cmp-row{border-radius:10px;padding:1.3rem 1.5rem;margin-bottom:.8rem;border:1px solid var(--hair)}
+.cmp-row .crk{font-size:.56rem;letter-spacing:.22em;margin-bottom:.5rem;opacity:.8}
+.cmp-row .cr{font-size:.86rem;line-height:2;margin-bottom:.4rem}
+.cmp-row .crm{font-size:.78rem;line-height:1.9;color:var(--ink-2)}
+
+/* --- Drama/Character list refinement --- */
+.drama-hero,.char-hero{padding-bottom:2rem;margin-bottom:2rem}
+.drama-hero .dko,.char-hero .cko{font-size:1.4rem;margin-bottom:.5rem}
+.drama-hero .dzh,.char-hero .czh{font-size:1.6rem;font-weight:600;margin-bottom:.6rem;letter-spacing:.03em}
+.drama-hero .dmeta,.char-hero .cmeta{font-size:.66rem;letter-spacing:.15em;margin-bottom:.8rem;opacity:.8}
+.drama-hero .dstyle,.char-hero .cstyle{font-size:.88rem;line-height:2;max-width:44em;color:var(--ink-2)}
+
+/* --- Line cards in lists refinement --- */
+.lgrid{gap:1.1rem;margin-top:1.2rem}
+.lcard{border-radius:10px;padding:1.6rem 1.7rem 1.4rem;border:1px solid var(--hair);transition:all .4s var(--ease)}
+.lcard:hover{border-color:var(--wine-line);transform:translateY(-3px);box-shadow:var(--shadow)}
+.lcard .lid{font-size:.58rem;letter-spacing:.18em;margin-bottom:.7rem;opacity:.75}
+.lcard .lko{font-size:1.08rem;line-height:1.8;margin-bottom:.7rem}
+.lcard .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;font-size:.82rem;line-height:1.9;margin-bottom:.7rem}
+.lcard .lmeta{font-size:.68rem;letter-spacing:.04em;margin-top:.5rem}
+.lcard .ltag{font-size:.58rem;padding:.1rem .45rem;border-radius:3px;letter-spacing:.05em}
+.lcard.read{opacity:.7}
+.lcard.read:hover{opacity:1}
+
+/* --- Rank rows refinement --- */
+.rank-row{border-radius:10px;padding:1.1rem 1.4rem;gap:1.4rem;border:1px solid var(--hair)}
+.rank-row:hover{border-color:var(--wine-line);transform:translateX(5px);background:var(--wine-soft)}
+.rank-no{font-size:1.4rem;font-weight:600;min-width:36px}
+.rank-row .rko{font-size:1.02rem;line-height:1.7;margin-bottom:.3rem}
+.rank-row .rsrc{font-size:.7rem;letter-spacing:.04em;opacity:.8}
+
+/* --- Arc timeline refinement --- */
+.arc-timeline{padding-left:1.8rem;margin-top:1.5rem}
+.arc-timeline::before{left:.55rem;width:1.5px;background:var(--hair2)}
+.arc-stage{padding-bottom:1.8rem}
+.arc-stage::before{left:-1.8rem;top:.5rem;width:10px;height:10px;border:2.5px solid var(--paper);box-shadow:0 0 0 1.5px var(--wine)}
+.arc-stage .as{font-size:.58rem;letter-spacing:.24em;margin-bottom:.5rem;opacity:.8}
+.arc-stage .ako{font-size:1rem;line-height:1.75;margin-bottom:.4rem}
+.arc-stage .azh{font-size:.82rem;line-height:1.9;margin-bottom:.4rem}
+.arc-stage .ameta{font-size:.68rem;letter-spacing:.04em;opacity:.75}
+
+/* --- Journey cards refinement --- */
+.journey{border-radius:10px;padding:1.8rem 2rem;border:1px solid var(--hair)}
+.journey:hover{border-color:var(--wine-line);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.journey .js{font-size:1.08rem;font-weight:600;margin-bottom:.5rem;letter-spacing:.03em}
+.journey .jz{font-size:.68rem;letter-spacing:.12em;opacity:.8}
+
+/* --- Favorites shelf refinement --- */
+.shelf-filter{gap:.5rem;margin-bottom:1.5rem}
+.shelf-filter .mbtn{font-size:.72rem;padding:.4rem .9rem;border-radius:6px;letter-spacing:.06em}
+.shelf-filter .mbtn.on{background:var(--wine);border-color:var(--wine);color:var(--paper)}
+.ptag{font-size:.62rem;padding:.12rem .55rem;border-radius:4px;letter-spacing:.04em}
+
+/* --- Word blocks refinement --- */
+.word-block{border-radius:12px;padding:2.2rem 2.4rem;border:1px solid var(--hair);margin-bottom:1.8rem}
+.word-block .wz{font-size:1.5rem;margin-bottom:.3rem;font-weight:500}
+.word-block .wh{font-size:.85rem;margin-bottom:1.2rem;opacity:.75}
+.word-block .w{padding:.9rem 0}
+.word-block .w .wko{font-size:.95rem;line-height:1.75;margin-bottom:.3rem}
+.word-block .w .wzh{font-size:.8rem;line-height:1.85;margin-bottom:.3rem}
+.word-block .w .wnote{font-size:.74rem;line-height:1.8;opacity:.8;font-style:italic}
+.word-block .w .wmeta{font-size:.66rem;letter-spacing:.04em;opacity:.7;margin-top:.3rem}
+
+/* --- Empty state refinement --- */
+.empty{padding:5rem 2rem}
+.empty .big{font-size:3.5rem;margin-bottom:1.2rem;opacity:.4}
+.empty p{font-size:.88rem;line-height:2;color:var(--mute);max-width:30em;margin:0 auto}
+
+/* --- Footer refinement --- */
+.footer-note{margin-top:5rem;padding-top:2.5rem;border-top:1px solid var(--hair);font-size:.7rem;line-height:2.2;letter-spacing:.05em;opacity:.7}
+
+/* --- Custom scrollbar --- */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--hair2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--mute)}
+
+/* --- Selection refinement --- */
+::selection{background:var(--wine);color:var(--paper)}
+
+/* --- Focus visible for accessibility --- */
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--wine);outline-offset:2px;border-radius:4px}
+
+/* --- Page load animation --- */
+body{animation:pageLoad .8s var(--ease)}
+@keyframes pageLoad{from{opacity:0}to{opacity:1}}
+
+/* --- Reduced motion --- */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+/* === Premium Upgrade v4.2 === */
+
+/* --- Paper texture background --- */
+body{
+  background-color:var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-attachment:fixed;
+}
+
+/* --- Hero watermark Korean character --- */
+.hero{position:relative;overflow:hidden}
+.hero::after{
+  content:"말";
+  position:absolute;
+  right:-3%;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--font-ko);
+  font-size:22rem;
+  font-weight:900;
+  color:var(--ink);
+  opacity:.025;
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+}
+.hero > *{position:relative;z-index:1}
+
+/* --- Hero title refinement --- */
+.zht{
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:500;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin-bottom:.6rem;
+}
+.zht .zht-accent{
+  font-style:italic;
+  color:var(--wine);
+  font-weight:400;
+}
+.spirit{
+  font-size:1.15rem;
+  line-height:2.1;
+  color:var(--ink-2);
+  max-width:34em;
+  margin-top:1.5rem;
+}
+.spirit em{
+  font-style:normal;
+  color:var(--wine);
+  border-bottom:1px solid var(--wine-line);
+  padding-bottom:1px;
+}
+
+/* --- Reading progress bar --- */
+.read-progress-bar{
+  position:fixed;
+  top:0;left:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--wine),var(--wine-line));
+  z-index:1000;
+  transition:width .1s linear;
+  width:0;
+}
+
+/* --- Card premium texture --- */
+.poster,.lcard,.tonight,.stage,.study,.emo,.journey,.rail-card,.word-block,.cmp-row,.anat-item,.ctx{
+  background:var(--card);
+  box-shadow:
+    0 1px 2px rgba(28,26,23,.04),
+    0 4px 12px -4px rgba(28,26,23,.06),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+.poster:hover,.lcard:hover,.study:hover,.emo:hover,.journey:hover{
+  box-shadow:
+    0 2px 4px rgba(28,26,23,.06),
+    0 12px 32px -8px rgba(28,26,23,.12),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+/* --- Featured editor pick (first card spans 2 cols) --- */
+.poster.featured{
+  grid-column:1/-1;
+  padding:2.8rem 3rem 2.2rem;
+}
+.poster.featured .no{
+  font-size:1.8rem;
+  margin-bottom:1.2rem;
+}
+.poster.featured .pko{
+  font-size:1.5rem;
+  line-height:1.9;
+  margin-bottom:1.2rem;
+  max-width:32em;
+}
+.poster.featured .pzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;
+  font-size:1.05rem;
+  line-height:2.1;
+  margin-bottom:1.2rem;
+  max-width:36em;
+}
+.poster.featured .ped{
+  font-size:.88rem;
+  line-height:2;
+  max-width:40em;
+  padding-top:1.2rem;
+}
+.poster.featured .pmeta{
+  font-size:.76rem;
+}
+
+/* --- Section numbering decoration --- */
+.sh{position:relative;padding-left:0}
+.sh h2{
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+}
+.sh h2::before{
+  content:"";
+  display:inline-block;
+  width:28px;
+  height:1px;
+  background:var(--wine);
+  vertical-align:middle;
+  flex-shrink:0;
+}
+
+/* --- Detail page mood backgrounds --- */
+.stage.mood-rain-night{background:linear-gradient(160deg,var(--card) 0%,#e8e6e0 100%)}
+.stage.mood-farewell{background:linear-gradient(160deg,var(--card) 0%,#ede9e3 100%)}
+.stage.mood-suspense-dark{background:linear-gradient(160deg,var(--card) 0%,#e2e0db 100%)}
+.stage.mood-warm-indoor{background:linear-gradient(160deg,var(--card) 0%,#f0ebe2 100%)}
+.stage.mood-winter-outdoor{background:linear-gradient(160deg,var(--card) 0%,#e6e8ea 100%)}
+.stage.mood-office{background:linear-gradient(160deg,var(--card) 0%,#e9e7e2 100%)}
+.stage.mood-quiet-street{background:linear-gradient(160deg,var(--card) 0%,#ebe8e2 100%)}
+.stage.mood-family-table{background:linear-gradient(160deg,var(--card) 0%,#f0ebe0 100%)}
+.stage.mood-radio{background:linear-gradient(160deg,var(--card) 0%,#eae7e1 100%)}
+.stage.mood-summer-day{background:linear-gradient(160deg,var(--card) 0%,#edeae0 100%)}
+.stage.mood-summer-night{background:linear-gradient(160deg,var(--card) 0%,#e4e2e0 100%)}
+
+/* --- Korean display typography --- */
+.stage-ko{
+  font-weight:400;
+  letter-spacing:-.005em;
+  text-shadow:0 1px 0 rgba(255,255,255,.5);
+}
+.pko,.lko,.tko,.wko,.ako,.rko{
+  text-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+
+/* --- Subtle reveal animation for lines --- */
+@keyframes lineReveal{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal-line{
+  opacity:0;
+  animation:lineReveal .7s var(--ease) forwards;
+}
+
+/* --- Drop cap for featured quotes --- */
+.poster.featured .pko::first-letter{
+  font-size:1.3em;
+  font-weight:600;
+}
+
+/* --- Refined scrollbar --- */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--hair2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--mute)}
+
+/* --- Dark mode adjustments for premium --- */
+[data-theme="dark"] body{
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .poster,.lcard,.tonight,.stage,.study,.emo,.journey,.rail-card,.word-block,.cmp-row,.anat-item,.ctx{
+  box-shadow:0 1px 2px rgba(0,0,0,.2),0 4px 12px -4px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04);
+}
+[data-theme="dark"] .poster:hover,.lcard:hover,.study:hover,.emo:hover,.journey:hover{
+  box-shadow:0 2px 4px rgba(0,0,0,.3),0 12px 32px -8px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);
+}
+[data-theme="dark"] .stage-ko,.pko,.lko,.tko,.wko,.ako,.rko{
+  text-shadow:0 1px 0 rgba(0,0,0,.3);
+}
+[data-theme="dark"] .hero::after{opacity:.04}
+/* === Impact Typography v4.3 === */
+
+/* --- Hero: massive display --- */
+.zht{
+  font-size:clamp(3.8rem,8.5vw,7rem);
+  font-weight:600;
+  letter-spacing:-.03em;
+  line-height:.98;
+  margin-bottom:.8rem;
+}
+.zht-sub{
+  font-size:clamp(1rem,2vw,1.4rem);
+  letter-spacing:.5em;
+  font-weight:400;
+  color:var(--ink-2);
+  margin-bottom:2rem;
+  padding-left:.2em;
+}
+.spirit{
+  font-size:1.25rem;
+  line-height:2.2;
+  max-width:32em;
+  margin-top:2rem;
+  font-weight:400;
+}
+
+/* --- Tonight's Line: poster-scale Korean --- */
+.tonight .lko{
+  font-size:clamp(1.5rem,2.8vw,2.3rem);
+  line-height:1.85;
+  font-weight:500;
+  letter-spacing:-.005em;
+  margin-bottom:1.5rem;
+}
+.tonight .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;
+  font-size:1.05rem;
+  line-height:2.2;
+  margin-bottom:1.5rem;
+  max-width:38em;
+}
+.tonight .lab{
+  font-size:.62rem;
+  letter-spacing:.4em;
+  margin-bottom:2.2rem;
+}
+
+/* --- Featured editor pick: headline-scale --- */
+.poster.featured .pko{
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  line-height:1.85;
+  font-weight:500;
+  max-width:30em;
+  margin-bottom:1.5rem;
+}
+.poster.featured .pzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;
+  font-size:1.1rem;
+  line-height:2.15;
+  max-width:38em;
+  margin-bottom:1.5rem;
+}
+.poster.featured .no{
+  font-size:2rem;
+  font-weight:600;
+  margin-bottom:1.5rem;
+}
+.poster.featured .ped{
+  font-size:.92rem;
+  line-height:2.1;
+  max-width:42em;
+  padding-top:1.4rem;
+  margin-top:.5rem;
+}
+
+/* --- Regular poster cards: bigger Korean --- */
+.poster .pko{
+  font-size:1.2rem;
+  line-height:1.8;
+  font-weight:500;
+  margin-bottom:1rem;
+}
+.poster .pzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;
+  font-size:.9rem;
+  line-height:2;
+  margin-bottom:1rem;
+}
+.poster .no{
+  font-size:1.5rem;
+  font-weight:600;
+  margin-bottom:1.1rem;
+}
+
+/* --- Detail page: immersive Korean --- */
+.stage-ko{
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  line-height:1.8;
+  font-weight:500;
+  letter-spacing:-.005em;
+  margin-bottom:2.2rem;
+  max-width:24em;
+}
+.stage-zh{
+  font-size:1.1rem;
+  line-height:2.25;
+  max-width:42em;
+  margin-bottom:2rem;
+}
+.stage-id{
+  font-size:.65rem;
+  letter-spacing:.35em;
+  margin-bottom:2.5rem;
+}
+.stage{
+  padding:4rem 4rem 3rem;
+}
+
+/* --- Line cards in lists: more breathing room --- */
+.lcard .lko{
+  font-size:1.15rem;
+  line-height:1.85;
+  font-weight:500;
+  margin-bottom:.9rem;
+}
+.lcard .lzh{
+  color:var(--ink) !important;
+  font-weight:500 !important;
+  font-size:.88rem;
+  line-height:2;
+  margin-bottom:.9rem;
+}
+.lcard{
+  padding:1.8rem 1.9rem 1.6rem;
+}
+
+/* --- Section headers: bolder hierarchy --- */
+.sh h2{
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.sh .sub{
+  font-size:1.1rem;
+  font-style:italic;
+  opacity:.7;
+}
+.lede{
+  font-size:.95rem;
+  line-height:2.15;
+  max-width:44em;
+}
+
+/* --- Emotion cards: bigger numbers --- */
+.emo .en{
+  font-size:1.7rem;
+  font-weight:600;
+  font-family:var(--display);
+}
+.emo .ez{
+  font-size:.9rem;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+
+/* --- Rank rows: bigger Korean --- */
+.rank-row .rko{
+  font-size:1.12rem;
+  line-height:1.8;
+  font-weight:500;
+}
+.rank-no{
+  font-size:1.6rem;
+  font-weight:600;
+  font-family:var(--display);
+}
+
+/* --- Drama/Character hero: bigger titles --- */
+.drama-hero .dzh,.char-hero .czh{
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:600;
+  letter-spacing:.02em;
+  margin-bottom:.8rem;
+}
+.drama-hero .dko,.char-hero .cko{
+  font-size:1.3rem;
+  margin-bottom:.6rem;
+  opacity:.85;
+}
+.drama-hero .dstyle,.char-hero .cstyle{
+  font-size:.95rem;
+  line-height:2.1;
+  max-width:46em;
+}
+
+/* --- Journey cards: bigger --- */
+.journey .js{
+  font-size:1.25rem;
+  font-weight:600;
+  margin-bottom:.6rem;
+}
+
+/* --- Word blocks: bigger Korean --- */
+.word-block .wz{
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+.word-block .w .wko{
+  font-size:1.05rem;
+  line-height:1.85;
+  font-weight:500;
+}
+
+/* --- Search results: bigger --- */
+.search-result .lko{
+  font-size:1.1rem;
+  line-height:1.8;
+  font-weight:500;
+}
+
+/* --- Deep reading overlay: massive --- */
+.imm-full .iko{
+  font-size:clamp(1.8rem,4vw,3.2rem);
+  line-height:1.75;
+  font-weight:500;
+  max-width:22em;
+  margin:0 auto 2rem;
+}
+.imm-full .izh{
+  font-size:1.15rem;
+  line-height:2.2;
+  max-width:40em;
+  margin:0 auto;
+}
+
+/* --- Arc timeline: bigger Korean --- */
+.arc-stage .ako{
+  font-size:1.1rem;
+  line-height:1.85;
+  font-weight:500;
+}
+
+/* --- Magazine section headers --- */
+.mag-head h2{
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.mag-head .mnote{
+  font-size:.95rem;
+  line-height:2;
+  max-width:40em;
+  opacity:.8;
+}
+
+/* --- Empty state: bigger --- */
+.empty .big{
+  font-size:4.5rem;
+  opacity:.35;
+  margin-bottom:1.5rem;
+}
+.empty p{
+  font-size:1rem;
+  line-height:2.1;
+}
+
+/* --- Topbar brand: more presence --- */
+.brand .t{
+  font-size:1.25rem;
+  letter-spacing:.28em;
+  font-weight:600;
+}
+.brand .s{
+  font-size:.58rem;
+  letter-spacing:.36em;
+}
+
+/* --- Nav: slightly bigger --- */
+.nav-main button{
+  font-size:.82rem;
+  letter-spacing:.12em;
+  padding:.5rem .9rem;
+}
+
+/* --- Footer: more refined --- */
+.footer-note{
+  font-size:.75rem;
+  line-height:2.3;
+  letter-spacing:.06em;
+}
+
+/* --- Responsive: scale down on mobile --- */
+@media(max-width:768px){
+  .zht{font-size:clamp(2.5rem,12vw,4rem)}
+  .stage{padding:2.5rem 1.8rem 2rem}
+  .stage-ko{font-size:1.5rem;line-height:1.75}
+  .tonight{padding:2rem 1.5rem}
+  .tonight .lko{font-size:1.4rem}
+  .poster.featured{padding:2rem 1.5rem}
+  .poster.featured .pko{font-size:1.3rem}
+}
+
+/* === v4.3.1 Korean Font Sharpness Fix === */
+.stage-ko,.pko,.lko,.tko,.wko,.ako,.rko,.hero-ko,.ko-display{
+  text-shadow:none !important;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight:600;
+}
+.stage-ko{
+  font-size:clamp(1.7rem,3.2vw,2.6rem) !important;
+  line-height:1.8 !important;
+  letter-spacing:-.003em !important;
+  font-weight:600 !important;
+}
+.lko{
+  font-size:clamp(1.25rem,2.2vw,1.7rem) !important;
+  line-height:1.8 !important;
+  font-weight:600 !important;
+}
+.pko{
+  font-size:clamp(1.3rem,2.4vw,1.9rem) !important;
+  line-height:1.85 !important;
+  font-weight:600 !important;
+}
+.tko{
+  font-size:clamp(1.5rem,2.8vw,2.3rem) !important;
+  font-weight:600 !important;
+}
+/* Dark mode: no text-shadow either, just pure ink */
+.dark .stage-ko,.dark .pko,.dark .lko,.dark .tko{
+  text-shadow:none !important;
+}
+/* Ensure Noto Serif KR loads with proper weight */
+
+
+/* === v4.4 IMPACT UPGRADE === */
+
+/* 1. Hero - more poster-like */
+.hero h1{
+  font-size:clamp(4.2rem,10vw,8.5rem) !important;
+  font-weight:700 !important;
+  letter-spacing:-.03em !important;
+  line-height:.95 !important;
+  margin-bottom:1.5rem !important;
+}
+.hero-ko-sub{
+  font-family:var(--serif-ko);
+  font-size:clamp(1.1rem,2vw,1.6rem);
+  font-weight:600;
+  letter-spacing:.15em;
+  opacity:.6;
+  margin-bottom:2rem;
+}
+.spirit{
+  font-size:clamp(1.15rem,2.2vw,1.6rem) !important;
+  line-height:2 !important;
+  font-weight:500 !important;
+  max-width:28em;
+}
+.spirit em{
+  font-weight:700;
+  position:relative;
+}
+.spirit em::after{
+  content:'';
+  position:absolute;
+  bottom:2px;left:0;right:0;
+  height:3px;
+  background:var(--wine);
+  opacity:.3;
+  z-index:-1;
+}
+
+/* 2. Tonight card - more impact */
+.tko{
+  font-size:clamp(1.8rem,3.5vw,2.8rem) !important;
+  line-height:1.75 !important;
+  font-weight:600 !important;
+  letter-spacing:-.005em !important;
+}
+.tzh{
+  font-size:clamp(1rem,1.6vw,1.25rem) !important;
+  font-weight:500 !important;
+  color:var(--ink) !important;
+  opacity:.9 !important;
+}
+
+/* 3. Featured editor pick - poster feel */
+.poster.featured .pko{
+  font-size:clamp(1.8rem,3.5vw,2.8rem) !important;
+  line-height:1.8 !important;
+  font-weight:600 !important;
+}
+.poster.featured .no{
+  font-size:3.5rem !important;
+  font-weight:700 !important;
+  opacity:.12 !important;
+  font-family:var(--serif-en);
+}
+.poster.featured .ped{
+  font-size:1.05rem !important;
+  line-height:1.9 !important;
+}
+
+/* 4. Detail page - extreme whitespace */
+.stage{
+  padding:clamp(3rem,6vw,5.5rem) clamp(2rem,5vw,4.5rem) !important;
+}
+.stage-ko{
+  font-size:clamp(1.9rem,3.8vw,3rem) !important;
+  line-height:1.85 !important;
+  font-weight:600 !important;
+  letter-spacing:-.003em !important;
+  margin-bottom:2.5rem !important;
+}
+.stage-zh{
+  font-size:clamp(1.05rem,1.8vw,1.35rem) !important;
+  line-height:2 !important;
+  font-weight:500 !important;
+  opacity:.95 !important;
+  color:var(--ink) !important;
+  max-width:32em;
+}
+.stage-act{
+  margin-top:2.5rem !important;
+}
+.understand{
+  font-size:.95rem !important;
+  padding:.85rem 2rem !important;
+  letter-spacing:.08em !important;
+  border:1px solid var(--ink) !important;
+  background:transparent !important;
+  transition:all .35s var(--ease) !important;
+}
+.understand:hover{
+  background:var(--ink) !important;
+  color:var(--paper) !important;
+  letter-spacing:.12em !important;
+}
+
+/* 5. Card hover - more tactile */
+.lcard,.poster,.emo,.study{
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease) !important;
+}
+.lcard:hover,.poster:hover{
+  transform:translateY(-4px) !important;
+  box-shadow:0 12px 40px -12px rgba(28,26,23,.18),0 2px 8px -2px rgba(28,26,23,.08) !important;
+}
+.lcard:hover .lko{
+  color:var(--wine) !important;
+}
+.lko{
+  transition:color .35s var(--ease) !important;
+}
+
+/* 6. Section titles - more impact */
+.mag-head h2{
+  font-size:clamp(1.8rem,3.5vw,2.6rem) !important;
+  font-weight:700 !important;
+  letter-spacing:-.01em !important;
+}
+.mag-head .zhrev{
+  font-size:clamp(1rem,1.8vw,1.3rem) !important;
+}
+
+/* 7. Drama hero - bigger */
+.drama-hero .dko{
+  font-size:clamp(1.3rem,2.5vw,2rem) !important;
+  font-weight:600 !important;
+}
+.drama-hero .dzh{
+  font-size:clamp(2rem,4.5vw,3.5rem) !important;
+  font-weight:700 !important;
+  letter-spacing:-.01em !important;
+}
+
+/* 8. Reading progress - refined */
+.read-progress{
+  height:3px !important;
+  background:linear-gradient(90deg,var(--wine),var(--wine-light)) !important;
+  opacity:.8;
+}
+
+/* 9. Dark mode - cinema feel */
+.dark{
+  --paper:#0E0D0B;
+  --ink:#E8E4DC;
+  --ink-soft:#9A958C;
+  --card:#161512;
+  --line:#2A2824;
+  --wine:#A04040;
+  --wine-soft:rgba(160,64,64,.15);
+}
+.dark .stage{
+  background:linear-gradient(180deg,#161512 0%,#11100E 100%) !important;
+}
+.dark .lcard,.dark .poster{
+  background:#161512 !important;
+  border-color:#2A2824 !important;
+}
+.dark .lcard:hover,.dark .poster:hover{
+  box-shadow:0 12px 40px -12px rgba(0,0,0,.6),0 2px 8px -2px rgba(0,0,0,.4) !important;
+}
+
+/* 10. View transition - smoother */
+#view{
+  animation:viewEnter .5s var(--ease) both;
+}
+@keyframes viewEnter{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* 11. Number badges - more elegant */
+.rank-no{
+  font-family:var(--serif-en);
+  font-size:1.4rem !important;
+  font-weight:600 !important;
+  opacity:.4 !important;
+}
+
+/* 12. Buttons - more tactile */
+.btn-p{
+  transition:all .3s var(--ease) !important;
+}
+.btn-p:hover{
+  transform:translateY(-1px) !important;
+  box-shadow:0 6px 20px -6px rgba(28,26,23,.3) !important;
+}
+.btn-p:active{
+  transform:translateY(0) scale(.98) !important;
+}
+.btn-g{
+  transition:all .3s var(--ease) !important;
+}
+.btn-g:hover{
+  border-color:var(--ink) !important;
+  background:var(--ink) !important;
+  color:var(--paper) !important;
+}
+
+/* 13. Search focus */
+#searchInput:focus{
+  border-color:var(--wine) !important;
+  box-shadow:0 0 0 3px rgba(122,46,46,.1) !important;
+}
+
+/* 14. Nav active - stronger */
+.nav-item.active{
+  color:var(--wine) !important;
+  font-weight:600 !important;
+}
+
+/* 15. Quote marks for detail - literary touch */
+.stage-ko::before{
+  content:'"';
+  font-family:var(--serif-en);
+  font-size:4rem;
+  color:var(--wine);
+  opacity:.15;
+  position:absolute;
+  top:-1rem;
+  left:-0.5rem;
+  line-height:1;
+}
+.stage{
+  position:relative;
+  overflow:hidden;
+}
+
+/* === v4.5 MEMORY UPGRADE === */
+
+/* 1. Hero - floating Korean watermark */
+.hero-watermark{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--serif-ko);
+  font-size:clamp(8rem,20vw,18rem);
+  font-weight:900;
+  color:var(--ink);
+  opacity:.025;
+  pointer-events:none;
+  white-space:nowrap;
+  letter-spacing:-.02em;
+  animation:watermarkFloat 12s ease-in-out infinite;
+  z-index:0;
+}
+@keyframes watermarkFloat{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-52%) scale(1.02)}
+}
+.hero-content{position:relative;z-index:1}
+
+/* 2. Emotion cards - redesign */
+.emo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+}
+.emo{
+  background:var(--card);
+  padding:1.8rem 1.5rem;
+  cursor:pointer;
+  transition:all .4s var(--ease);
+  position:relative;
+  overflow:hidden;
+  border:none !important;
+  border-radius:0 !important;
+}
+.emo::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:3px;height:0;
+  background:var(--wine);
+  transition:height .4s var(--ease);
+}
+.emo:hover::before{height:100%}
+.emo:hover{
+  background:var(--paper);
+  transform:none;
+}
+.emo .en{
+  font-family:var(--serif-en);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  opacity:.4;
+  margin-bottom:.5rem;
+}
+.emo .ez{
+  font-size:1.15rem;
+  font-weight:600;
+  margin-bottom:.3rem;
+}
+.emo .ek{
+  font-family:var(--serif-ko);
+  font-size:.8rem;
+  opacity:.5;
+}
+
+/* 3. Deep reading mode - more immersive */
+.deep-overlay{
+  position:fixed;
+  inset:0;
+  background:var(--paper);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  animation:deepFadeIn .8s var(--ease) both;
+}
+@keyframes deepFadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+.deep-content{
+  max-width:700px;
+  text-align:center;
+  animation:deepContentIn 1.2s var(--ease) .3s both;
+}
+@keyframes deepContentIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.deep-ko{
+  font-family:var(--serif-ko);
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:600;
+  line-height:1.9;
+  margin-bottom:2.5rem;
+  letter-spacing:-.005em;
+}
+.deep-zh{
+  font-family:var(--serif-zh);
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  line-height:2.2;
+  opacity:.7;
+  margin-bottom:3rem;
+  animation:deepZhIn 1s var(--ease) 1.2s both;
+}
+@keyframes deepZhIn{
+  from{opacity:0}
+  to{opacity:.7}
+}
+.deep-meta{
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.1em;
+  opacity:.4;
+  animation:deepMetaIn .8s var(--ease) 2s both;
+}
+@keyframes deepMetaIn{
+  from{opacity:0}
+  to{opacity:.4}
+}
+.deep-close{
+  position:fixed;
+  top:2rem;right:2rem;
+  background:none;
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  width:44px;height:44px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1.2rem;
+  transition:all .3s var(--ease);
+  z-index:1001;
+}
+.deep-close:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+  transform:rotate(90deg);
+}
+
+/* 4. Scroll reveal - more refined */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* 5. Nav - scroll state */
+.nav-main{
+  transition:background .4s var(--ease),backdrop-filter .4s var(--ease),box-shadow .4s var(--ease);
+}
+.nav-main.scrolled{
+  background:rgba(247,244,238,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line);
+}
+.dark .nav-main.scrolled{
+  background:rgba(14,13,11,.85);
+}
+
+/* 6. Timeline - more impact */
+.timeline-item{
+  position:relative;
+  padding-left:2.5rem;
+  padding-bottom:2.5rem;
+  border-left:1px solid var(--line);
+}
+.timeline-item::before{
+  content:'';
+  position:absolute;
+  left:-5px;top:0;
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--paper);
+  border:2px solid var(--wine);
+  transition:all .3s var(--ease);
+}
+.timeline-item:hover::before{
+  background:var(--wine);
+  transform:scale(1.3);
+}
+.timeline-year{
+  font-family:var(--serif-en);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--wine);
+  margin-bottom:.3rem;
+}
+
+/* 7. Search results - highlight */
+.search-highlight{
+  background:rgba(122,46,46,.12);
+  color:var(--wine);
+  padding:0 2px;
+  border-radius:2px;
+  font-weight:600;
+}
+
+/* 8. Quote book - shelf feel */
+.shelf-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.shelf-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:2rem;
+  position:relative;
+  transition:all .4s var(--ease);
+}
+.shelf-item::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--wine),transparent);
+  opacity:.6;
+}
+.shelf-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px -10px rgba(28,26,23,.15);
+}
+
+/* 9. Character arc - stronger */
+.arc-stage{
+  position:relative;
+  padding:1.5rem 0 1.5rem 2rem;
+  border-left:2px solid var(--line);
+  margin-left:1rem;
+}
+.arc-stage::before{
+  content:'';
+  position:absolute;
+  left:-7px;top:1.8rem;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--wine);
+  opacity:.6;
+}
+.arc-stage.active::before{
+  opacity:1;
+  box-shadow:0 0 0 4px rgba(122,46,46,.15);
+}
+
+/* 10. Subtitle compare - elegant */
+.cmp-row{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:1rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line);
+  align-items:start;
+}
+.cmp-label{
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--wine);
+  padding-top:.2rem;
+}
+.cmp-text{
+  font-size:.95rem;
+  line-height:1.8;
+}
+
+/* 11. Mood backgrounds - richer */
+.stage.mood-rain-night{
+  background:linear-gradient(160deg,#1a1d24 0%,#0f1115 100%) !important;
+}
+.stage.mood-farewell{
+  background:linear-gradient(160deg,#f5f0e8 0%,#ebe4d8 100%) !important;
+}
+.stage.mood-suspense-dark{
+  background:linear-gradient(160deg,#181614 0%,#0d0c0a 100%) !important;
+}
+.stage.mood-warm-indoor{
+  background:linear-gradient(160deg,#faf6ef 0%,#f2ebe0 100%) !important;
+}
+.stage.mood-winter-outdoor{
+  background:linear-gradient(160deg,#f0ede6 0%,#e2ddd2 100%) !important;
+}
+
+/* 12. Grain texture - subtle */
+.grain-overlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:.015;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* 13. Selection - wine */
+::selection{
+  background:rgba(122,46,46,.2);
+  color:var(--ink);
+}
+</style>
+
+</head>
+<body><div class="read-progress-bar" id="readBar"></div>
+<header class="topbar"><div class="perf"></div>
+<div class="tb-inner">
+<button class="icon-btn menu-toggle" id="menuToggle">☰</button>
+<div class="brand" data-go="home"><div class="t">K-DRAMA LINES</div><div class="s">韩剧台词私人博物馆 · WORDS THAT STAY</div></div>
+<nav class="nav-main">
+<button data-go="home">发现</button><button data-go="emotions">主题</button><button data-go="dramas">剧集</button><button data-go="characters">人物</button><button data-go="scenes">场景</button><button data-go="rank">精选</button><button data-go="favorites">我的台词书</button>
+</nav>
+<div class="tb-actions">
+<label class="searchbox hide-sm"><span>⌕</span><input id="searchInput" placeholder="搜韩文 / 中文 / 剧名 / 类型…"></label>
+<button class="icon-btn" id="koBtn" title="纯韩文模式">가</button>
+<button class="icon-btn" id="randBtn" title="随机情绪旅程">∿</button>
+<button class="icon-btn" id="favBtn" title="我的台词书">♡</button>
+<button class="icon-btn" id="themeBtn" title="浅色 / 深夜">◐</button>
+</div></div></header>
+<div class="shell">
+<aside class="sidenav" id="sideNav">
+<h4>Navigate 导航</h4>
+<div class="navi" data-go="home">首页 · 发现</div>
+<div class="navi" data-go="tonight">今晚的一句</div>
+<div class="navi" data-go="journey">随机情绪旅程</div>
+<div class="navi" data-go="rank">编辑精选</div>
+<div class="navi" data-go="emotions">全部主题</div>
+<div class="navi" data-go="dramas">按剧集</div>
+<div class="navi" data-go="characters">按人物</div>
+<div class="navi" data-go="scenes">名场面档案</div>
+<div class="navi" data-go="favorites">我的台词书</div>
+<h4>Research 研究室</h4>
+<div class="navi" data-go="same-emotion">同情绪 · 不同韩剧</div>
+<div class="navi" data-go="same-word">同个韩语词 · 不同情绪</div>
+<div class="navi" data-go="subtitle-study">原文与字幕的距离</div>
+<div class="navi" data-go="about">档案凡例</div>
+<h4>By Emotion 按情绪</h4>
+<div id="navEmo"></div>
+</aside>
+<main id="view"></main>
+<aside class="rail" id="rail"></aside>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const THEMES={love:{zh:'爱情',ko:'사랑'},crush:{zh:'暗恋',ko:'짝사랑'},breakup:{zh:'分手',ko:'이별'},reunion:{zh:'重逢',ko:'재회'},family:{zh:'亲情',ko:'가족'},friendship:{zh:'友情',ko:'우정'},growth:{zh:'成长',ko:'성장'},loneliness:{zh:'孤独',ko:'고독'},healing:{zh:'治愈',ko:'치유'},life:{zh:'人生',ko:'인생'},youth:{zh:'青春',ko:'청춘'},work:{zh:'职场',ko:'직장'},female:{zh:'女性',ko:'여성'},home:{zh:'家庭',ko:'가정'},suspense:{zh:'悬疑',ko:'서스펜스'},crime:{zh:'犯罪',ko:'범죄'},law:{zh:'法律',ko:'법'},society:{zh:'社会',ko:'사회'},human:{zh:'人性',ko:'인간'},dream:{zh:'梦想',ko:'꿈'},regret:{zh:'遗憾',ko:'아쉬움'},farewell:{zh:'死亡与告别',ko:'이별과 죽음'},death:{zh:'死亡',ko:'죽음'},justice:{zh:'正义',ko:'정의'},adult:{zh:'成年人',ko:'어른'},lonely:{zh:'孤独',ko:'고독'}};
+const DRAMAS={goblin:{ko:'쓸쓸하고 찬란하神 — 도깨비',zh:'孤单又灿烂的神：鬼怪',year:2016,net:'tvN',genre:'爱情 · 奇幻',style:'以诗与物理写爱情的奇幻剧，冬天、初雪与永生者的告别。'},itsokay:{ko:'괜찮아, 사랑이야',zh:'没关系，是爱情啊',year:2014,net:'SBS',genre:'爱情 · 心理治愈',style:'卢熙京编剧，用成年人的语言谈创伤、理解与不完美的爱。'},woo:{ko:'이상한 변호사 우영우',zh:'非常律师禹英禑',year:2022,net:'ENA',genre:'法律 · 职场',style:'自闭症谱系律师以独特逻辑理解法律与人情。'},reply:{ko:'응답하라 1988',zh:'请回答1988',year:2015,net:'tvN',genre:'家庭 · 青春 · 怀旧',style:'双门洞的邻里与亲情，旁白本身就是文学。'},mister:{ko:'나의 아저씨',zh:'我的大叔',year:2018,net:'tvN',genre:'现实 · 治愈',style:'朴惠英编剧，两个被生活压垮的人彼此抵达。'},liberation:{ko:'나의 해방일지',zh:'我的解放日志',year:2022,net:'JTBC',genre:'现实 · 人生',style:'空心的现代人如何一点点把自己找回来。'},dazzling:{ko:'눈이 부시게',zh:'耀眼',year:2019,net:'JTBC',genre:'奇幻 · 人生',style:'用时间的寓言，写给所有正在老去与活过的人。'},poksu:{ko:'폭싹 속았수다',zh:'苦尽柑来遇见你',year:2025,net:'Netflix',genre:'年代 · 家庭 · 爱情',style:'济州岛方言写就的一生，克制而深情。'},forest:{ko:'비밀의 숲',zh:'秘密森林',year:2017,net:'tvN',genre:'悬疑 · 社会',style:'失去情感的检察官追问系统为何溃烂。'},glory:{ko:'더 글로리',zh:'黑暗荣耀',year:2022,net:'Netflix',genre:'悬疑 · 复仇',style:'以最平静的语气讲最漫长的复仇。'},misaeng:{ko:'미생',zh:'未生',year:2014,net:'tvN',genre:'职场 · 成长',style:'围棋术语写职场：未生不是死棋，是还有活路的子。'},crash:{ko:'사랑의 불시착',zh:'爱的迫降',year:2019,net:'tvN',genre:'爱情',style:'分裂的世界里一次迫降的爱情。'},stove:{ko:'스토브리그',zh:'棒球大联盟',year:2019,net:'SBS',genre:'职场 · 体育',style:'南宫珉饰演的白承洙，用冷静到近乎残酷的方式拯救一支垫底球队——职场剧的天花板。'},camellia:{ko:'동백꽃 필 무렵',zh:'山茶花开时',year:2019,net:'KBS',genre:'爱情 · 悬疑 · 女性',style:'孔孝真饰演单亲妈妈东柏，在小镇酒馆里学会不再退让——温柔的人硬起来最有力量。'},reply1997:{ko:'응답하라 1997',zh:'请回答1997',year:2012,net:'tvN',genre:'青春 · 怀旧',style:'请回答系列开山之作，用18岁的认真与炽热，替所有被低估的青春正名。'},signal:{ko:'시그널',zh:'信号',year:2016,net:'tvN',genre:'悬疑 · 犯罪 · 社会',style:'一部老式无线电连接两个时空，追问"26年后的世界，是否还是一样不公平"。'},doctor:{ko:'슬기로운 의사생활',zh:'机智的医生生活',year:2020,net:'tvN',genre:'医疗 · 治愈',style:'律帝医院五个医生的日常，承认医学的局限，却依然全力以赴——最诚实的治愈系。'},evilflower:{ko:'악의 꽃',zh:'恶之花',year:2020,net:'tvN',genre:'悬疑 · 爱情 · 人性',style:'一个认为自己没有感情的男人，和一个必须怀疑丈夫的刑警妻子——悬疑外壳下最笨拙的爱情觉醒。'},springnight:{ko:'봄밤',zh:'春夜',year:2019,net:'MBC',genre:'爱情 · 成年人关系',style:'安畔锡导演，用药店、篮球场和春夜的雪，写成年人"来了就回不去了"的暧昧。'},melo:{ko:'멜로가 체질',zh:'浪漫的体质',year:2019,net:'JTBC',genre:'人生 · 喜剧 · 治愈',style:'李炳宪编剧，三个三十岁女人的丧与治愈——"反正世界很奇怪，赌一次小概率又怎样"。'},itaewon:{ko:'이태원 클라쓰',zh:'梨泰院Class',year:2020,net:'JTBC',genre:'励志 · 反抗 · 人生',style:'朴世路用一首"石头诗"对抗财阀——被打压的每一下，都在把自己变成钻石。'},blues:{ko:'우리들의 블루스',zh:'我们的蓝调',year:2022,net:'tvN',genre:'人生 · 群像 · 治愈',style:'卢熙京编剧，济州岛海女与船长们的蓝调——每一个普通人都值得被认真写一次。'},juvenile:{ko:'소년심판',zh:'少年法庭',year:2022,net:'Netflix',genre:'法律 · 社会 · 人性',style:'金惠秀饰演厌恶少年犯的法官沈恩锡——"少年不会独自长大"，每一个犯罪的少年背后都有缺席的大人。'},deathgame:{ko:'이재, 곧 죽습니다',zh:'死期将至',year:2023,net:'TVING',genre:'奇幻 · 人性 · 死亡',style:'徐仁国饰演自杀者崔怡在，被死亡惩罚经历12次重生——"人类真了不起，一边说生活像地狱一边撑着活"。'},dp:{ko:'D.P.',zh:'D.P. 逃兵追缉令',year:2021,net:'Netflix',genre:'军旅 · 社会 · 人性',style:'丁海寅、具教焕主演，以逃兵追缉组揭开军营霸凌黑幕——"国家也是共犯，错了就该认错"。'},moving:{ko:'무빙',zh:'超异能族',year:2023,net:'Disney+',genre:'英雄 · 人性 · 家庭',style:'超能力者也是人——"同理心才是真正的能力"，一部把英雄内核拉回人性的剧。'},goodpartner:{ko:'좋은 파트너',zh:'好搭档',year:2024,net:'SBS',genre:'律政 · 婚姻 · 女性',style:'张娜拉饰演离婚律师车恩京——"没有正确答案，努力让选择成为正确答案"。'},queenoftears:{ko:'눈물의 여왕',zh:'眼泪女王',year:2024,net:'tvN',genre:'爱情 · 婚姻 · 人生',style:'金秀贤、金智媛主演——"爱是一起忍受讨厌的东西，不逃跑，陪在身边"。'},vincenzo:{ko:'빈센조',zh:'文森佐',year:2021,net:'tvN',genre:'律政 · 黑色 · 复仇',style:'宋仲基饰演意大利黑手党顾问——"年纪不是官位，是责任的量"，以恶制恶的黑暗英雄。'},squidgame:{ko:'오징어 게임',zh:'鱿鱼游戏',year:2021,net:'Netflix',genre:'悬疑 · 生存 · 社会',style:'李政宰、朴海秀主演——"公平不等于公正"，一场生存游戏照出阶级社会的残酷。'}
+,hometown:{ko:'갯마을 차차차',zh:'海岸村恰恰恰',year:'2021',net:'tvN',genre:'爱情 · 治愈',style:'在海边村庄里，用日常和废话写成年人的爱情与人生。',stove:{char:'洪斗植',lines:2}}
+,twentyfive:{ko:'스물다섯 스물하나',zh:'二十五二十一',year:'2022',net:'tvN',genre:'青春 · 爱情',style:'在IMF时代的青春里，击剑、梦想与爱情如何被时间改写。',stove:{char:'罗希度',lines:1}}
+
+,thirtynine:{ko:'서른,아홉',zh:'三十九',year:'2022',net:'JTBC',genre:'人生 · 友情 · 死亡',style:'三个三十九岁女人的友情、爱情与告别——"品质比长短重要"。',stove:{char:'郑灿荣',lines:1}}
+,psycho:{ko:'사이코지만 괜찮아',zh:'虽然是精神病但没关系',year:'2020',net:'tvN',genre:'爱情 · 治愈 · 心理',style:'暗黑童话作家与精神病院护工的互相治愈——"命运就是在需要时出现"。',stove:{char:'高文英',lines:2}}
+,sunshine:{ko:'미스터 션샤인',zh:'阳光先生',year:'2018',net:'tvN',genre:'历史 · 爱情 · 抗日',style:'奴隶出身的美国军官与朝鲜贵族小姐的乱世爱情——"能与您走花路是我的荣幸"。',stove:{char:'崔宥镇',lines:3}}
+
+,redsleeve:{ko:'옷소매 붉은 끝동',zh:'衣袖红镶边',year:'2021',net:'MBC',genre:'历史 · 爱情 · 宫廷',style:'君王与宫女的禁忌爱情——"必须是你才行"，权力与选择的终极拉扯。',stove:{char:'成德任',lines:3}}
+,weather:{ko:'날씨가 좋으면 찾아가겠어요',zh:'天气好的话我会去找你',year:'2020',net:'JTBC',genre:'治愈 · 爱情 · 乡村',style:'在乡村书店里慢慢愈合的爱情——"因为天气好，因为天气不好，因为天气刚刚好"。',stove:{char:'林恩燮',lines:2}}
+,sunjae:{ko:'선재 업고 튀어',zh:'背着善宰跑',year:'2024',net:'tvN',genre:'奇幻 · 爱情 · 青春',style:'穿越时间拯救一个人的故事——"最特别的瞬间，是和爱的人在一起的今天"。',stove:{char:'柳善宰',lines:1}}
+
+,snowdrop:{ko:'설강화',zh:'雪滴花',year:'2021',net:'JTBC',genre:'时代 · 爱情 · 悲剧',style:'1987年首尔，女大学生与间谍的禁忌爱情——"让冰冷的我开出了花"。',stove:{char:'殷英路',lines:3}}
+
+,watermelon:{ko:'반짝이는 워터멜론',zh:'闪亮的西瓜',year:'2023',net:'tvN',genre:'青春 · 奇幻 · 音乐',style:'CODA少年穿越回1995年，用音乐连接父母的青春——"人生是每个瞬间都在闪亮"。',stove:{char:'河恩杰',lines:2}}
+};
+const CHARACTERS=[{id:'kimshin',name:'金信',ko:'김신',drama:'goblin',actor:'孔刘',arc:'活了九百年、语气冷而克制的神，遇到恩倬后开始用诗、用物理定律、用天气命名爱情；越到离别，语言越轻。'},{id:'jaeyeol',name:'张宰烈',ko:'장재열',drama:'itsokay',actor:'赵寅成',arc:'畅销作家与广播人，用温柔而锋利的长句拆解偏见与创伤，他谈爱从不回避痛苦。'},{id:'wooyoungwoo',name:'禹英禑',ko:'우영우',drama:'woo',actor:'朴恩斌',arc:'从回文式自我介绍建立秩序，到一次次用"法律看重内心"去理解人，语言从规则走向同理。'},{id:'dad1988',name:'成东日（德善爸爸）',ko:'성동일',drama:'reply',actor:'成东日',arc:'嘴硬、笨拙、传统的父亲，最终说出"爸爸也是第一次当爸爸"——1988 的亲情都在没说出口与终于说出口之间。'},{id:'jian',name:'李至安',ko:'이지안',drama:'mister',actor:'李知恩 IU',arc:'起初话少到近乎单音节、把自己封闭起来的女孩，最后能平静说出"好好生活"，是语言重新向世界打开的过程。'},{id:'mijung',name:'廉美贞',ko:'염미정',drama:'liberation',actor:'金智媛',arc:'从"不至于不幸也不快乐"的失语，到主动造出"推仰（추앙）"一词要求被填满，她用语言为自己命名困境。'},{id:'hsmok',name:'黄始木',ko:'황시목',drama:'forest',actor:'曹承佑',arc:'被手术切除情绪反应的检察官，语言极简、没有修饰，却在关键处选择"开口说话、揭露秘密"。'},{id:'grjang',name:'张格莱',ko:'장그래',drama:'misaeng',actor:'任时完',arc:'从只能拿出"努力"去交易的实习生，到理解"未生"这步棋的含义，语言里长出了职场人的自我。'}];
+const LINES=[
+{id:'KDL-001',drama:'goblin',char:'金信',actor:'孔刘',ep:'心动独白',lineType:['独白','表白'],relationship:'恋人',mood:'winter-outdoor',arcStage:'early',ko:"질량의 크기는 부피와 비례하지 않는다. 제비꽃같이 조그마한 그 계집애가, 꽃잎같이 하늘거리는 그 계집애가, 지구보다 더 큰 질량으로 나를 끌어당긴다. 뉴턴의 사과처럼 사정없이 그녀에게로 굴러 떨어졌다. 쿵 소리를 내며, 쿵쿵 소리를 내며, 심장이 하늘에서 땅까지 아찔한 진자운동을 계속했다. 첫사랑이었다.",zh:"质量与体积不成正比。那个如紫罗兰般小巧的丫头，那个似花瓣般轻曳的丫头，以远超过地球的质量吸引着我。我如同牛顿的苹果，不受控制地滚向她。咚，咚咚，心脏从天空到大地，持续着令人眩晕的摆动——那是初恋。",zhType:'subtitle',verify:'v',themes:['love','life'],before:'活了九百年、早已不信心动的金信，第一次意识到自己被恩倬吸引。',after:'这首诗成为两人爱情的命名，此后每次心动都回到"质量与体积"的比喻。',whyStays:'它不说"我爱你"，而用牛顿、苹果、单摆来命名心动——理性词汇与失控情绪的反差，让这句成为韩剧爱情诗的标杆。',anatomy:{language:'物理术语入诗，질량·진자운동 制造冷与热的反差',character:'九百年神第一次承认失控',emotion:'冷静外壳下的剧烈坠落',plot:'全剧爱情观的题眼'},editorNote:'韩剧写心动的天花板之一——它证明最浪漫的话可以从最理性的词开始。'},
+{id:'KDL-002',drama:'goblin',char:'金信',actor:'孔刘',ep:'回忆 / 离别段落',lineType:['独白','回忆','告别'],relationship:'恋人',mood:'farewell',arcStage:'late',ko:"너와 함께한 모든 시간이 눈부셨다. 날이 좋아서, 날이 좋지 않아서, 날이 적당해서, 모든 날이 좋았다.",zh:"和你在一起的所有时光都耀眼。因为天气好，因为天气不好，因为天气刚刚好，每一天，都很美好。",zhType:'subtitle',verify:'v',themes:['love','life','farewell'],before:'金信回望与恩倬共度的日子，离别将至。',after:'成为全剧被引用最多的一句，也定义了"鬼怪式浪漫"。',whyStays:'它把一生压缩进三种天气，没有一个"爱"字，却把每一天都变成了证据。',anatomy:{language:'三次 날이 排比，적당해서 是关键的第三种状态',character:'永生者第一次为有限的日子感恩',emotion:'平静里的不舍',plot:'离别段落的情感总纲'},subtitleCompare:[{source:'通行正式字幕',text:'因为天气好，因为天气不好，因为天气刚刚好，每一天都很美好。',note:'保留三次排比，"刚刚好"译 적당해서'},{source:'部分网络译版',text:'天气好，天气不好，天气刚好，所有日子都好。',note:'更贴近字面，但少了"每一天"的收束感'}],editorNote:'没有"爱"字的爱情句，留白比告白更重。'},
+{id:'KDL-003',drama:'goblin',char:'金信',actor:'孔刘',ep:'约定以自然之形归来',lineType:['告别','承诺'],relationship:'恋人',mood:'rain-night',arcStage:'late',ko:"비로 올게. 첫눈으로 올게.",zh:"我会化成雨来，化成初雪来。",zhType:'subtitle',verify:'v',themes:['love','farewell'],before:'面对可能的消亡，金信向恩倬作别。',after:'"雨与初雪"成为两人重逢的暗号。',whyStays:'把死亡翻译成天气，是只有永生者才说得出的告别——离开不是结束，是换一种形态回来。',nuance:'첫눈（初雪）在韩剧语汇里常与约定、想念、重逢绑定。'},
+{id:'KDL-004',drama:'goblin',char:'金信',actor:'孔刘',ep:'告白段落',lineType:['独白','人物宣言'],relationship:'恋人',mood:'quiet-street',arcStage:'mid',ko:"널 만난 내 생은 상이었다.",zh:"遇见你，这一生便是奖赏。",zhType:'subtitle',verify:'v',themes:['love','life'],before:'金信确认恩倬对自己的意义。',after:'成为对"遇见你"最郑重的定义。',whyStays:'短短一句把九百年的等待结算为一份"奖赏"，轻而重。',nuance:'상 此处是汉字词"赏（賞）"，意为奖赏，不是"伤"。',note:{literal:'遇见你之后，我的人生是奖赏。',official:'遇见你，这一生便是奖赏。',why:'判断句直译成中文略生硬，字幕压缩为更有文学性的短句。'}},
+{id:'KDL-005',drama:'itsokay',char:'张宰烈',actor:'赵寅成',ep:'与海秀谈爱',lineType:['对话','价值观冲突','人物宣言'],relationship:'恋人',mood:'warm-indoor',arcStage:'early',ko:"고통과 원망과 아픔과 슬픔과 절망과 불행도 주겠지. 그리고 그것들을 이겨낼 힘도 더불어 주겠지. 그 정도는 돼야 사랑이지.",zh:"当然也会带来痛苦、怨恨、疼痛、悲伤、绝望和不幸吧。但也会一并给人战胜这一切的力量。要到这种程度，才配叫爱情。",zhType:'subtitle',verify:'v',themes:['love','life','healing'],before:'海秀质疑爱情是否只带来美好，宰烈回答。',after:'奠定全剧"成年人的爱"基调。',whyStays:'它不美化爱情，承认代价，把"爱"从童话拉回真实——这正是卢熙京的笔法。',anatomy:{language:'六个负面名词并列后翻转，더불어 주겠지 收束',character:'受过伤的人给出的清醒定义',emotion:'温柔的锋利',plot:'全剧爱情观宣言'},editorNote:'韩剧里少有的、不讨好观众的爱情定义。'},
+{id:'KDL-006',drama:'itsokay',char:'张宰烈',actor:'赵寅成',ep:'广播独白',lineType:['独白','广播','价值观冲突'],relationship:'自我（面向听众）',mood:'radio',arcStage:'mid',ko:"세상에서 제일 폭력적인 말이 '남자답다, 여자답다, 엄마답다, 의사답다, 학생답다' 이런 말들이라고. 그냥 다 처음 살아본 인생이라서 서툰 건데.",zh:"世上最暴力的话，就是'像个男人、像个女人、像个妈妈、像个医生、像个学生'。大家都是第一次活，所以才会生疏啊。",zhType:'subtitle',verify:'v',themes:['human','growth','healing','society','female'],before:'张宰烈在广播里谈社会角色对人的规训。',after:'成为被广泛引用的反刻板印象台词。',whyStays:'它把"像个男人/女人样"这种日常话指认为暴力，又用"第一次活"给出原谅，锋利而慈悲。',anatomy:{language:'-답다 后缀串联五种角色，最后 서툰 건데 翻转',character:'作家身份的社会观察',emotion:'温柔的愤怒',plot:'卢熙京式社会议题切入'},editorNote:'一句把"反刻板印象"说成了人之常情。'},
+{id:'KDL-007',drama:'itsokay',char:'张宰烈',actor:'赵寅成',ep:'对海秀',lineType:['对话','叮嘱','价值观冲突'],relationship:'恋人',mood:'warm-indoor',arcStage:'mid',ko:"사랑은 상대를 위해 뭔가 포기하는 게 아니라, 뭔가 해내는 거야. 나 때문에 네 인생의 중요한 계획을 포기하지 마.",zh:"爱情不是为对方放弃什么，而是为对方去成就什么。别因为我，放弃你人生里重要的计划。",zhType:'subtitle',verify:'v',themes:['love','growth'],before:'宰烈不愿海秀因感情牺牲自己的人生规划。',after:'成为"成熟爱情"的代表句。',whyStays:'它把爱从"放弃"改写为"成就"，是对东亚式牺牲爱情的一次纠正。'},
+{id:'KDL-008',drama:'itsokay',char:'张宰烈',actor:'赵寅成',ep:'谈逝去的爱',lineType:['独白','和解'],relationship:'恋人（前任）',mood:'quiet-street',arcStage:'late',ko:"사랑에 상처가 어디 있고 손해가 어디 있냐. 사랑은 추억이나 축복, 둘 중 하나야.",zh:"爱情里哪有什么伤痛和损失。爱情，不是回忆，就是祝福。",zhType:'subtitle',verify:'v',themes:['love','farewell','healing'],before:'面对一段关系的结束，宰烈重新定义失去。',after:'提供了与遗憾和解的语言。',whyStays:'它取消了爱情的"盈亏表"——爱过就不是亏损，这是一种很成年人的释然。'},
+{id:'KDL-009',drama:'woo',char:'禹英禑',actor:'朴恩斌',ep:'多次 · 入职自我介绍',lineType:['独白','人物宣言','自我觉醒'],relationship:'自我（面向陌生人）',mood:'office',arcStage:'early',ko:"제 이름은 우영우입니다. 기러기, 토마토, 스위스, 별똥별, 우영우, 역삼역. 똑바로 읽어도 거꾸로 읽어도 우영우입니다.",zh:"我叫禹英禑。大雁、西红柿、瑞士、流星雨、禹英禑、驿三站。正着念、倒着念，都是禹英禑。",zhType:'subtitle',verify:'v',themes:['growth','human'],before:'英禑每次进入会议室前，用固定仪式介绍自己。',after:'回文自我介绍成为角色标志，也成为观众记住她的第一句话。',whyStays:'它不是在"介绍"，而是在为自己造一座秩序的桥——用可预测的语言，向不可预测的世界打招呼。',anatomy:{language:'六个回文词罗列，正倒同形',character:'用秩序感对抗陌生环境',emotion:'紧张里的镇定',plot:'人物建立的第一个仪式'},subtitleCompare:[{source:'通行正式字幕',text:'大雁、西红柿、瑞士、流星雨、禹英禑、驿三站。正着念、倒着念，都是禹英禑。',note:'保留专名罗列，无法还原回文游戏'},{source:'翻译说明',text:'回文是韩语文字游戏，中文任何译法都无法逐字对应',note:'字幕选择保留节奏而非强行回文'}],editorNote:'最好的人物登场台词之一——一句话立住一个人。'},
+{id:'KDL-010',drama:'woo',char:'禹英禑',actor:'朴恩斌',ep:'案件追问',lineType:['质问','对话'],relationship:'律师与当事人',mood:'office',arcStage:'mid',ko:"당신은 스스로 밥상을 차린 적이 있습니까?",zh:"你有自己亲手摆过一桌饭吗？",zhType:'subtitle',verify:'v',themes:['family','growth','human'],before:'在案件中，英禑用一个极日常的问题追问当事人是否真正独立。',after:'让"摆饭桌"成为心理独立的隐喻。',whyStays:'用最日常的身体经验谈最抽象的独立，小切口里有大命题。',nuance:'밥상을 차리다=摆饭桌、备一餐饭，引申为独立照料自己的生活。'},
+{id:'KDL-011',drama:'woo',char:'禹英禑',actor:'朴恩斌',ep:'首个案件 · 论犯罪意图',lineType:['独白','人物宣言','价值观冲突'],relationship:'自我（职业立场）',mood:'office',arcStage:'early',ko:"법은 마음을 중요하게 생각합니다. 마음에 따라 죄명이 바뀝니다.",zh:"法律看重的是内心。意图不同，罪名也会不同。",zhType:'subtitle',verify:'v',themes:['law','human'],before:'英禑在第一个案件里解释：同样的行为，因主观意图不同而构成不同罪名。',after:'成为她看待所有案件的起点：先理解人心，再适用法条。',whyStays:'它把冰冷的法律拉回"心"，但不是煽情，而是刑法上的"犯意"——专业与温度并存。',nuance:'마음=心/内心，此处是刑法上的"主观意图"，字幕以"内心/意图"两层表达。',law:'影视台词，仅表达角色的法律理解，不构成现实法律结论；具体罪名以现行刑法与个案为准。'},
+{id:'KDL-012',drama:'woo',char:'禹英禑',actor:'朴恩斌',ep:'第5集 · 为同事命名',lineType:['对话','感谢','和解'],relationship:'朋友（同事）',mood:'warm-indoor',arcStage:'mid',ko:"너는 밝고 따뜻하고 착하고 다정한 사람이야. '봄날의 햇살' 최수연이야.",zh:"你是个开朗、温暖、善良又温柔的人。你是'春日暖阳'崔秀妍。",zhType:'subtitle',verify:'v',themes:['friendship','healing','female'],before:'英禑认真列举秀妍一次次帮过自己的细节，为她起了"春日暖阳"的外号。',after:'"春日暖阳"成为崔秀妍的代称。',whyStays:'她不说"谢谢"，而是用具体细节证明善意——被看见的治愈，比抽象感谢重得多。'},
+{id:'KDL-013',drama:'reply',char:'成东日（德善爸爸）',actor:'成东日',ep:'补过生日',lineType:['对话','道歉','和解','成长'],relationship:'父女',mood:'family-table',arcStage:'mid',ko:"아빠도 아빠가 처음이야. 아빠도 아빠 노릇 처음이라서, 우리 딸이 좀 이해해줘.",zh:"爸爸也是第一次当爸爸啊。爸爸也是头一回做爸爸，我们女儿，稍微体谅一下。",zhType:'subtitle',verify:'c',themes:['family','growth'],before:'德善因长期被忽视而爆发离家，父亲在巷口小店等她补过一个只属于她的生日。',after:'父女关系松动，"爸爸也是第一次"成为东亚亲子关系的共同注解。',whyStays:'它没有道歉"我错了"，而是承认"我也是新手"——这种笨拙比完美道歉更动人。',anatomy:{language:'처음이다 重复，노릇（做…的本分）点出身份',character:'传统父亲能给出的最大限度柔软',emotion:'笨拙的愧疚',plot:'1988 亲情线的转折点'},editorNote:'东亚亲子关系里最被广泛转发的一句，因为它替无数父母说出了说不出口的话。'},
+{id:'KDL-014',drama:'reply',char:'旁白',actor:'—',ep:'全剧旁白',lineType:['独白','成长','价值观冲突'],relationship:'自我（旁白）',mood:'warm-indoor',arcStage:'mid',ko:"어른스러운 아이는 그저 투정이 없을 뿐이다. 어른스레 보여야 할 환경에 적응했을 뿐이고, 착각 어린 시선에 익숙해졌을 뿐이다. 어른스러운 아이도 그저 아이일 뿐이다.",zh:"懂事的孩子，只是不撒娇罢了。只是适应了必须表现得像大人的环境，习惯了别人错把他当大人的眼神。懂事的孩子，也终究只是个孩子。",zhType:'subtitle',verify:'v',themes:['family','growth','healing'],before:'1988 以旁白为"懂事"的孩子作注。',after:'让很多观众第一次意识到"懂事"不是夸奖。',whyStays:'它拆穿了一个温柔的暴力：懂事的孩子不是不需要爱，只是学会了不吵不闹。',nuance:'투정=撒娇、耍赖、闹脾气；투정이 없다 即不吵不闹。'},
+{id:'KDL-015',drama:'reply',char:'旁白',actor:'—',ep:'全剧旁白',lineType:['独白','成长'],relationship:'自我（旁白）',mood:'family-table',arcStage:'mid',ko:"어른들은 그저 견디고 있을 뿐이다. 어른들도 나이만 먹었을 뿐, 어른이란 무게를 짊어지고 꾸며낸 강인함으로 버텨나갈 뿐. 어른들도 아프다.",zh:"大人，只是在忍而已。大人也只是年长了一些，只是在用故作坚强，承担'大人'这个年纪的重量。大人，也会疼。",zhType:'subtitle',verify:'c',themes:['life','family','healing'],before:'当孩子们看见大人崩溃、抱头痛哭时，旁白这样解释"成年"。',after:'"大人也会疼"成为全剧旁白金句之一。',whyStays:'给"坚强"祛魅——坚强不是不痛，是忍痛表演，这句话让成年观众被看见。'},
+{id:'KDL-016',drama:'reply',char:'旁白',actor:'—',ep:'母亲篇章',lineType:['独白','亲情'],relationship:'母子/母女（旁白）',mood:'warm-indoor',arcStage:'mid',ko:"신은 모든 곳에 있을 수 없어서 엄마를 만들었다고 한다. '엄마'라는 이름은 그저 불러보기만 해도 목이 메는, 가장 힘 센 이름이다.",zh:"听说神无法无处不在，所以创造了妈妈。'妈妈'这个词，只是叫一叫，也让人喉间哽咽，是最有力量的名字。",zhType:'subtitle',verify:'c',themes:['family','healing','female'],before:'1988 用一整集讲几位母亲，此为母亲篇章的旁白。',after:'"妈妈是最有力量的名字"广为流传。',whyStays:'它把妈妈放在"神也到不了的地方"，不煽情，却让"妈妈"两个字本身有了重量。'},
+{id:'KDL-017',drama:'mister',char:'朴东勋',actor:'李善均',ep:'全剧题眼',lineType:['独白','人物宣言','价值观冲突'],relationship:'自我（人生观察）',mood:'quiet-street',arcStage:'mid',ko:"잘 사는 사람이 더 쉽게 착해진다.",zh:"过得好的人，更容易成为好人。",zhType:'subtitle',verify:'c',themes:['life','healing','human','society'],before:'东勋与至安在各自的困境里彼此映照。',after:'成为全剧题眼，也引发对"善良是否需要余裕"的讨论。',whyStays:'它不指责受苦者，而是看见善意背后的余裕——这是对贫穷最温柔也最清醒的描述。',anatomy:{language:'잘 사는 与 착해진다 的因果，简洁到近乎格言',character:'被生活磨过的人的通透',emotion:'清醒的慈悲',plot:'全剧主题句'},editorNote:'韩剧里最不鸡汤的"治愈"——它先承认现实，再给温柔。'},
+{id:'KDL-018',drama:'mister',char:'朴东勋',actor:'李善均',ep:'结尾 · 重逢与告别',lineType:['对话','叮嘱','告别','和解'],relationship:'亦师亦友 / 彼此救赎',mood:'farewell',arcStage:'late',ko:"이지안, 잘 살아라.",zh:"李至安，要好好生活。",zhType:'subtitle',verify:'c',themes:['healing','farewell','life'],before:'经历一切之后，东勋对至安说出最朴素的一句叮嘱。',after:'全剧最重的一句叮嘱，替代了所有没说出口的爱。',whyStays:'两个都不擅长表达的人，最重的话是"好好活"——它比"我爱你"更难，也更真。',nuance:'잘 살아라 是祈使句"好好地活/过得好"，半语、直接，反而郑重。'},
+{id:'KDL-019',drama:'liberation',char:'廉美贞',actor:'金智媛',ep:'对具氏提出"推仰"',lineType:['对话','自我觉醒','人物宣言','价值观冲突'],relationship:'恋人（萌芽）',mood:'summer-night',arcStage:'early',ko:"날 추앙해줘. 단 한 번이라도 내 속이 꽉 채워지게. 사랑으로는 안 돼, 추앙해줘.",zh:"你崇拜我吧。哪怕只有一次，让我的内心被填满。光有爱不够，崇拜我吧。",zhType:'subtitle',verify:'c',themes:['love','life','loneliness'],before:'美贞向沉默的具氏提出一个近乎突兀的请求。',after:'"推仰/崇拜"成为全剧的语言原点，也成为年度热词。',whyStays:'她不按爱情剧本要"爱"，而要一个更重的词——这精准命名了现代人"被爱却仍空虚"的缺口。',anatomy:{language:'추앙 为生僻汉字词，制造突兀感；사랑으로는 안 돼 翻转',character:'空心之人赤裸地索求被看见',emotion:'笨拙而勇敢',plot:'全剧语言的起点'},nuance:'추앙（推仰/崇拜/尊崇）无精准中文对应，字幕多译"崇拜"，亦有译"推仰/仰慕"，更接近无条件的支持与敬重。',note:{literal:'推仰我吧，哪怕一次，把我的内心填满；靠爱不够，推仰我。',official:'你崇拜我吧……光有爱不够，崇拜我吧。',why:'추앙 介于崇拜与无条件支持之间，中文字幕选用"崇拜"以保留其突兀与强度，损失了"向上托举"的意味。'},editorNote:'2022 年最有原创性的韩剧台词——它造了一个词，说出了一代人说不出的空虚。'},
+{id:'KDL-020',drama:'liberation',char:'廉美贞',actor:'金智媛',ep:'自述处境',lineType:['独白','自我觉醒'],relationship:'自我',mood:'quiet-street',arcStage:'early',ko:"불행하진 않은데, 행복하지도 않아. 그래서 죽을 것 같아.",zh:"我虽然不至于不幸，但也不快乐。所以，快要憋死了。",zhType:'subtitle',verify:'c',themes:['loneliness','life','growth'],before:'美贞描述自己那种"没有大事发生、却逐渐枯萎"的日常。',after:'成为许多都市人自我描述的句子。',whyStays:'它命名了一种"不是悲剧、却也不是活着"的慢性状态，比"我很痛苦"更准确。'},
+{id:'KDL-021',drama:'liberation',char:'廉美贞（解放同好会）',actor:'金智媛',ep:'解放同好会',lineType:['独白','自我觉醒','人物宣言'],relationship:'自我',mood:'summer-day',arcStage:'mid',ko:"행복한 척도 안 하고, 불행한 척도 안 할래. 그냥 솔직하게 살 거야.",zh:"不假装幸福，也不假装不幸，只想诚实地活下去。",zhType:'subtitle',verify:'c',themes:['healing','life','growth'],before:'"解放同好会"给自己定下的生活方向。',after:'"不假装"成为解放的定义。',whyStays:'解放不是变幸福，是停止对自己撒谎——这个定义比任何励志句都诚实。',nuance:'-ㄴ/는 척=装作……的样子；两次 척도 안 하다 形成对仗。'},
+{id:'KDL-022',drama:'dazzling',char:'金惠子（旁白）',actor:'金惠子',ep:'终幕独白',lineType:['独白','人物宣言','成长'],relationship:'自我（人生回望）',mood:'farewell',arcStage:'late',ko:"당신은 이 세상에 태어난 이상, 이 모든 걸 매일 누릴 자격이 있다. 지금 이 순간을 살아라. 눈부시게 살아라.",zh:"既然你出生在这个世界上，就有资格每天享有这一切。请活在当下，活得耀眼。",zhType:'reference',verify:'c',themes:['life','healing','farewell'],before:'终幕，走完一生的主人公回望，把这句话留给正在受苦的观众。',after:'把剧名"耀眼"从爱情还给了生命本身。',whyStays:'历经失去之后仍肯定"活着"，这种肯定不是鸡汤，是用一生换来的。',nuance:'눈부시게=耀眼地、灿烂地，与《鬼怪》的 눈부셨다 形成跨越作品的呼应。'},
+{id:'KDL-023',drama:'poksu',char:'梁宽植',actor:'朴宝剑（青年）',ep:'终章 · 一生回望',lineType:['对话','告别','反问'],relationship:'夫妻',mood:'farewell',arcStage:'late',ko:"괜찮수과? 이생에 나랑 살아진 게 정말 괜찮수과?",zh:"还可以吗？这辈子跟我在一起，真的还算好吗？",zhType:'reference',verify:'c',themes:['love','family','farewell'],before:'一辈子木讷、几乎没说过情话的宽植，在人生尽头轻声问爱纯这一句。',after:'成为全剧最催泪的反问。',whyStays:'他不问"你爱我吗"，而问"嫁给我你后悔吗"——东亚式深情全在这个反问里。',nuance:'本剧大量使用济州岛方言，괜찮수과=标准语 괜찮습니까（还好吗）；方言文字转写请以正版字幕为准。'},
+{id:'KDL-024',drama:'forest',char:'黄始木',actor:'曹承佑',ep:'发声时刻',lineType:['独白','人物宣言','价值观冲突'],relationship:'自我（职业立场）',mood:'suspense-dark',arcStage:'late',ko:"이제는 말을 하고, 손가락으로 길을 가리키고, 안개를 걷어내고, 비밀을 밝혀야 할 때다.",zh:"如今该开口说话，举手指路，驱散浓雾，揭露秘密了。",zhType:'reference',verify:'c',themes:['suspense','society','human','law'],before:'用正常方式改变系统的机会被错失，一贯沉默的黄始木选择公开发声。',after:'一个切除情感的人选择不再沉默。',whyStays:'他的"发声"不是热血，是理性计算后的责任——正因为没有情绪，才更重。',law:'影视台词，表达角色立场，不代表现实司法运作方式。'},
+{id:'KDL-025',drama:'glory',char:'文东恩',actor:'宋慧乔',ep:'复仇启幕',lineType:['对话','反转','人物宣言','质问'],relationship:'加害者与受害者',mood:'suspense-dark',arcStage:'early',ko:"연진아, 나 왔다. 너, 준비됐어?",zh:"妍珍啊，我来了。你，准备好了吗？",zhType:'subtitle',verify:'c',themes:['human','suspense','crime'],before:'蛰伏十八年的文东恩，正式走到加害者面前，平静地拉开复仇序幕。',after:'全剧复仇的发令枪。',whyStays:'没有嘶吼，用近乎问候的亲昵语气宣战——克制制造了最强的寒意。',anatomy:{language:'半语直呼其名+아，亲昵语气用于宣战',character:'十八年蛰伏后的平静',emotion:'冰冷的确定',plot:'复仇线启动'},editorNote:'韩剧复仇开场的经典——越平静，越令人不寒而栗。'},
+{id:'KDL-026',drama:'misaeng',char:'吴科长',actor:'李圣旻',ep:'初见张格莱',lineType:['对话','质问','价值观冲突','成长'],relationship:'上下级（师徒）',mood:'office',arcStage:'early',ko:"노력? 노력하는 사람은 널렸어. 그래서 네가 대체 뭘 팔 수 있는지 분간이 안 간다는 거야.",zh:"努力？努力的人遍地都是。所以我才看不出，你到底能拿什么出来卖。",zhType:'subtitle',verify:'c',themes:['work','growth','life','society'],before:'实习生张格莱说自己唯一能拿得出手的是"努力"，被吴科长当场打断。',after:'格莱开始寻找自己真正的"不可替代性"。',whyStays:'它不给职场新人鸡汤，先打碎"努力万能论"——成长从承认努力不够开始。',nuance:'널리다=遍地都是、随处可见；분간이 안 가다=分辨不出、看不出。'},
+{id:'KDL-027',drama:'misaeng',char:'张格莱（独白）',actor:'任时完',ep:'题旨',lineType:['独白','成长','人物宣言'],relationship:'自我',mood:'office',arcStage:'mid',ko:"미생은 아직 죽은 돌이 아니다. 살아날 길이 남아 있는 돌이다. 어떻게든 살아남는 게 이기는 거다.",zh:"未生，还不是死棋，是仍留有活路的棋子。无论如何先活下来，就是赢。",zhType:'reference',verify:'c',themes:['work','life','growth','dream'],before:'围棋少年出身的张格莱，用棋理理解自己在职场的处境。',after:'剧名成为方法论：先活下来，再谈赢。',whyStays:'用围棋术语写职场生存，"未生不是死棋"给了所有还在撑的人一个准确的位置。',nuance:'미생（未生）=尚未做活的子，对应 완생（完生/完全活净），都是围棋术语。'},
+{id:'KDL-028',drama:'crash',char:'尹世理',actor:'孙艺珍',ep:'自述',lineType:['独白','自我觉醒','成长'],relationship:'自我',mood:'quiet-street',arcStage:'mid',ko:"가끔은 나 자신을 봐도, 나 정말 괜찮은 사람인 것 같아.",zh:"偶尔，连我自己看我自己，都觉得我真是个挺不错的人。",zhType:'reference',verify:'c',themes:['healing','female','growth','love'],before:'身处逆境的尹世理，用自我肯定为自己撑住底气。',after:'成为女性自爱台词的代表。',whyStays:'她不等别人认可，先稳稳站在自己这边——这种自我托底比被爱更难得。'},{id:'KDL-030',drama:'stove',char:'白承洙',actor:'南宫珉',ep:'第1集',lineType:['人物宣言','价值观冲突','反转'],relationship:'上下级',mood:'office',arcStage:'early',ko:"세영아, 망해도 새로 망하면 좋겠다. 똑같이 망하는 것보단.",zh:"世英啊，就算要垮，也希望以新的方式垮，而不是一直这样重复地垮下去。",zhType:'reference',verify:'c',themes:['work','life','growth','human'],before:'面试中被要求指出垫底球队Dreamz的问题，白承洙没有说场面话。',after:'这句话成为他整季改革的逻辑起点——不重复失败，哪怕失败也要是新的失败。',whyStays:'他不说"我们会变好"，而是说"就算垮也要垮得不一样"——这是成年人对惯性最狠的反叛。',anatomy:{language:'망하다（垮/失败）重复两次，第一次是被动的现状，第二次是主动选择的新失败；똑같이（一样地）被否定，凸显对重复的厌恶。',character:'白承洙从不画饼，他的乐观是冷的：接受最坏结果，但拒绝重复最坏结果。',emotion:'冷静里有不甘，像一个看过太多失败的人最后保留的一点骄傲。',plot:'面试场景定调全剧——这不是逆袭爽剧，而是一个人如何在烂摊子里拒绝摆烂。'},editorNote:'职场剧最难得的是不说"努力就会成功"，而说"就算失败也要是新的失败"。白承洙这句话把整个剧的格局立住了。'}
+,{id:'KDL-031',drama:'stove',char:'白承洙',actor:'南宫珉',ep:'第1集',lineType:['质问','价值观冲突','人物宣言'],relationship:'上下级',mood:'office',ko:"여론은 아무것도 책임 안 집니다. 전 제 밥줄 걸고 책임져요.",zh:"舆论什么都不负责。我赌上我的饭碗来负责。",zhType:'reference',verify:'c',themes:['work','human','justice','society'],before:'教练组以"球迷舆论会反对"为由抵制更换教练，白承洙直接回应。',after:'确立了他"对结果负责、不对情绪负责"的行事原则，也让团队开始意识到他不是来讨好任何人的。',whyStays:'一句话把"舆论"和"责任"拆开——网上的声音不用付代价，而做决定的人必须用饭碗担保。',editorNote:'在一个人人都怕被骂的时代，这句话是对"舆论绑架决策"最冷静的回击。'}
+,{id:'KDL-032',drama:'stove',char:'白承洙',actor:'南宫珉',ep:'第16集',lineType:['告别','独白','成长'],relationship:'上下级',mood:'farewell',arcStage:'late',ko:"제가 이렇게 떠나는 건 저한테는 익숙한 일이고. 제가 떠나는 곳이 폐허가 되지 않은 건 저한테는 처음 있는 일입니다.",zh:"我这样离开对我来说是常事。但我离开的地方没有变成废墟，这对我来说是第一次。",zhType:'reference',verify:'c',themes:['life','growth','farewell','work'],before:'赛季结束，白承洙完成使命即将离任，李世英问他有没有办法留下。',after:'全剧最后一句台词，把一个"总是离开的人"的一生收束在"第一次没有留下废墟"里。',whyStays:'他不说"我舍不得"，而是用"第一次"来定义这段关系——克制到极致的告白，是对自己职业生命的一次肯定。',anatomy:{language:'익숙한 일（常事）与처음 있는 일（第一次）形成对仗，폐허（废墟）这个词把职场离开的重量拉到了历史尺度。',character:'白承洙一生都在收拾烂摊子然后离开，这句话第一次让他承认：这次不一样。',emotion:'平静、释然，还有一点点几乎察觉不到的温柔。',plot:'结尾不煽情，只用一句自我评价完成人物弧光——从"总是离开的人"到"第一次留下了什么"。'},editorNote:'整部剧没有一句"我爱这个团队"，但这句"第一次没有变成废墟"比任何告白都重。'}
+,{id:'KDL-033',drama:'camellia',char:'东柏',actor:'孔孝真',ep:'第4集',lineType:['自我觉醒','质问','人物宣言'],relationship:'服务者与顾客',mood:'warm-indoor',arcStage:'mid',ko:"안주 값에는 제 손도 없고 제 웃음도 없어요. 술만 팔아요. 이 가게에서 당신이 돈 주고 살 수 있는 건 술뿐이에요.",zh:"下酒菜的费用里不包含我的手，也不含我的笑容。我只卖酒。你在这间店里能用钱买到的，只有酒。",zhType:'subtitle',verify:'c',themes:['female','work','growth','human'],before:'房东不断刁难东柏，提出"喝了酒就免租金"的羞辱性条件，东柏终于不再退让。',after:'这是东柏第一次明确划清边界，也让龙植彻底爱上她的骨气。',whyStays:'她不说"你别骚扰我"，而是用商业逻辑拆解骚扰——你的钱买不到我的身体和表情，这是单亲妈妈最有尊严的反击。',anatomy:{language:'안주 값（下酒菜钱）作为起点，把"手"和"笑容"逐一排除在可售商品之外，最后用술뿐（只有酒）收束，逻辑链像一份合同。',character:'东柏平时说话轻声细语，但划边界时用的是最冷静的商业语言——温柔的人硬起来最有力量。',emotion:'平静、坚定，没有愤怒，只有不容置疑的边界感。',plot:'这句话是东柏从"习惯性退让"到"开始守护自己"的转折点。'},editorNote:'女性意识的表达不靠喊口号，而靠一份"商品清单"——你能买的只有酒，其他的不卖。'}
+,{id:'KDL-034',drama:'camellia',char:'香美',actor:'孙淡妃',ep:'第8集',lineType:['独白','价值观冲突'],relationship:'朋友',mood:'quiet-street',ko:"이 세상에 잘 헤어지는 게 어디 있어. 엉망진창이 돼야 진짜 헤어지는 거지.",zh:"这世上哪有什么好好分手。闹得乱七八糟，才算是真正分开了。",zhType:'reference',verify:'c',themes:['love','breakup','human','life'],before:'香美看着身边人纠结于"体面分手"，以自己被现实磨过的经验给出判断。',after:'成为全剧关于"结束"最清醒的一句注脚，也暗示香美自己的感情从来没有过体面的结局。',whyStays:'她否定了"好聚好散"的幻觉——真正投入过的关系，结束时不可能优雅，乱七八糟才是爱过的证据。',editorNote:'很多剧写"体面告别"，这句偏要说"乱七八糟才是真的"——因为体面是演给别人看的，狼狈才是自己的。'}
+,{id:'KDL-035',drama:'reply1997',char:'旁白',actor:'旁白',ep:'第1集',lineType:['独白','成长','青春'],relationship:'自我',mood:'summer-night',ko:"누구든 사랑할 수 있을 것 같구. 사소한 것 하나에도 늘 모든 것을 버렸던 나이, 열여덟. 흔히 어른들은 우리 나이를 낙엽만 굴러가도 우는 나이라고 하지만 그때의 우린 그 어떤 어른보다 심각했고 치열했고 힘겨웠다.",zh:"每个人似乎都懂得爱。那个为了琐碎小事也能抛开一切的年纪，18岁。大人们常说我们这个年纪是看到落叶飘落也会落泪的年纪，然而那时的我们比任何大人都更认真、更炽热、也更艰难。",zhType:'subtitle',verify:'c',themes:['youth','growth','love','life'],before:'剧集以2012年同学会开场，旁白倒叙回1997年的高中时代。',after:'为整部"请回答"系列奠定了基调——不是怀旧，而是认真对待那个被大人低估的年纪。',whyStays:'它不说"青春很美好"，而是说"青春比任何时候都艰难"——因为18岁的每一件小事都是第一次，都用尽全力。',anatomy:{language:'사소한 것（琐碎小事）与모든 것을 버렸던（抛下一切）形成反差；심각했고 치열했고 힘겨웠다三个形容词递进，把"认真"从态度推到生存状态。',character:'旁白不是回忆者的感伤，而是对18岁自己的一次重新尊重——那个年纪的痛苦不是矫情。',emotion:'温柔、庄重，像一个成年人终于回头理解了当年的自己。',plot:'第一集旁白定调，全剧18集都在论证：18岁的眼泪不是因为落叶，而是因为那是第一次用全部力气活着。'},editorNote:'请回答系列最动人的不是怀旧，而是它替所有被说"小孩子懂什么"的人，认真地说了一句：你们当时的痛苦是真的。'}
+,{id:'KDL-036',drama:'signal',char:'朴海英',actor:'李帝勋',ep:'第7集',lineType:['独白','自我觉醒','价值观冲突'],relationship:'自我',mood:'suspense-dark',arcStage:'mid',ko:"과거가 바뀌어도 바뀌지 않는 게 있지. 이 세상은 불공평하다는 거야.",zh:"即使过去改变了，也有不会改变的东西。那就是这个世界是不公平的。",zhType:'reference',verify:'c',themes:['human','society','justice','life'],before:'通过无线电改变了过去，却发现有权有势者依然逍遥，无辜者依然受难，朴海英终于承认一个残酷事实。',after:'这句话让《信号》从"穿越破案"升级为对社会结构的拷问——改变个案容易，改变不公很难。',whyStays:'它打碎了"只要找到真相就能改变一切"的幻想——真相可以被揭开，但不公的结构不会因为一部无线电就消失。',editorNote:'悬疑剧最狠的不是凶手是谁，而是主角亲口承认：就算我们赢了，这个世界还是不公平。'}
+,{id:'KDL-037',drama:'signal',char:'李材韩',actor:'赵震雄',ep:'第7集',lineType:['质问','价值观冲突','人物宣言'],relationship:'跨时空对话者',mood:'rain-night',ko:"거기도 그래요? 돈 있고 빽 있으면 무슨 짓을 해도 잘 먹고 잘 사나요?",zh:"那里也是那样吗？有钱有后台的话，做什么坏事也都能好好活着吗？",zhType:'reference',verify:'c',themes:['justice','human','society','crime'],before:'李材韩在1995年追查权贵案件处处碰壁，隔着无线电问2015年的朴海英：未来是否有所不同。',after:'朴海英无法正面回答——这个沉默本身就是答案，也成为两人继续追查的动力。',whyStays:'一个1989年的刑警问2015年的后辈"那里也是那样吗"，跨越26年的问号悬在那里，比任何控诉都重。',anatomy:{language:'거기도（那里也）把两个时空并置；돈 있고 빽 있으면（有钱有后台的话）是韩国社会最现实的关键词；잘 먹고 잘 살다（吃香喝辣）用最日常的词描述最刺眼的特权。',character:'李材韩不是愤青，他是真的在问——他还抱着"也许未来不一样了"的希望，所以这个问题才让人心疼。',emotion:'疲惫、不甘，还有一丝不肯熄灭的期待。',plot:'这句话是全剧的核心追问：如果26年后还是一样，那我们追查的意义是什么？答案在两人不肯停下的脚步里。'},editorNote:'跨越26年的一句"那里也是那样吗"，是对所有时代的拷问。最悲哀的是，提问的人还抱着希望。'}
+,{id:'KDL-038',drama:'doctor',char:'杨硕亨',actor:'金大明',ep:'第2季第2集',lineType:['安慰','独白','治愈'],relationship:'医生与患者家属',mood:'warm-indoor',ko:"불행한 일은 착한 사람에게도 일어난다.",zh:"不幸的事，也会发生在善良的人身上。",zhType:'reference',verify:'c',themes:['healing','life','death','human'],before:'患者家属无法理解"为什么这么善良的人会遭遇这种事"，杨硕亨用这句话回应。',after:'成为全剧传播最广的台词之一，被无数人在面对无妄之灾时引用。',whyStays:'它不说"一切都会好的"，而是承认"好人也会遭殃"——这种诚实比安慰更有力量，因为它允许人先接受不公平，再继续生活。',editorNote:'治愈系台词的最高境界不是给希望，而是先诚实地承认不公平。这句话做到了。'}
+,{id:'KDL-039',drama:'doctor',char:'安政源',actor:'柳演锡',ep:'第1季第1集',lineType:['人物宣言','职业独白','治愈'],relationship:'医生与患者',mood:'office',ko:"의사가 환자에게 확실하게 말해줄 수 있는 말은 딱 하나야. 우리는 최선을 다하겠다.",zh:"医生能明确告诉患者的话只有一句。我们会竭尽全力。",zhType:'reference',verify:'c',themes:['work','healing','life','human'],before:'被问到为什么医生总说"不确定""再观察"，安政源解释医生必须对说出口的每一句话负责。',after:'成为律帝医院五位医生的共同职业信条，也贯穿全剧对"医学边界"的讨论。',whyStays:'它承认了医学的局限——医生不能保证结果，但能保证过程。这种诚实本身就是最大的安慰。',editorNote:'医疗剧最容易写成"医生无所不能"，这句偏要说"我们只能保证尽力"——专业的尊严在于承认边界。'},{id:'KDL-040',drama:'evilflower',char:'都海秀',actor:'张熙珍',ep:'第9集',lineType:['独白','价值观冲突','成长'],relationship:'姐弟',mood:'quiet-street',ko:"중요한 건 시간이 지나고 나면 '그건 그렇게 중요한 건 아니었구나' 깨닫게 되고, 소중한 건 지나고 나면 많이 아프더라.",zh:"重要的东西，时间一过就会明白'原来没那么重要'；而珍贵的东西，过去之后会很痛。",zhType:'reference',verify:'c',themes:['life','love','growth','human'],before:'都海秀比谁都清楚弟弟贤秀不是怪物，也最先察觉他因为智媛而有了"爱人的能力"。',after:'这句关于"重要"与"珍贵"的区分，成为全剧最被引用的人生注脚。',whyStays:'它不说"放下"，而是区分了两种失去——重要的东西会被时间稀释，珍贵的东西只会因为时间越来越痛。',anatomy:{language:'중요하다（重要）与소중하다（珍贵）是韩语中最容易混淆的一对词，这里用时间做切割：前者被时间解构，后者被时间加深。',character:'都海秀一生都在替弟弟背罪，她对"珍贵"的理解来自失去，而非拥有。',emotion:'平静、清醒，像一个已经痛过的人在给没痛过的人上课。',plot:'第9集姐弟对话，把悬疑剧的节奏突然拉慢，用一句人生感悟让观众理解这个家庭的创伤。'},editorNote:'韩语里"重要"和"珍贵"的区别，被这一句讲透了——重要的会过去，珍贵的会一直痛。'}
+,{id:'KDL-041',drama:'evilflower',char:'车志元',actor:'文彩元',ep:'第10集',lineType:['独白','告别','自我觉醒'],relationship:'夫妻',mood:'rain-night',ko:"너한테 나밖에 없었구나. 지금 너한테도 나밖에 없겠구나.",zh:"原来你从来都只有我。现在的你，也只有我了。",zhType:'reference',verify:'c',themes:['love','healing','life','female'],before:'发现丈夫隐瞒身份14年后，志元不得不怀疑他，但翻遍他的人生，发现相信他的人从头到尾只有自己。',after:'这句自言自语成为她最终选择站在贤秀身边的心理转折点——不是原谅，而是"除了我没人信他"。',whyStays:'她不说"我相信你"，而是说"你只有我"——把爱情从信任降级为陪伴，反而更沉重。',editorNote:'最绝望的告白不是"我爱你"，而是"原来这世界上只有我"。'}
+,{id:'KDL-042',drama:'evilflower',char:'都贤秀',actor:'李准基',ep:'第11集',lineType:['独白','自我觉醒','成长'],relationship:'夫妻',mood:'warm-indoor',arcStage:'late',ko:"지원아, 너는 내 인생에서 가장 설명하기 어려운 부분이야. 너무 현실적이고 말도 안 되고.",zh:"志元啊，你是我人生中最难解释的部分，太现实，又太不像话。",zhType:'reference',verify:'c',themes:['love','human','growth','healing'],before:'被诊断为情感感知障碍的贤秀，一生都在模仿正常人的表情和情绪，直到遇见志元后第一次产生无法归类的感觉。',after:'紧接着他第一次说出"我爱你，志元啊"，一个认为自己没有感情的人，用最笨拙的方式完成了情感觉醒。',whyStays:'他不说"你是我的命运"，而是说"你是我最难解释的部分"——一个逻辑清晰的人，在爱情面前第一次承认自己无法理解自己。',anatomy:{language:'설명하기 어려운 부분（难以解释的部分）是全剧最精准的自我诊断——一个靠分析表情活着的人，终于遇到了分析不了的东西。',character:'都贤秀的语言一直是计算性的，只有面对志元时，他的语言系统会失效，这种失效本身就是爱。',emotion:'困惑、感激，还有一点对自己的陌生。',plot:'第11集情感爆发点，从"我没有感情"到"我爱你"的过渡，全靠这句"最难解释"来搭桥。'},editorNote:'一个认为自己没有感情的人，说"你是我最难解释的部分"——这比任何"我爱你"都更像告白。'}
+,{id:'KDL-043',drama:'springnight',char:'刘志浩',actor:'丁海寅',ep:'第4集',lineType:['拒绝','反转','成年人关系'],relationship:'暧昧对象',mood:'quiet-street',ko:"지금 오면 이정인은 돌아갈 수 없어.",zh:"现在来找我的话，李静仁就回不去了。",zhType:'reference',verify:'c',themes:['love','growth','adult','life'],before:'静仁在图书馆找不到志浩，打电话要求见面谈清楚。志浩知道一旦见面，两人都无法再退回"普通朋友"。',after:'这句拒绝让静仁心乱如麻，也成为全剧最经典的"反向告白"——不是"别来"，而是"来了就回不去了"。',whyStays:'他不说"我不能见你"，而是替对方计算代价——成年人的暧昧不是不想，是不敢。',anatomy:{language:'돌아갈 수 없어（回不去了）用的是可能性否定，不是命令式。他不禁止她来，只是陈述后果，把选择权还给对方。',character:'刘志浩作为单亲爸爸，每一步都在计算代价，这句拒绝里全是克制的喜欢。',emotion:'冷静、克制，底下是压不住的心动。',plot:'第4集结尾，全剧暧昧张力的顶点——没有拥抱没有牵手，只有一句"回不去了"。'},editorNote:'成年人的爱情最动人的不是"来吧"，而是"来了就回不去了"——他替你把代价算好了，你还来不来？'}
+,{id:'KDL-044',drama:'springnight',char:'刘志浩',actor:'丁海寅',ep:'第11集',lineType:['独白','自我觉醒','成长'],relationship:'自我',mood:'warm-indoor',ko:"좋은 건 부모한테 물려받은 거고, 나쁜 건 제가 만든 거예요.",zh:"好的应该是遗传自父母吧，坏的就来自我自己。",zhType:'reference',verify:'c',themes:['life','growth','family','human'],before:'静仁问志浩性格随了谁，他没有抱怨单亲家庭的不幸，而是把好的归于父母、坏的归于自己。',after:'这句被观众称为"对生活有深刻理解并原谅了所有不堪的人，才能写出来的句子"。',whyStays:'他不说"我性格不好是因为家庭"，而是把好的留给父母、坏的留给自己——这是真正温柔的人对自己来处的态度。',editorNote:'很多人把性格缺陷归咎于原生家庭，这句偏要说"好的是父母给的，坏的是我自己的"——温柔到让人心疼。'}
+,{id:'KDL-045',drama:'melo',char:'林真珠',actor:'千玗嬉',ep:'第6集',lineType:['独白','和解','成长'],relationship:'前任',mood:'summer-day',ko:"그때 우린, 그때 시간 안에서 최선을 다한 거야. 지난 시간은 그냥 두자, 자연스럽게.",zh:"那时候的我们，在那个时间里已经尽了全力。过去的时间就放下吧，顺其自然。",zhType:'reference',verify:'c',themes:['life','growth','love','healing'],before:'真珠在片场偶遇大学时的恋人焕东，两人没有尴尬或怨恨，而是平静确认了彼此在那段时间里都尽了力。',after:'成为全剧关于"与过去和解"最核心的一句，也定义了三十岁女性的成熟——不是忘记，是不再追问。',whyStays:'它不说"都过去了"，而是说"那时候我们已经尽力了"——给过去的自己一个交代，然后才能放下。',editorNote:'与前任和解的最高境界不是"祝你幸福"，而是承认"那时候我们都尽力了"。'}
+,{id:'KDL-046',drama:'melo',char:'林真珠',actor:'千玗嬉',ep:'第10集',lineType:['独白','梦想','自我觉醒'],relationship:'自我',mood:'quiet-street',ko:"어차피 이상한 세상인데 한 번쯤 낮은 가능성에 기대를 걸어 보는 것. 이것이 저의 오늘에게 마땅한 명분입니다.",zh:"反正这是个奇怪的世界，偶尔对渺茫的可能性抱一次期待。这就是我今天该有的理由。",zhType:'reference',verify:'c',themes:['life','dream','growth','healing'],before:'真珠的剧本陷入剽窃争议，事业跌入谷底，她没有鸡血式逆袭，而是用这句话给自己一个继续的理由。',after:'成为三十岁女性"丧而治愈"的代表台词——不打鸡血，只给一个勉强说得过去的继续理由。',whyStays:'它不说"加油你可以的"，而是说"反正世界很奇怪，赌一次小概率又怎样"——这是成年人最诚实的励志。',anatomy:{language:'어차피（反正）开篇就消解了所有宏大叙事；낮은 가능성（低可能性）不用"희망（希望）"而用"기대（期待）"，比希望更轻，也更真实。',character:'真珠不是热血型主角，她的励志是丧到底之后的一点点不甘心。',emotion:'疲惫、释然，还有一点点不肯熄灭的期待。',plot:'第10集事业低谷期，用一句独白把"丧"和"治愈"同时装进去。'},editorNote:'成年人的励志不是"我一定行"，而是"反正世界很奇怪，赌一次小概率又怎样"。'}
+,{id:'KDL-047',drama:'itaewon',char:'朴世路',actor:'朴叙俊',ep:'第1集',lineType:['人物宣言','独白','反抗'],relationship:'自我',mood:'suspense-dark',arcStage:'early',ko:"나는 돌이다. 뜨겁게 태워라. 나는 꿈쩍도 않는 돌이다. 마음껏 짓밟아라. 나는 단단한 돌이다. 어두운 구덩이에 가둬라. 나는 홀로 빛나는 돌이다. 부서지지 않고 재가 되지 않으며 자연의 법칙에 복종하지 않는다. 나는 살아남았다. 나는 다이아몬드다.",zh:"我是一颗石头，炙热地燃烧我吧。我是一颗岿然不动的石头，尽情打压我吧。我是一颗坚固的石头，把我关进幽深的黑暗吧。我是一颗独自闪耀的石头，我不会破碎，不会化为灰烬，拒绝服从自然法则。我存活了下来，我是一颗钻石。",zhType:'reference',verify:'c',themes:['life','growth','dream','human','justice'],before:'父亲被财阀之子害死，朴世路被退学、入狱，人生跌入谷底时在狱中写下这段宣言。',after:'这首"石头诗"成为他一生的精神底色，也是整部剧"小人物反抗财阀"的语言原点。',whyStays:'它不说"我要复仇"，而是用石头→钻石的意象，把压迫转化为淬炼——被打的每一下都在让自己更硬。',anatomy:{language:'돌（石头）重复七次，每次加一个形容词：뜨겁게（炙热）→꿈쩍도 않는（岿然不动）→단단한（坚固）→홀로 빛나는（独自闪耀）→다이아몬드（钻石），递进结构本身就是人物弧光。',character:'朴世路的语言体系里没有华丽辞藻，只有最硬的名词——石头、黑暗、灰烬、钻石。',emotion:'压抑、愤怒，最后升华为不可摧毁的平静。',plot:'第1集狱中独白，用一首诗完成了人物从"被打倒的人"到"打不倒的人"的转变。'},editorNote:'韩剧最有力量的独白之一——不是"我要打败你"，而是"你打压我吧，我会变成钻石"。'}
+,{id:'KDL-048',drama:'blues',char:'李东锡',actor:'李秉宪',ep:'第2集',lineType:['质问','独白','孤独'],relationship:'暗恋对象',mood:'winter-outdoor',ko:"넌 나까짓 거 좋아하면 안 되냐?",zh:"你就不能喜欢我这样的人吗？",zhType:'reference',verify:'c',themes:['love','life','lonely','human'],before:'东锡半生都在济州岛市场卖鱼，被初恋善雅视为"没出息的人"，多年后重逢，他终于问出这句话。',after:'这句用最卑微的语气问出最沉重的问题，成为李秉宪全剧最让人心疼的瞬间。',whyStays:'他不说"你为什么不喜欢我"，而是说"我这样的人就不能被喜欢吗"——把自我厌恶藏在质问里。',editorNote:'"나까짓 거（我这样的家伙）"是全剧最痛的三个音节——一个人要被看轻多少次，才会用这种词称呼自己。'}
+,{id:'KDL-049',drama:'blues',char:'李英玉',actor:'金宇彬',ep:'第2集',lineType:['拒绝','反转','治愈'],relationship:'暧昧对象',mood:'summer-day',ko:"나한테 왜 잘해줘? 설마 나 좋아해? 그러지 마. 다쳐.",zh:"为什么对我好？难道喜欢我？别这样，会受伤的。",zhType:'reference',verify:'c',themes:['love','healing','growth','adult'],before:'海女正俊对船长英玉格外好，英玉因为自己有个需要终身照顾的智障妹妹，不敢接受任何人的靠近。',after:'正俊回答"这是我的心"，成为全剧最温柔的回应——你怕受伤是你的事，我喜欢你是我的事。',whyStays:'她不说"我配不上你"，而是说"别这样，会受伤"——把拒绝包装成保护，其实是在保护自己。',editorNote:'最让人心动的拒绝——"别对我好，会受伤的"，因为她比谁都清楚自己身后拖着多重的人生。'},{id:'KDL-050',drama:'juvenile',char:'沈恩锡',actor:'金惠秀',ep:'第1集',lineType:['人物宣言','独白','价值观冲突'],relationship:'法官与少年犯',mood:'office',arcStage:'early',ko:"저는 소년범을 혐오합니다.",zh:"我对少年犯，厌恶至极。",zhType:'subtitle',verify:'v',themes:['justice','law','human','society'],before:'记者问沈恩锡为什么选择当少年法庭法官，她没有说"为了教育孩子"这种场面话。',after:'这句话定义了她"十恩锡"的称号——只要是她审的案子，几乎都是最重的十号处分。',whyStays:'她不说"我要拯救他们"，而是说"我厌恶他们"——一个法官对少年犯的诚实，比任何温情都更有力量。',anatomy:{language:'혐오하다（厌恶）是全剧最重的一个词，不用"무섭다（害怕）"或"안타깝다（惋惜）"，直接用最极端的情感词定调。',character:'沈恩锡的冷漠不是天生的，是被无数个"不知悔改的少年"磨出来的——厌恶的背面是曾经的期待。',emotion:'平静、冰冷，没有愤怒，只有一种被磨尽了温情的决绝。',plot:'第一集开场定调，全剧都在追问：一个厌恶少年犯的法官，是否反而能给受害者真正的正义？'},editorNote:'法律剧最忌讳主角说"我要拯救所有人"。这句"我厌恶他们"反而更真实——因为厌恶，所以才更要让他们付出代价。'}
+,{id:'KDL-051',drama:'juvenile',char:'沈恩锡',actor:'金惠秀',ep:'第4集',lineType:['独白','人物宣言','成长'],relationship:'法官与监护人',mood:'office',ko:"소년은 결코 혼자 자라지 않습니다. 오늘 처분은 소년에게 내렸지만 그 처분의 무게는 보호자도 함께 느끼셔야 할 것입니다.",zh:"少年绝不会独自长大。今天处分的是少年，但这处分的重量，监护人也必须一同承受。",zhType:'subtitle',verify:'v',themes:['law','family','society','human'],before:'庭审中发现少年犯的父母长期缺席，沈恩锡在宣判时直接对监护人说出这句话。',after:'成为全剧被引用最多的台词之一，把"少年犯罪"从个体问题拉回家庭和社会责任。',whyStays:'她不骂"你怎么教孩子的"，而是用"处分的重量"这个概念——法律惩罚的不只是孩子，还有缺席的父母。',editorNote:'"少年不会独自长大"——六个字把整个少年司法的核心说透了：每一个犯罪的少年背后，都有缺席的大人。'}
+,{id:'KDL-052',drama:'juvenile',char:'沈恩锡',actor:'金惠秀',ep:'第10集',lineType:['独白','告别','自我觉醒'],relationship:'自我',mood:'quiet-street',arcStage:'late',ko:"미안합니다. 어른으로써.",zh:"对不起。作为大人。",zhType:'subtitle',verify:'v',themes:['society','human','growth','life'],before:'全剧最后一场戏，沈恩锡处理完所有案件，站在法院门口，对那些被社会和家庭辜负的少年们说出这句话。',after:'全剧以这六个字收尾，没有总结陈词，没有正义宣言，只有一句迟到的道歉。',whyStays:'她不说"我会继续努力"，而是说"对不起"——一个法官最终承认：少年犯罪的根源，是我们这些大人没做好。',anatomy:{language:'미안합니다（对不起）用敬语，어른으로써（作为大人）把道歉的主体从"我"扩展到所有成年人。全句只有两个词，却比任何长篇大论都重。',character:'沈恩锡从"厌恶少年犯"到"作为大人道歉"，完成了全剧最安静也最彻底的人物转变。',emotion:'疲惫、愧疚，还有一种终于说出口的释然。',plot:'第10集结尾，全剧不设续集钩子，只用一句道歉收束——因为问题不会因为一部剧结束而解决。'},editorNote:'整部剧十集，最后只有六个字："对不起，作为大人。"——这是对所有少年犯最诚实的判决，也是对所有成年人最沉重的质问。'}
+,{id:'KDL-053',drama:'deathgame',char:'崔怡在',actor:'徐仁国',ep:'第1集',lineType:['独白','自我觉醒','死亡'],relationship:'自我',mood:'suspense-dark',arcStage:'early',ko:"나는 사는 게 두렵지, 죽음 따윈 전혀 두렵지 않다. 죽음은 그저 내 고통을 끝내 줄 하찮은 도구일 뿐이니까.",zh:"我害怕活着，死亡一点都不怕。死亡不过是结束我痛苦的、微不足道的工具罢了。",zhType:'reference',verify:'c',themes:['death','life','human','growth'],before:'崔怡在求职失败、女友分手、母亲辛苦，人生跌入谷底，站在楼顶准备跳楼。',after:'他选择了自杀，却因此激怒了死亡本身——被惩罚经历12次死亡与重生。',whyStays:'他不说"我想死"，而是说"我怕活着"——把自杀从冲动变成了一种对生存本身的恐惧，更让人心疼。',editorNote:'一个人不怕死，只怕活着——这句话比任何"我要自杀"的呐喊都更绝望。'}
+,{id:'KDL-054',drama:'deathgame',char:'死亡',actor:'朴素谈',ep:'第1集',lineType:['独白','质问','价值观冲突'],relationship:'神与人',mood:'suspense-dark',ko:"인간들은 참 대단해. 삶이 지옥 같다고 말하면서 그 지옥을 하루하루 잘 버티면서 살아가잖아.",zh:"人类真了不起。一边说生活像地狱，一边又一天天撑着活在那个地狱里。",zhType:'reference',verify:'c',themes:['life','human','death','growth'],before:'崔怡在说"活着比死还痛苦"，死亡用这句话回应他——你以为只有你苦吗？',after:'成为全剧的核心追问：如果活着本身就是地狱，那继续撑着的人到底是懦弱还是勇敢？',whyStays:'它不说"你要坚强"，而是说"人类真了不起"——从死神嘴里说出的赞美，比任何人的鼓励都更有分量。',anatomy:{language:'지옥 같다（像地狱）与버티면서 살아가다（撑着活）形成张力；참 대단해（真了不起）用最轻的语气说最重的判断。',character:'死亡不是冷酷的审判者，她更像一个看了太多人类痛苦的旁观者，语气里有嘲讽也有敬畏。',emotion:'平静、嘲讽，底下是一种对人类韧性的复杂敬意。',plot:'第1集死神与崔怡在的对话，定下全剧"12次重生"的逻辑——让他看看别人是怎么在地狱里撑着的。'},editorNote:'从死神嘴里说出"人类真了不起"，是对所有还在撑着的人最高的赞美。'}
+,{id:'KDL-055',drama:'deathgame',char:'崔怡在',actor:'徐仁国',ep:'第2集',lineType:['独白','成长','人生'],relationship:'自我',mood:'winter-outdoor',ko:"나는 홀어머니 밑에서 가난에 허덕이며 살았었다. 하지만 나는 부자가 되고 싶은 것이 아니었다. 그저 남들처럼 취업하고 결혼하고, 가정을 꾸리는 그 정도의 평범함을 바랄 뿐이었다. 하지만 내겐 그 평범함도 너무 높은 허들이었다.",zh:"我在单亲妈妈手下贫穷地活着。但我并不想成为富人，只是想像别人一样就业、结婚、组建家庭，只想要那种程度的平凡。但对我来说，那种平凡也是太高的门槛。",zhType:'reference',verify:'c',themes:['life','society','growth','human'],before:'崔怡在回忆自己的一生，发现自己从未奢求过什么，只是想要"普通人的生活"。',after:'这段独白让观众理解他为什么选择自杀——不是因为贪心，而是因为连最基本的平凡都够不到。',whyStays:'他不说"社会不公平"，而是说"平凡对我来说也是太高的门槛"——把阶级固化的痛苦压缩成一句最朴素的话。',editorNote:'最扎心的不是"我想成为富人"，而是"我只想要平凡，但平凡对我来说也是奢侈品"。'}
+,{id:'KDL-056',drama:'dp',char:'申惠妍',actor:'金智贤',ep:'第2季第4集',lineType:['质问','反抗','人物宣言'],relationship:'军检察官与上级',mood:'office',ko:"계란으로 바위를 치면 안 돼? 계란이 깨져도 흔적은 남잖아. 바위에 계란이 묻을 거야.",zh:"不能用鸡蛋撞石头吗？就算鸡蛋破了，也还是会留下痕迹啊。蛋会沾在岩石上。",zhType:'reference',verify:'c',themes:['justice','society','human','growth'],before:'上级劝她不要硬碰军方系统，说这是"鸡蛋碰石头"，申惠妍直接反驳。',after:'成为全剧最被引用的反抗宣言——小人物对抗系统时，最需要的不是胜算，而是"留下痕迹"的决心。',whyStays:'她不说"我一定会赢"，而是说"就算破了也要留下痕迹"——这是明知必败仍然要撞上去的勇气。',anatomy:{language:'계란（鸡蛋）与바위（石头）是韩语中最常见的强弱比喻，但这里反转了：不是问能不能赢，而是问"能不能留下痕迹"。',character:'申惠妍不是热血型主角，她的反抗是冷静的——知道会碎，但碎了也要弄脏石头。',emotion:'平静、坚定，没有愤怒，只有一种计算过代价之后的决绝。',plot:'第二季中段，军方试图掩盖霸凌致死事件，申惠妍用这句话拒绝妥协。'},editorNote:'反抗的意义不是赢，而是"就算碎了，也要在石头上留下蛋的痕迹"。'}
+,{id:'KDL-057',drama:'dp',char:'林智燮',actor:'孙锡久',ep:'第2季第6集',lineType:['独白','质问','价值观冲突'],relationship:'军人与国家',mood:'rain-night',ko:"군인이 누군가를 죽였어. 그 사람이 범인인 건 맞아. 근데 그 사건에서 국가는 뭐 했어? 피해자도 가해자도 다 국가 시스템 안에 있었는데. 국가도 공범이고 방조범이야. 국가도 잘못했으면 잘못했다고 해야지.",zh:"有军人杀了人，他确实是犯人。但在这件事里，国家做了什么？受害者和加害者都在国家的系统里。国家也是共犯、也是帮凶。国家错了就该认错。",zhType:'reference',verify:'c',themes:['justice','society','human','law'],before:'军营霸凌导致士兵开枪杀人，军方试图把全部责任推给个人，林智燮在调查中说出这句话。',after:'成为全剧对"系统性暴力"最直接的控诉——不只是某个人坏了，而是整个系统在制造加害者和受害者。',whyStays:'他不说"凶手该死"，而是说"国家也是共犯"——把个案拉到制度层面，这才是D.P.真正想讲的东西。',editorNote:'一部讲逃兵的剧，最后最狠的台词是"国家也是共犯"——因为霸凌从来不是个人问题，是系统问题。'},{id:'KDL-058',drama:'moving',char:'李美贤',actor:'韩孝周',ep:'第3集',lineType:['独白','人物宣言','成长'],relationship:'母子',mood:'warm-indoor',ko:"초능력이 뭐가 중요해? 공감 능력이 진짜 능력이지. 다른 사람을 이해할 수 있는 게 가장 중요한 능력이고.",zh:"超能力算什么？同理心才是真正的能力。能够理解他人，才是最重要的能力。",zhType:'reference',verify:'c',themes:['human','growth','healing','life'],before:'儿子奉皙为了引起同学注意，在学校用飞行能力从攀爬架跳下，美贤没有夸他厉害，而是告诉他什么才是真正的力量。',after:'这句话成为奉皙一生的行为准则——后来他每次使用能力，都是为了保护和理解别人，而不是炫耀。',whyStays:'她不说"能力越大责任越大"，而是说"同理心才是能力"——把超级英雄的内核从力量拉回了人性。',anatomy:{language:'초능력（超能力）与공감 능력（同理心）形成对比；진짜（真正的）这个词把"超能力"降格为表面，把"同理心"升格为本质。',character:'李美贤作为前黑色要员，比谁都清楚力量的危险，所以她教儿子的第一课不是怎么飞，而是为什么飞。',emotion:'温柔、坚定，像一个见过太多暴力的母亲在给孩子接种人性的疫苗。',plot:'第3集母子对话，为全剧"超能力者也是人"的主题定调。'},editorNote:'一部超级英雄剧，最核心的台词却是"同理心才是能力"——这就是《超异能族》和其他英雄剧的区别。'}
+,{id:'KDL-059',drama:'moving',char:'金斗植',actor:'赵寅成',ep:'第5集',lineType:['独白','价值观冲突','成长'],relationship:'同事',mood:'winter-outdoor',ko:"우리도 사람이야. 일부러 실패한 건 실패가 아니야.",zh:"我们也是人。刻意的失败，不是失败。",zhType:'reference',verify:'c',themes:['human','justice','growth','life'],before:'美贤在任务中出于人道主义故意放走目标，因此被调离前线。斗植作为狙击手亲眼目睹，重逢后对她说这句话。',after:'成为两人感情的起点——斗植爱上的不是美贤的能力，而是她在"完成任务"和"做个人"之间选择了后者。',whyStays:'他不说"你做得对"，而是说"刻意的失败不是失败"——在一个只看结果的系统里，给人性留了一个出口。',editorNote:'在"任务优先"的世界里，有人告诉你"刻意的失败不是失败"——这比任何"我支持你"都更有力量。'}
+,{id:'KDL-060',drama:'moving',char:'张洙源',actor:'柳承龙',ep:'第7集',lineType:['独白','表白','成长'],relationship:'恋人',mood:'quiet-street',arcStage:'mid',ko:"난 아직 길을 못 찾겠어. 하지만 너는 찾을 수 있어.",zh:"我还是找不到路，但我能找到你。",zhType:'reference',verify:'c',themes:['love','growth','healing','life'],before:'洙源有不死之身却没有方向感，被兄弟背叛后迷失人生，直到遇见智熙。经历追杀和训练后，他回到咖啡店找她。',after:'成为全剧最被引用的爱情台词——一个找不到路的人，把爱人当成了唯一的方向。',whyStays:'他不说"我爱你"，而是说"我找不到路但能找到你"——把路痴这个缺点变成了最浪漫的告白。',anatomy:{language:'길을 못 찾다（找不到路）是字面意义的路痴，但너를 찾을 수 있어（能找到你）把"找"的对象从路变成了人，双关自然。',character:'张洙源一生横冲直撞，只有在智熙面前才承认自己"找不到路"——脆弱本身就是告白。',emotion:'笨拙、真诚，像一个不会说情话的人用最笨的方式说了最动人的话。',plot:'第7集咖啡店重逢，用一句告白完成了从"迷失的人"到"有了方向的人"的转变。'},editorNote:'最浪漫的告白不是"我爱你"，而是"我找不到全世界的路，但我能找到你"。'}
+,{id:'KDL-061',drama:'goodpartner',char:'车恩京',actor:'张娜拉',ep:'第6集',lineType:['独白','自我觉醒','女性'],relationship:'母子',mood:'office',ko:"부모는 모두 자기 자신을 지워가는 과정을 겪어. 네 자아가 흔적도 없이 사라지고 그냥 부모라는 신분으로만 살게 되는 거야.",zh:"所有的父母，都会经历删除自我的过程。你的自我会消失得无影无踪，只会以父母这个身份过日子。",zhType:'reference',verify:'c',themes:['female','family','society','growth'],before:'菜鸟律师韩宥理想不通为什么有母亲要放弃孩子抚养权，车恩京用自己作为母亲的经历告诉她真相。',after:'成为全剧最被引用的女性议题台词——在一个歌颂"母爱伟大"的社会里，说出了母亲作为"人"的消失。',whyStays:'她不说"当妈妈很辛苦"，而是说"自我会被删除"——把母职从牺牲叙事拉回了个体消失的残酷现实。',anatomy:{language:'자기 자신을 지워가다（删除自我）用"删除"这个数字化时代的词，比"牺牲"更冷、更准；흔적도 없이（无影无踪）强调消失的彻底性。',character:'车恩京自己就是在婚姻中差点失去自我的人，所以这句话不是说教，是自白。',emotion:'平静、疲惫，像一个过来人在给后辈看一道还没愈合的伤口。',plot:'第6集抚养权案件，把一个法律问题拉到了女性自我的层面。'},editorNote:'"所有父母都会经历删除自我"——这句话之所以刺痛，是因为它说的不是"伟大"，而是"消失"。'}
+,{id:'KDL-062',drama:'goodpartner',char:'车恩京',actor:'张娜拉',ep:'第16集',lineType:['独白','人物宣言','成长'],relationship:'自我',mood:'quiet-street',arcStage:'late',ko:"정답은 없어. 결혼이든 비혼이든 이혼이든 그냥 선택 중 하나일 뿐. 우리가 해야 할 건 정답을 고르는 게 아니라 내 선택을 정답으로 만드려고 노력하는 거야. 최선을 다했으면 후회하지 마. 그냥 다음 선택을 하면 돼. 계속 선택하고 그 책임을 지는 거, 그게 인생이 아니겠어?",zh:"没有什么正确答案。结婚、不婚、离婚，都只是选择之一。我们该做的不是选出正确答案，而是努力让自己的选择成为正确答案。尽了全力就不要后悔，做出下一个选择就行了。反复选择并为之负责，这不就是人生吗？",zhType:'reference',verify:'c',themes:['life','growth','love','human'],before:'大结局，车恩京打完自己的离婚官司，也帮无数人完成了离婚，她对人生和选择给出了最终的回答。',after:'全剧最后一句核心台词，把一部离婚律政剧升华为关于"选择与负责"的人生剧。',whyStays:'她不说" follow your heart"，而是说"没有正确答案，让选择成为正确答案"——这是成年人最诚实的人生哲学。',anatomy:{language:'정답（正确答案）重复四次，从否定到重新定义；선택（选择）重复五次，把人生从"找答案"重构为"做选择并负责"。',character:'车恩京从"必须赢"的律师，到"接受不完美"的人，这句话是她整季成长的总结。',emotion:'平静、释然，像一个打了无数胜仗的人终于承认：人生不是官司，没有胜负。',plot:'第16集大结局，用一段独白收束全剧——不是正义得到了伸张，而是人学会了与选择共处。'},editorNote:'离婚剧的最后一句台词不是"婚姻是围城"，而是"没有正确答案，让选择成为正确答案"——格局一下子从婚姻升到了人生。'}
+,{id:'KDL-063',drama:'goodpartner',char:'车恩京',actor:'张娜拉',ep:'第4集',lineType:['独白','价值观冲突','质问'],relationship:'夫妻',mood:'office',ko:"부부란 가족이 된 남남이야.",zh:"夫妻，就是成为了家人的陌生人。",zhType:'reference',verify:'c',themes:['love','life','human','society'],before:'韩宥利问车恩京"夫妻到底是什么"，车恩京用一句话概括了她处理过的上千起离婚案件。',after:'成为全剧最锋利的婚姻定义——不是"爱情的结晶"，而是"变成家人的陌生人"。',whyStays:'她不说"婚姻是爱情的坟墓"，而是说"成为家人的陌生人"——比悲观更冷，比客观更准。',editorNote:'十个字定义了婚姻："成为家人的陌生人"——一个离婚律师看过上千对夫妻之后，给出的最诚实答案。'},{id:'KDL-064',drama:'queenoftears',char:'白贤佑',actor:'金秀贤',ep:'第3集',lineType:['表白','人物宣言','成长'],relationship:'恋人',mood:'winter-outdoor',ko:"내가 같이 있을 거니까.",zh:"因为我会在你身边。",zhType:'reference',verify:'c',themes:['love','life','growth','healing'],before:'贤佑向海仁求婚，海仁担心自己的债务和家族会拖累他，贤佑用这句话回应。',after:'成为两人感情的原点——后来无论经历多少磨难，这句话都是贤佑"不放手"的初心。',whyStays:'他不说"我爱你"，而是说"我会在你身边"——韩语的같이（一起）不只是空间上的陪伴，而是"你的债务、你的困难，都变成我们的"的命运共同体宣言。',anatomy:{language:'같이（一起）是韩语中最有分量的词之一，它不只是"with"，而是韩国文化里"우리（我们）"共同体意识的体现——说出口就意味着"你的事就是我的事"。',character:'白贤佑出身普通，面对财阀女友的巨额债务，他没有退缩，而是用最朴素的话承担了一切。',emotion:'平静、坚定，像一个不会说情话的人用最笨的方式说了最重的话。',plot:'第3集求婚回忆，为全剧"即使婚姻破裂也不放手"的感情线埋下伏笔。'},editorNote:'最有分量的告白不是"我爱你"，而是"我会在你身边"——因为같이这个词在韩语里，意味着你的一切都变成了我们的。'}
+,{id:'KDL-065',drama:'queenoftears',char:'洪海仁',actor:'金智媛',ep:'第11集',lineType:['告白','告别','自我觉醒'],relationship:'夫妻',mood:'rain-night',arcStage:'late',ko:"처음 봤을 때부터 지금까지 사랑했어.",zh:"从第一次见到你，到现在，我一直爱着你。",zhType:'reference',verify:'c',themes:['love','farewell','growth','life'],before:'海仁脑癌病重，醒来后以为自己时日无多，终于对贤佑说出了藏了三年的真心话。',after:'全剧最催泪的告白——她用的是过去式사랑했어（爱过），而不是现在式사랑해（爱你），因为她以为这是遗言。',whyStays:'她不说"사랑해"，而是说"사랑했어"——一个骄傲了一辈子的女人，在以为自己要死的时候，才敢用过去式承认自己一直爱着。这个时态本身就是全剧最痛的地方。',anatomy:{language:'사랑했어是过去式，사랑해是现在式。海仁选择过去式，不是因为不爱了，而是因为她以为自己没有未来了——这是一句遗言式的告白。',character:'洪海仁一生嘴硬，从不示弱，只有在面对死亡时，才终于说出了藏了三年的"我爱你"。',emotion:'颤抖、哽咽，像一个从不认输的人在最后一刻卸下了所有铠甲。',plot:'第11集病榻告白，是全剧感情线的转折点——从"婚姻破裂"到"重新相爱"。'},editorNote:'韩语的时态里藏着全剧最痛的告白：她不说사랑해，而说사랑했어——因为她以为自己没有明天了。'}
+,{id:'KDL-066',drama:'queenoftears',char:'洪海仁',actor:'金智媛',ep:'第8集',lineType:['独白','价值观冲突','成长'],relationship:'夫妻',mood:'warm-indoor',ko:"내가 생각하는 사랑이란, 함께 좋은 것을 누리고 달콤한 말을 나누는 게 아니라, 함께 지겨운 것을 견디고 도망치지 않고 곁에 있는 거야. 빚이 있든, 그보다 더한 게 있든, 계속 함께 있는 그게 사랑이야.",zh:"我认为的爱，不是一起享受好东西、说甜言蜜语，而是一起忍受讨厌得要命的东西，不逃跑，陪在身边。就算有欠债，就算有比那更严重的事，也一直在一起，那就是爱。",zhType:'reference',verify:'c',themes:['love','life','growth','human'],before:'海仁失忆后重新认识贤佑，在逐渐恢复的记忆中，她终于明白了自己当年为什么会爱上这个普通男人。',after:'成为全剧对"爱"最完整的定义，也解释了为什么两人在婚姻破裂、绝症、家族斗争之后仍然无法分开。',whyStays:'她不说"爱是甜蜜的"，而是说"爱是一起忍受讨厌的东西"——把爱情从童话拉回了日常，从享受拉回了承担。',editorNote:'关于爱的定义，这句比任何情话都更接近真相：爱不是一起享受好东西，而是一起忍受讨厌的东西，并且不逃跑。'}
+,{id:'KDL-067',drama:'vincenzo',char:'文森佐',actor:'宋仲基',ep:'第8集',lineType:['质问','人物宣言','价值观冲突'],relationship:'对手',mood:'office',ko:"나이는 벼슬이 아니라 책임의 양이야.",zh:"年纪不是官位，而是责任的量。",zhType:'subtitle',verify:'v',themes:['human','society','justice','growth'],before:'腐败的检察长韩胜赫以长辈自居，用半语羞辱文森佐，文森佐用一句话回击。',after:'成为全剧被引用最多的台词之一——在一个论资排辈的社会里，这句话是对"年龄=权威"最直接的否定。',whyStays:'他不说"你别倚老卖老"，而是说"年纪是责任的量"——把"年龄"从权力符号重新定义为责任符号，一击致命。',anatomy:{language:'벼슬（官位/官职）与책임의 양（责任的量）形成对仗；用"量"这个量化的词，把抽象的责任变成了可衡量的东西，逻辑上无懈可击。',character:'文森佐作为意大利黑手党顾问，不受韩国儒家长幼秩序的束缚，他的回击带着外来者的清醒。',emotion:'冷静、轻蔑，像一个看够了"以年龄压人"的人在用逻辑杀人。',plot:'第8集饭局对峙，文森佐用一句话瓦解了整个"长辈权威"的话术体系。'},editorNote:'在一个"我吃过的盐比你吃过的米多"的社会里，这句话是最狠的回击：年纪不是官位，是责任的量。你担了多少责任，就配多少尊重。'}
+,{id:'KDL-068',drama:'vincenzo',char:'文森佐',actor:'宋仲基',ep:'第1集',lineType:['独白','人物宣言','价值观冲突'],relationship:'自我',mood:'suspense-dark',ko:"후회는 세상에서 가장 잔인한 지옥이다.",zh:"后悔，是人世间最残酷的炼狱。",zhType:'reference',verify:'c',themes:['life','human','growth','justice'],before:'文森佐回到韩国，面对巴别集团的恶行，他选择用"以恶制恶"的方式，因为他深知法律的局限。',after:'成为他行事逻辑的核心——不做会让自己后悔的事，也不让恶人逍遥法外。',whyStays:'他不说"不要做坏事"，而是说"后悔是最残酷的炼狱"——把道德判断从外部规则拉回了内心折磨。',editorNote:'全剧最冷酷的人生格言：不是地狱最残酷，是后悔最残酷。因为地狱有尽头，后悔没有。'}
+,{id:'KDL-069',drama:'vincenzo',char:'文森佐',actor:'宋仲基',ep:'第4集',lineType:['独白','价值观冲突','质问'],relationship:'自我',mood:'office',ko:"정의는 완벽할 때만 옳다.",zh:"正义，只有在完美无缺时才是对的。",zhType:'reference',verify:'c',themes:['justice','human','society','law'],before:'面对法律无法制裁的财阀，文森佐引用《悲惨世界》的话，解释自己为什么选择"以恶制恶"。',after:'成为全剧对"正义"最清醒的判断——当正义本身有缺陷时，它就不再是正义了。',whyStays:'他不说"法律是公正的"，而是说"正义只有完美时才对"——承认正义的脆弱，才是真正的清醒。',editorNote:'一部"以恶制恶"的剧，最核心的台词却是对正义的怀疑：正义只有完美无缺时才是对的。而这世上，有完美的正义吗？'}
+,{id:'KDL-070',drama:'squidgame',char:'黄仁昊',actor:'李秉宪',ep:'第8集',lineType:['独白','质问','价值观冲突'],relationship:'游戏管理者与参与者',mood:'suspense-dark',ko:"이 게임은 공평하다. 모두가 똑같은 조건에서 경쟁한다. 하지만 공평하다고 해서 공정한 건 아니다.",zh:"这个游戏是公平的。所有人在相同条件下竞争。但公平，不等于公正。",zhType:'reference',verify:'c',themes:['society','human','justice','life'],before:'黄仁昊作为游戏管理者，向闯入的弟弟黄俊昊解释这个游戏的"规则"。',after:'成为全剧对"公平"最尖锐的讽刺——相同的规则，对不同的人来说从来不是公正的。',whyStays:'他不说"这个游戏不公平"，而是区分了"公平"和"公正"——规则一样是公平，但起点不同的人在同一规则下，本身就是不公正。',editorNote:'全剧最清醒的一句话：公平不等于公正。所有人穿一样的运动服、玩一样的游戏，但他们走进这个游戏之前，人生已经完全不同了。'}
+
+,{id:'KDL-071',drama:'hometown',char:'洪斗植',actor:'金宣虎',ep:'第11集',ko:'너 없이 34년을 살았는데, 널 알고 난 이 하루가, 평생처럼 길다.',zh:'没有你我活了34年，可认识你之后，这一天像一辈子一样长。',zhType:'reference',themes:['love','adult','life'],lineType:['表白'],relationship:'恋人',mood:'summer-night',before:'斗植终于向惠珍坦白心意，用他特有的笨拙方式。',after:'这句成为全剧最被反复引用的告白，把"时间感"写进了爱情里。',whyStays:'不说"我爱你"，而是说"认识你之后一天变得像一辈子"——用时间的膨胀感来写爱情的浓度，比直接告白更重。',nuance:'34년을 살았는데用过去式+는데转折，强调"之前那么长的人生"与"之后这一天"的对比。평생처럼 길다用처럼（像……一样）把一天拉长为一生。',verify:'c'}
+,{id:'KDL-072',drama:'hometown',char:'洪斗植',actor:'金宣虎',ep:'第4集',ko:'인생은 공평하지 않아. 어떤 사람은 평생 비포장도로를 걷고, 어떤 사람은 목숨 걸고 달리다가 절벽 끝에 다다르기도 해.',zh:'人生并不公平。有些人一辈子走在未铺砌的路上，有些人拼了命跑，最后却到了悬崖尽头。',zhType:'reference',themes:['life','human','society'],lineType:['人物宣言'],relationship:'自我',mood:'quiet-street',before:'惠精算一切，斗植用这句话打破她对"公平"的执念。',after:'成为剧中被引用最多的人生台词之一。',whyStays:'비포장도로（未铺砌的路）和절벽 끝（悬崖尽头）两个意象把抽象的"不公平"变成了可触摸的画面——不是说教，是看见。',nuance:'공평하지 않아用半语否定，不是感叹而是陈述。목숨 걸고 달리다가（拼了命跑）用다가表示动作进行中遭遇意外，暗示"努力本身可能导向毁灭"。',verify:'c'}
+,{id:'KDL-073',drama:'reply',char:'成东日（德善爸爸）',actor:'成东镒',ep:'第1集',ko:'미안하다. 아빠가 미안해.',zh:'对不起。爸爸对不起。',zhType:'subtitle',themes:['family','growth','healing'],lineType:['和解'],relationship:'父女',mood:'warm-indoor',before:'德善因为生日总是被和姐姐合并而爆发，爸爸深夜单独买蛋糕道歉。',after:'这句成为韩国家庭剧史上最著名的道歉之一，"爸爸也是第一次当爸爸"的前序。',whyStays:'全句只有六个字（韩文），却比任何长篇大论都重。爸爸用"아빠가"（爸爸我）而不是"내가"（我），把身份放在自我前面——这是东亚父亲的语言。',nuance:'미안하다是基本阶（书面/内心），미안해是半语（对孩子）。从基本阶到半语的转换，是从"心里想"到"说出口"的距离。',verify:'c'}
+,{id:'KDL-074',drama:'mister',char:'朴东勋',actor:'李善均',ep:'第6集',ko:'네가 대수롭지 않게 받아들이면 남들도 대수롭지 않게 생각해. 네가 심각하게 받아들이면 남들도 심각하게 생각하고. 모든 일이 그래, 항상 네가 먼저야.',zh:'如果你自己不当一回事，别人也会觉得没什么。如果你看得很严重，别人也会跟着认真。所有事都是这样，永远是你先开始。',zhType:'reference',themes:['life','growth','human','healing'],lineType:['自我觉醒'],relationship:'自我',mood:'office',before:'至安被职场欺压，东勋用这句话告诉她：别人怎么对待你，始于你怎么对待自己。',after:'成为剧中被打工人引用最多的台词之一。',whyStays:'不是鸡汤式的"要爱自己"，而是一个冷峻的因果链：你的态度决定了世界的态度。대수롭지 않게（不当回事）和심각하게（严重地）的对仗，让道理有了节奏。',nuance:'받아들이면（如果接受）用条件式，说明这不是命令而是假设——"如果你选择这样，结果会是那样"。항상 네가 먼저야（永远是你先）用야结尾，像一个父亲的笃定。',verify:'c'}
+,{id:'KDL-075',drama:'twentyfive',char:'罗希度',actor:'金泰梨',ep:'第5集',ko:'꿈이 사라져도 괜찮아. 새로운 꿈을 꾸면 돼.',zh:'梦想消失了也没关系。做新的梦想就好了。',zhType:'reference',themes:['dream','growth','youth','healing'],lineType:['自我觉醒'],relationship:'自我',mood:'summer-day',before:'希度击剑受挫，教练用这句话告诉她梦想不是只有一个。',after:'成为年轻观众中被广泛引用的安慰句。',whyStays:'괜찮아（没关系）和면 돼（就好了）是韩语里最温柔的两个句式。不说"你要坚强"，而是说"消失了也没关系，再做一个就好"——把梦想从"唯一"变成"可替换"，反而卸下了重担。',nuance:'꿈이 사라져도（即使梦想消失）用도表示让步/即使。새로운 꿈을 꾸면 돼用면 돼（只要……就可以），是韩语里最轻的鼓励——没有要求，只有许可。',verify:'c'}
+,{id:'KDL-076',drama:'woo',char:'禹英禑',actor:'朴恩斌',ep:'第1集',ko:'제 이름은 우영우입니다. 거꾸로 해도 우영우.',zh:'我的名字是禹英禑。倒过来念也是禹英禑。',zhType:'subtitle',themes:['female','growth','human'],lineType:['独白'],relationship:'自我',mood:'office',before:'英禑第一次出庭自我介绍，用她特有的方式建立存在感。',after:'成为2022年最出圈的韩剧台词，"우영우"成为文化符号。',whyStays:'自闭症律师的自我介绍不是"我很特别"，而是一个文字游戏——名字倒过来也一样。这既是她的思维方式，也是她对世界的宣告：我就是我，正反都一样。',nuance:'입니다是敬语最高级，对法庭的尊重。거꾸로 해도（即使倒过来）用도，우영우三个音节的回文结构本身就是台词的一部分——翻译无法保留这个文字游戏。',verify:'c'}
+
+,{id:'KDL-077',drama:'thirtynine',char:'郑灿荣',actor:'田美都',ep:'第2集',ko:'아마 다른 사람들의 절반밖에 못 살 거야. 하지만 양보다 질이지. 나에겐 이걸로 충분해.',zh:'也许我活不到别人一半的岁数。但品质比数量重要。对我来说，这样已经足够了。',zhType:'reference',themes:['life','death','friendship','growth'],lineType:['独白'],relationship:'自我',mood:'warm-indoor',before:'灿荣确诊胰腺癌晚期，对好友美昭坦白自己对生命长度的看法。',after:'成为全剧精神核心，灿荣用"品质比长短"重新定义了"活得好"。',whyStays:'面对死亡不喊口号，只用两个短句：절반밖에 못 살（只能活一半）和이걸로 충분해（这样就够了）。前者是事实，后者是选择——不是认命，是主动定义自己的人生。',nuance:'절반밖에 못 살 거야用밖에（只、仅仅）+못 살（不能活），把"短命"说得轻描淡写。양보다 질이지用이다的口语缩略形이지，像在说一个常识而非感慨。나에겐 이걸로 충분해用에겐（对我来说）把判断收回到自己身上。',verify:'c'}
+,{id:'KDL-078',drama:'psycho',char:'高文英',actor:'徐睿知',ep:'第1集',ko:'혹시 운명을 믿어요? 운명이 뭐 별건가? 이렇게 필요할 때 내 앞에 나타나는 게 운명이지.',zh:'你相信命运吗？命运有什么大不了的？像这样在我需要时出现在我面前，那就是命运。',zhType:'reference',themes:['love','adult','life'],lineType:['表白'],relationship:'陌生人',mood:'quiet-street',before:'文英在精神病院朗读会后拦住钢太，用她特有的直接方式定义"命运"。',after:'成为全剧最出圈的台词之一，定义了高文英"想要就去拿"的人物性格。',whyStays:'把"命运"这个被用滥的词重新定义：不是前世今生，不是命中注定，而是"在我需要时出现"。实用主义的浪漫，比任何玄学都动人。',nuance:'운명을 믿어요?用敬语提问，但马上切回半语운명이 뭐 별건가?（命运算什么）——敬语到半语的切换，是高文英对社交规则的无视。나타나는 게 운명이지用는 게（……的是）+이지（就是……吧），把定义权握在自己手里。',verify:'c'}
+,{id:'KDL-079',drama:'psycho',char:'高文英',actor:'徐睿知',ep:'第8集',ko:'아프고 고통스러웠던 기억, 처절하게 후회했던 기억, 남을 상처주고 또 상처받았던 기억, 버림받고 돌아섰던 기억. 그런 기억들을 가슴 한구석에 품고 살아가는 자만이 더 강해지고 뜨거워지고 더 유연해질 수가 있지.',zh:'那些痛苦的记忆、深切后悔的记忆、伤害别人又被伤害的记忆、被抛弃后转身的记忆。只有把这些记忆藏在心里一角活下去的人，才能变得更强、更炽热、更柔软。',zhType:'reference',themes:['healing','growth','human','life'],lineType:['独白'],relationship:'自我',mood:'warm-indoor',before:'文英对钢太讲述自己对伤痛的理解，这是她反社会人格外壳下最柔软的内核。',after:'成为剧中被引用最多的治愈台词，重新定义了"坚强"——不是忘记伤痛，而是带着伤痛活下去。',whyStays:'四个并列的"……的记忆"像排比诗，最后用가슴 한구석에 품다（藏在心里一角）而不是잊다（忘记）——治愈不是删除记忆，而是给记忆找一个位置。然后강해지고（变强）、뜨거워지고（变炽热）、유연해지고（变柔软）三个递进，把"成长"写成了一个有温度的过程。',nuance:'품고 살아가는 자만이用만이（只有……才能），是排他性的肯定。세个形容词해지고（变得……）用고连接，形成节奏递进。最后있지用半语感叹，像一个过来人笃定的结论。',verify:'c'}
+,{id:'KDL-080',drama:'sunshine',char:'崔宥镇',actor:'李秉宪',ep:'第12集',ko:'영광입니다. 당신의 꽃길에 제가 함께해서.',zh:'很荣幸。能与您一同走这条花路。',zhType:'reference',themes:['love','adult','life'],lineType:['表白'],relationship:'恋人',mood:'winter-outdoor',before:'宥镇与爱信在雪地中确认心意，用最克制的方式说出最深情的告白。',after:'成为韩剧史上最著名的克制告白之一，"꽃길"（花路）因此成为韩语爱情表达的经典意象。',whyStays:'全句只有两个词级单位：영광입니다（很荣幸）和당신의 꽃길에 제가 함께해서（能与您走您的花路）。不说"我爱你"，而说"与你同行是我的荣幸"——在等级森严的朝鲜末期，一个奴隶出身的美国军官对贵族小姐说"荣幸"，本身就是跨越阶级的宣言。',nuance:'입니다是最高敬语，对爱信始终保持尊称。꽃길（花路）是韩语中"美好人生"的意象，但这里是"당신의 꽃길"（你的花路）——他不说"我们的花路"，而是"你的"，把自己放在陪伴者的位置。해서（因为做了……）用原因形，暗示"因为能陪你走，所以我荣幸"。',verify:'c'}
+,{id:'KDL-081',drama:'sunshine',char:'高爱信',actor:'金泰梨',ep:'第14集',ko:'같이 살자는 것입니다.',zh:'我的意思是，我们一起生活吧。',zhType:'reference',themes:['love','adult','life'],lineType:['表白'],relationship:'恋人',mood:'quiet-street',before:'爱信向宥镇提出"一起生活"，这在朝鲜时代是一个女性极其主动的宣言。',after:'成为全剧最震撼的告白之一——一个贵族小姐对一个被视为"下等人"的男人说"一起生活"。',whyStays:'全句只有六个音节（韩文），却是全剧最重的一句话。같이 살자（一起生活吧）用共动式-자，是邀请而非请求；는 것입니다（是……的意思）用名词化+最高敬语，把一个私人愿望说成了一个郑重的声明。',nuance:'살자는是살다（生活/活）+共动式-자+는（定语形），"一起生活吧的"。것입니다把整个句子名词化，变成"这就是我的意思"——不是撒娇，不是试探，是一个决定。在1900年代的朝鲜，女性说出这句话本身就是革命。',verify:'c'}
+,{id:'KDL-082',drama:'sunshine',char:'旁白',actor:'—',ep:'第1集',ko:'어제는 멀고 오늘은 낯설며 내일은 두려운 격변의 시간이었다. 우리 모두는 그렇게 각자의 방법으로 격변하는 조선을 지나는 중이었다.',zh:'那是一个昨天遥远、今天陌生、明天令人恐惧的剧变时代。我们都在用各自的方式，经过这剧变的朝鲜。',zhType:'reference',themes:['life','society','human'],lineType:['独白'],relationship:'自我',mood:'winter-outdoor',before:'剧集开篇旁白，奠定整个故事的历史基调。',after:'成为韩剧史上最著名的开篇旁白之一，用三个时间维度定义了一个时代。',whyStays:'어제는 멀고（昨天遥远）、오늘은 낯설며（今天陌生）、내일은 두려운（明天恐惧）——三个时间维度用고/며/은三种连接词，节奏从短到长，情绪从平静到不安。然后격변하는 조선을 지나는 중이었다（正在经过剧变的朝鲜）用进行时，把历史写成了一个正在发生的过程，而不是过去的故事。',nuance:'멀고/낯설며/두려운三个形容词分别用고（和）、며（且）、은（定语形）连接，语法变化本身就在制造"不稳定"的节奏。지나는 중이었다用过去进行时，暗示"我们当时正在经过"——历史不是被观看的，是被经历的。',verify:'c'}
+
+,{id:'KDL-083',drama:'redsleeve',char:'成德任',actor:'李世荣',ep:'第2集',ko:'여기선, 내가 나로서 할 수 있는 일이 별로 없어. 설령 사소한 거라도 좋아. 선택이란 걸 하며 살고 싶어.',zh:'在这里，我能作为自己做的事很少。哪怕是琐碎的小事也好。我想过着能做选择的生活。',zhType:'reference',themes:['female','growth','life','human'],lineType:['独白','自我觉醒'],relationship:'自我',mood:'warm-indoor',before:'德任在宫中感到窒息，对朋友说出自己对"选择"的渴望——一个宫女的人生从出生起就被安排好了。',after:'这句话成为全剧女性意识的核心，德任终其一生都在为"选择"而挣扎。',whyStays:'一个朝鲜时代的宫女说"我想过着能做选择的生活"——这不是现代女性的口号，而是一个被制度剥夺一切选择权的人最朴素的愿望。설령 사소한 거라도 좋아（哪怕是琐碎的小事也好）把"选择"降到最低限度，反而更沉重。',nuance:'내가 나로서（我作为我自己）用로서强调"身份"——不是作为宫女，不是作为某人的所有物，而是作为"我自己"。선택이란 걸 하며 살고 싶어用이란（所谓……）把"选择"这个词本身提出来，像在定义一个她从未拥有过的东西。',verify:'c'}
+,{id:'KDL-084',drama:'redsleeve',char:'李祘',actor:'李俊昊',ep:'第13集',ko:'다른 그 어떤 여인도, 네가 될 순 없으니까. 덕임아, 나는 내 천성을 거스르면서까지, 너를 마음에 두었다. 그러니 다른 이는 필요 없어. 오직 너여야만 해.',zh:'因为其他任何女人都不能成为你。德任啊，我甚至违背了自己的天性，把你放在了心上。所以其他人都不需要。必须是你才行。',zhType:'reference',themes:['love','adult','life'],lineType:['表白'],relationship:'恋人',mood:'quiet-street',before:'李祘终于向德任坦白心意，用君王的语言说出最私人的告白。',after:'成为全剧最著名的告白之一，"오직 너여야만 해"（必须是你才行）成为韩剧爱情表达的经典句式。',whyStays:'君王的告白不说"我爱你"，而是说"我违背了自己的天性"——对一个以理性和克制为立身之本的世孙来说，"动心"本身就是对自我的背叛。然后오직 너여야만 해（必须是你才行）用아야만 하다（必须……才行）的强制形，把爱情从"选择"变成了"唯一"。',nuance:'네가 될 순 없으니까用될 수 없다（不能成为）+으니까（因为），是因果而非比较——不是"别人不如你"，而是"别人根本不可能是你"。내 천성을 거스르면서까지用까지（甚至到……的地步），强调违背天性的程度。오직 너여야만 해用아야만 하다的缩略形，是韩语中最强的"必须"。',verify:'c'}
+,{id:'KDL-085',drama:'redsleeve',char:'李祘',actor:'李俊昊',ep:'第17集',ko:'그러니, 날 사랑해라. 제발... 날 사랑해라.',zh:'所以，爱我吧。求你……爱我吧。',zhType:'reference',themes:['love','adult','regret','farewell'],lineType:['独白','告别'],relationship:'恋人',mood:'winter-outdoor',before:'德任临终前，李祘放下君王的一切尊严，用最卑微的语气请求她的爱。',after:'成为全剧最心碎的一幕——一个君王对将死之人说"求你爱我"，是整部剧权力与爱情张力的最终崩塌。',whyStays:'全句只有六个字（韩文），重复了两次。第一次是命令（사랑해라，共动式/命令式），第二次是请求（제발...날 사랑해라，加了제발"求你"）。从命令到请求，一个君王在死亡面前卸下了所有权力——他可以命令天下，却无法命令一个人爱他。',nuance:'사랑해라是하다的命令形，对臣下说话的语气。但제발（求你）把命令变成了乞求。重复两次不是强调，而是从"君王的命令"滑向"一个男人的绝望"。날（我）用宾格，把自己放在了被爱的位置——这对君王来说是前所未有的低头。',verify:'c'}
+,{id:'KDL-086',drama:'weather',char:'林恩燮',actor:'徐康俊',ep:'第16集',ko:'날이 좋아서, 날이 좋지 않아서, 날이 적당해서, 너와 함께 한 모든 날이 눈부셨다.',zh:'因为天气好，因为天气不好，因为天气刚刚好，和你在一起的每一天都很耀眼。',zhType:'reference',themes:['love','healing','life','youth'],lineType:['表白','独白'],relationship:'恋人',mood:'winter-outdoor',before:'恩燮向海媛坦白心意，用天气来定义与她在一起的所有时光。',after:'成为2020年最出圈的韩剧台词之一，"날이 좋아서, 날이 좋지 않아서, 날이 적당해서"被无数人引用。',whyStays:'三个"因为天气……"的排比，把爱情从"特殊时刻"拉回了"日常"——不是因为天气好才爱你，而是因为和你在一起，所有天气都变成了好天气。눈부셨다（耀眼）用过去式，暗示这是一段已经结束的回忆，反而更动人。',nuance:'날이 좋아서/좋지 않아서/적당해서用아서/어서（因为）连接三个并列条件，语法完全平行，但语义从肯定到否定到中性，覆盖了所有可能的天气。너와 함께 한 모든 날이用모든（所有的）+날（日子/天），把"天气"和"日子"双关——날既是"天"也是"日子"。',verify:'c'}
+,{id:'KDL-087',drama:'weather',char:'林恩燮',actor:'徐康俊',ep:'第5集',ko:'하루 중에는 태양이 뜨는 때와 지는 때가 있어. 마찬가지로 인생에도 낮과 밤이 있지.',zh:'一天里有太阳升起的时候，也有太阳落山的时候。人生也一样，有白天也有黑夜。',zhType:'reference',themes:['healing','life','growth','human'],lineType:['独白','安慰'],relationship:'自我',mood:'warm-indoor',before:'恩燮安慰陷入低谷的海媛，用最朴素的自然规律解释人生的起伏。',after:'成为剧中被引用最多的治愈台词之一，用自然比喻人生，不说教。',whyStays:'不说"一切都会好起来"这种空话，而是说"人生有白天也有黑夜"——黑夜不是异常，是自然的一部分。태양이 뜨는 때와 지는 때가 있어（有日出也有日落）用平行结构，把人生的起伏写成了一个不需要解释的常识。',nuance:'하는 때와 지는 때가 있어用는 때（……的时候）+와（和），把两个时间点并列。마찬가지로（同样地）是韩语中最自然的类比连接词，像在说一个不需要证明的道理。있지用지结尾，是轻声的确认，不是说教。',verify:'c'}
+,{id:'KDL-088',drama:'sunjae',char:'旁白',actor:'—',ep:'第12集',ko:'일초만 흘러도 과거가 될 지금. 인생에서 가장 특별한 순간은 사랑하는 사람과 함께하는 오늘이 아닐까요?',zh:'就算只过一秒也会成为过去的现在。人生中最特别的瞬间，不就是和爱的人在一起的今天吗？',zhType:'reference',themes:['love','life','youth','regret'],lineType:['独白'],relationship:'自我',mood:'summer-night',before:'率穿越回过去拯救善宰，旁白点出"当下"的珍贵——因为每一个现在都在变成过去。',after:'成为全剧精神核心，把时间旅行的设定转化为对"此刻"的珍惜。',whyStays:'일초만 흘러도 과거가 될 지금（就算只过一秒也会成为过去的现在）用定语形把"现在"定义为一个正在消失的东西——不是时间在流逝，是"现在"本身在变成"过去"。然后가장 특별한 순간은…오늘이 아닐까요?（最特别的瞬间不就是今天吗？）用反问，把答案留给听者。',nuance:'일초만 흘러도用만（只）+도（即使/也），把时间压缩到最小单位。될 지금用될（将要成为的）+지금（现在），是"正在成为过去的现在"——韩语用定语形把时间的流动写进了名词里。아닐까요用ㄹ까요（会不会……呢），是温柔的反问，不是断言。',verify:'c'}
+
+,{id:'KDL-089',drama:'glory',char:'文同珢',actor:'宋慧乔',ep:'第1集',ko:'오늘부터 내 꿈은 너야. 우리 꼭 또 보자, 박연진.',zh:'从今天起，我的梦想就是你。我们一定要再见，朴妍珍。',zhType:'reference',themes:['suspense','growth','human'],lineType:['独白','人物宣言'],relationship:'敌人',mood:'suspense-dark',before:'同珢在体育馆被欺凌后，对着天空说出这句话——把"梦想"从未来的职业变成了一个人的名字。',after:'成为全剧最著名的开场台词，定义了文同珢"以复仇为梦想"的人生。',whyStays:'把"梦想"这个词从"我想成为什么"变成了"我想毁灭谁"——不是我要过什么样的人生，而是我的人生就是为了再见到你。꼭 또 보자（一定要再见）用共动式，把复仇说成了一个约定。',nuance:'내 꿈은 너야用야（是……）直接等同，没有任何修饰。우리 꼭 또 보자用꼭（一定）+또（再）+보자（见面吧共动式），是韩语里最笃定的"后会有期"——但这里的"再见"不是重逢，是清算。',verify:'c'}
+,{id:'KDL-090',drama:'glory',char:'文同珢',actor:'宋慧乔',ep:'第4集',ko:'소희가 당할 때 전 방관자였어요. 그러다 제가 피해자가 됐고 그래서 이제 전 가해자가 되려고 합니다. 좀 늦었지만 방관하지 않으려고요.',zh:'素禧被欺负的时候我是旁观者。后来我成了受害者，所以现在我要成为加害者。虽然有些晚了，但我不想再旁观了。',zhType:'reference',themes:['suspense','human','society','justice'],lineType:['独白','自我觉醒'],relationship:'自我',mood:'suspense-dark',before:'同珢向大婶坦白自己的复仇逻辑，用"旁观者→受害者→加害者"的三段论定义自己的转变。',after:'成为剧中被讨论最多的道德台词——复仇不是正义，但旁观也是一种暴力。',whyStays:'三个身份的转换：방관자（旁观者）→피해자（受害者）→가해자（加害者）。不是"我要复仇"，而是"我要成为加害者"——她清楚地知道自己在做什么，也知道这不是正义。좀 늦었지만 방관하지 않으려고요（虽然晚了，但不想再旁观）把道德判断留给了听者。',nuance:'방관자였어요用过去式+敬语，是在陈述事实而非忏悔。가해자가 되려고 합니다用려고 하다（打算/想要），是一个经过思考的决定，不是冲动。방관하지 않으려고요用否定形，把"不旁观"作为唯一的道德立场。',verify:'c'}
+,{id:'KDL-091',drama:'glory',char:'文同珢',actor:'宋慧乔',ep:'第3集',ko:'눈에는 눈으로, 이에는 이로. 때린 것은 때림으로 갚을지니.',zh:'以眼还眼，以牙还牙。打了的，就要用打来偿还。',zhType:'reference',themes:['suspense','justice','human'],lineType:['独白','人物宣言'],relationship:'敌人',mood:'suspense-dark',before:'同珢在复读室墙上写下这句话，作为复仇的基本原则。',after:'成为全剧复仇哲学的核心，引用圣经"以眼还眼"但加入了韩语的때림（殴打）具体化。',whyStays:'不是简单引用圣经，而是把"以牙还牙"翻译成了韩语的때린 것은 때림으로 갚을지니（打了的用打来偿还）——갚을지니用将来时+疑问形，不是命令，是一个冷静的预言。',nuance:'눈에는 눈으로, 이에는 이로用에는（对于……用……）的平行结构，是韩语中最经典的对等报复表达。때린 것은 때림으로用은（强调）+으로（用……），把"打"这个动作名词化（때림），让暴力变成了一个可以被"偿还"的对象。갚을지니用ㄹ지니（会……吧），是一个平静的断言。',verify:'c'}
+,{id:'KDL-092',drama:'snowdrop',char:'殷英路',actor:'金智秀',ep:'第1集',ko:'첫눈에 반한다는 말이...뭔가 했거든.',zh:'我之前很好奇"一见钟情"是什么……原来就是这种感觉。',zhType:'reference',themes:['love','youth','crush'],lineType:['独白'],relationship:'陌生人',mood:'winter-outdoor',before:'英路在罗马咖啡厅第一次见到守护，手不小心碰到，心跳加速，回到宿舍后对室友说出这句话。',after:'成为全剧最甜的开场台词，与后来的悲剧形成强烈反差。',whyStays:'不说"我对他一见钟情了"，而是说"我之前很好奇一见钟情是什么，原来就是这种感觉"——用后知后觉的方式写心动，比直接告白更真实。뭔가 했거든（原来是什么啊）用거든（因为/所以），像在解释一个刚刚解开的谜题。',nuance:'첫눈에 반한다는 말이用는（定语形）+말이（话/说法），把"一见钟情"当成一个听说过但没体验过的概念。뭔가 했거든用했거든（过去式+거든），是"原来是这么回事啊"的顿悟语气——不是感叹，是确认。',verify:'c'}
+,{id:'KDL-093',drama:'snowdrop',char:'林守护',actor:'丁海寅',ep:'第16集',ko:'영로야...살아야 돼. 아무리 힘들어도. 알았지?',zh:'英路啊……你要活下去。不管多么辛苦。知道吗？',zhType:'reference',themes:['love','farewell','death','life'],lineType:['告别','独白'],relationship:'恋人',mood:'winter-outdoor',before:'守护在最后的枪战中把英路推出门外，自己留下断后，用最后的力气说出这句话。',after:'成为全剧最心碎的台词——一个间谍对一个女孩说的最后一句话不是"我爱你"，而是"活下去"。',whyStays:'全句只有三个短句：살아야 돼（要活下去）、아무리 힘들어도（不管多辛苦）、알았지?（知道吗？）。不说"我会保护你"，因为他已经保护不了了；不说"我爱你"，因为比爱更重要的是她活着。살아야 돼用아야 돼（必须/得），是一个命令，也是一个请求。',nuance:'영로야用야（呼格），是守护第一次也是最后一次用半语叫她的名字——之前一直用敬语。살아야 돼用아야 돼（必须），不是"请活下去"而是"你得活下去"。아무리 힘들어도用아무리（无论多么）+도（也），是韩语里最沉重的让步——"不管有多难"。알았지?用지反问，像一个哥哥的叮嘱。',verify:'c'}
+,{id:'KDL-094',drama:'snowdrop',char:'林守护',actor:'丁海寅',ep:'第16集',ko:'너 만난 거 후회하지 않아. 차가운 나한테 꽃을 피워준 우리 영로. 사람답게 살게 해줘서, 사랑을 알게 해줘서, 정말 고마워. ...은영로. ...사랑해.',zh:'我不后悔遇见你。我们英路，让冰冷的我开出了花。让我像人一样活着，让我知道了爱，真的很感谢。……殷英路。……我爱你。',zhType:'reference',themes:['love','farewell','death','healing'],lineType:['告别','独白'],relationship:'恋人',mood:'winter-outdoor',before:'守护留给英路的最后一段录音，在他死后才被她听到。',after:'成为全剧最著名的遗言，"차가운 나한테 꽃을 피워준"（让冰冷的我开出了花）成为韩剧爱情表达的经典意象。',whyStays:'不说"我爱你"直到最后。先说不后悔，再说感谢——感谢她让他"像人一样活着"（사람답게 살게 해줘서）和"知道了爱"（사랑을 알게 해줘서）。对一个从小被训练成工具的间谍来说，"像人一样活着"比"我爱你"重得多。最后才说出은영로. 사랑해.——名字和爱之间的省略号，是他一生的克制。',nuance:'후회하지 않아用否定形，不是"我很高兴遇见你"而是"我不后悔"——对一个背负使命的人来说，不后悔已经是最高的肯定。차가운 나한테用한테（向/对），把"冰冷的我"当成一个需要被温暖的对象。꽃을 피워준用피워주다（为……开花），是使动+给予，暗示"你让我开出了花"。사람답게用답게（像……一样），是韩语中最有分量的"作为人"。',verify:'c'}
+
+,{id:'KDL-095',drama:'watermelon',char:'李灿',actor:'崔显旭',ep:'第16集',ko:'인생은 모든 조건이 갖춰졌을 때 반짝이는 아니라 순간순간 반짝이는 거라고. 행복은 그 순간들이 모여 완성되는 경험이라고.',zh:'人生不是具备所有条件后才闪亮的，而是每个瞬间都在闪亮。幸福是那些瞬间聚集起来完成的体验。',zhType:'reference',themes:['life','youth','growth','healing'],lineType:['独白','人物宣言'],relationship:'自我',mood:'summer-day',before:'恩杰穿越回1995年改变了父母的人生，最终回到现在，对"人生"和"幸福"有了新的理解。',after:'成为全剧精神核心，把"闪亮"从结果变成了过程——不是人生完美了才发光，是每个瞬间都在发光。',whyStays:'把"闪亮"这个词从"成功"的同义词里解放出来——인생은 모든 조건이 갖춰졌을 때 반짝이는 아니라（人生不是具备所有条件才闪亮）用아니라（不是……而是）直接否定了"等一切就绪才幸福"的幻觉。순간순간（每个瞬间）用叠词，把时间拆成了一个个可以被抓住的当下。',nuance:'갖춰졌을 때用됐다的被动形，"被具备的时候"——暗示条件不是自己能控制的。반짝이는 아니라用이라不是"不闪亮"，而是"不是在那个时候才闪亮"。순간순간用叠词，是韩语中最亲切的强调方式。모여 완성되는用여（连接）+되는（被完成），把幸福写成了一个累积的过程。',verify:'c'}
+,{id:'KDL-096',drama:'watermelon',char:'河恩杰',actor:'厉云',ep:'第3集',ko:'엄마가 햇빛에 말려준 빨래처럼 마음이 따뜻해지는 소리.',zh:'像妈妈在阳光下晒的衣服一样，让心变温暖的声音。',zhType:'reference',themes:['family','healing','youth','life'],lineType:['独白'],relationship:'母子',mood:'warm-indoor',before:'恩杰是CODA（聋人父母的孩子），第一次听到音乐时，用妈妈晒的衣服来形容那种温暖。',after:'成为全剧最动人的比喻之一，把"声音"这个听障家庭最陌生的东西，用最日常的温暖来定义。',whyStays:'一个听不见父母的孩子，第一次听到音乐时，不用"美妙""动听"来形容，而是用"妈妈晒的衣服的味道"——因为那是他生命中最温暖的东西。把听觉翻译成了触觉和嗅觉，是只有CODA才能写出的比喻。',nuance:'엄마가 햇빛에 말려준 빨래처럼用처럼（像……一样），把抽象的"温暖"变成了具体的日常。마음이 따뜻해지는 소리用되는（变得……的）+소리（声音），把声音定义为"让心变暖的东西"——不是声音本身温暖，是它让心变暖。',verify:'c'}
+,{id:'KDL-097',drama:'doctor',char:'李翊晙',actor:'曹政奭',ep:'第5集',ko:'내가 너 좋아하는 거 알지? 근데 네가 더 중요해.',zh:'你知道我喜欢你吧？但你更重要。',zhType:'reference',themes:['love','friendship','adult','life'],lineType:['表白'],relationship:'朋友',mood:'warm-indoor',before:'翊晙对颂华说出藏了二十年的心意，但紧接着说"你更重要"——比起得到，他更怕失去这个朋友。',after:'成为剧中被讨论最多的告白之一，"喜欢你但你更重要"定义了成年人之间克制的爱。',whyStays:'告白之后马上说"但你更重要"——不是"我喜欢你所以我们在一起吧"，而是"我喜欢你，但你对我来说比爱情更重要"。把喜欢从"占有"变成了"守护"，是二十年友谊沉淀出来的克制。',nuance:'내가 너 좋아하는 거 알지?用는 거（……这件事）+알지（知道吧），是确认式的告白——不是"我喜欢你"，而是"你知道我喜欢你吧"，把球踢给了对方。근데 네가 더 중요해用근데（但是）转折，把告白立刻收了回来——不是要答案，是在说"不管你怎么回应，你都比我的感情重要"。',verify:'c'}
+,{id:'KDL-098',drama:'doctor',char:'安涏援',actor:'柳演锡',ep:'第2集',ko:'나는 내가 아는 사람 중 제일 착한 사람한테만 의사 가운 입는 게 허락되는 줄 알았어.',zh:'我以为只有我认识的人中最善良的人，才被允许穿上医生白袍。',zhType:'reference',themes:['work','human','healing','life'],lineType:['独白','自我觉醒'],relationship:'自我',mood:'warm-indoor',before:'涏援一直想当神父，因为他觉得自己不够善良，不配当医生。在目睹了患者的痛苦后，他重新理解了"善良"和"医生"的关系。',after:'成为剧中最动人的台词之一，重新定义了"医生"不是最善良的人才能做，而是愿意在痛苦中站在患者身边的人。',whyStays:'把"医生白袍"从一个职业符号变成了一个道德门槛——제일 착한 사람한테만（只有最善良的人）+허락되는（被允许的），用被动形把"穿白袍"写成了一种被授予的资格。然后用알았어（我以为）暗示这是一个误解——善良不是天生的，是在每一次选择中练出来的。',nuance:'내가 아는 사람 중（我认识的人中）把范围缩小到了自己的世界，不是"世界上最善良"，而是"我认识的人里最善良"——这是一个谦虚的标准。제일 착한 사람한테만用한테만（只对……），是排他性的限定。의사 가운 입는 게 허락되는用게 허락되다（被允许做……），把穿白袍写成了一种需要被批准的特权。',verify:'c'}
+];
+const SCENES=[{line:'KDL-013',title:'补过的生日',what:'德善一直被要求让着姐姐和弟弟，终于在生日问题上爆发离家。父亲在巷口小店等她，单独买了一个只属于她的小蛋糕。',beat:'冲突不是谁对谁错，而是"原来父母也是新手"，一句话让对抗变成和解。'},{line:'KDL-019',title:'造一个词来求救',what:'美贞与具氏坐在乡野夜色里，没有铺垫地要求对方"推仰"自己——不是恋爱告白，而是请求一种无条件的精神支持。',beat:'她不按爱情剧本出牌，反而说出了现代人"被爱仍空虚"的真相，成为全剧的语言原点。'},{line:'KDL-002',title:'用天气记住一生',what:'金信把与恩倬共度的日子按"天气好/不好/刚刚好"逐一清点，得出"每一天都美好"。',beat:'宏大的永生被收进最日常的天气，越是轻描淡写，越显离别的重量。'},{line:'KDL-025',title:'最平静的宣战',what:'文东恩没有在雨中嘶吼，而是以一句近乎问候的"妍珍啊，我来了"现身。',beat:'亲昵称呼与复仇内容形成落差，克制反而制造最强压迫感。'},{line:'KDL-023',title:'不会说情话的人，最后一句',what:'宽植一生把爱都放进行动，临终却只问爱纯"跟我过这一生，还好吗"。',beat:'东亚式深情不靠"我爱你"，而靠替对方衡量这一生值不值。'},{line:'KDL-026',title:'"努力"被拒收的那一刻',what:'格莱以为"努力"是自己最后的筹码，吴科长却告诉他：努力的人到处都是。',beat:'职场成长剧没有给鸡汤，而是先把幻觉打碎，人物才真正开始寻找自己的"活路"。'}];
+const WORDS=[{word:'사랑',zh:'爱',note:'从名词到动词，韩剧里最常被重新定义的词',ids:['KDL-005','KDL-007','KDL-008','KDL-019']},{word:'잘 살다',zh:'好好生活',note:'两个字承载了全部祝愿',ids:['KDL-017','KDL-018']},{word:'처음',zh:'第一次',note:'用来原谅所有生疏',ids:['KDL-013']},{word:'눈부시다',zh:'耀眼',note:'形容爱情，也形容一生',ids:['KDL-002','KDL-022']}];
+const JOURNEYS=[{name:'相遇 · 心动 · 失去 · 成长',stages:[{label:'相遇',theme:'love'},{label:'心动',theme:'love'},{label:'失去',theme:'farewell'},{label:'成长',theme:'growth'}]},{name:'孤独 · 自我觉醒 · 和解',stages:[{label:'孤独',theme:'loneliness'},{label:'自我觉醒',theme:'growth'},{label:'和解',theme:'healing'}]},{name:'心动 · 错过 · 告别',stages:[{label:'心动',theme:'crush'},{label:'错过',theme:'regret'},{label:'告别',theme:'farewell'}]}];
+const SECTIONS={love:{title:'Love Lines',zh:'爱情台词',ids:['love','crush','breakup','reunion'],desc:'不只收甜蜜情话，也收"为什么爱""成年人的爱为什么难""明明相爱为何分开"这些更复杂的情绪。'},life:{title:'Life Lines',zh:'人生台词',ids:['life','growth','loneliness','regret','youth','dream'],desc:'关于成长、选择、孤独、失败与生活本身，适合慢慢读的文学性段落。'},healing:{title:'Healing Lines',zh:'治愈台词',ids:['healing'],desc:'让人安静下来、重新理解自己或他人的台词——都来自具体剧情，而非泛滥鸡汤。'},human:{title:'Human Nature',zh:'人性与现实',ids:['human','society','work','female','family'],desc:'关于欲望、阶层、金钱、权力、家庭与职场，来自现实与社会题材的有思想表达。'},suspense:{title:'Suspense & Crime',zh:'悬疑犯罪台词',ids:['suspense','crime'],desc:'看韩剧如何用一句话制造心理张力、关系裂痕与关于真相正义的追问。'},law:{title:'Law & Justice',zh:'法律与正义',ids:['law'],desc:'法律题材中的经典表达。请注意：角色台词是戏剧表达，不是现实法律结论。'}};
+const RANK=['KDL-002','KDL-013','KDL-019','KDL-017','KDL-015','KDL-005','KDL-020','KDL-001','KDL-027','KDL-006'];
+const store={get favs(){try{return JSON.parse(localStorage.getItem('kdl2_favs')||'[]')}catch(e){return[]}},set favs(v){localStorage.setItem('kdl2_favs',JSON.stringify(v))},get read(){try{return JSON.parse(localStorage.getItem('kdl2_read')||'[]')}catch(e){return[]}},set read(v){localStorage.setItem('kdl2_read',JSON.stringify(v))},get tags(){try{return JSON.parse(localStorage.getItem('kdl2_tags')||'{}')}catch(e){return{}}},set tags(v){localStorage.setItem('kdl2_tags',JSON.stringify(v))},get theme(){return localStorage.getItem('kdl2_theme')||'light'},set theme(v){localStorage.setItem('kdl2_theme',v)},get ko(){return localStorage.getItem('kdl2_ko')==='1'},set ko(v){localStorage.setItem('kdl2_ko',v?'1':'0')}};
+let S={view:'home',filter:null,detail:null,search:'',favFilter:'time'};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const byId=id=>LINES.find(l=>l.id===id);
+const D=l=>DRAMAS[l.drama];
+const linesByT=t=>LINES.filter(l=>l.themes.includes(t));
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tname=t=>THEMES[t]?THEMES[t].zh:t;
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1700)}
+function markRead(id){let r=store.read;if(!r.includes(id)){r.push(id);store.read=r}}
+function toggleFav(id){let f=store.favs;if(f.includes(id)){f=f.filter(x=>x!==id);toast('已从台词书移除')}else{f.push(id);toast('收进我的台词书')}store.favs=f;render()}
+function recForYou(){const f=store.favs.map(byId).filter(Boolean);if(!f.length)return RANK.slice(0,3).map(byId);const cnt={};f.forEach(l=>l.themes.forEach(t=>cnt[t]=(cnt[t]||0)+1));const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0][0];return LINES.filter(l=>l.themes.includes(top)&&!store.favs.includes(l.id)).slice(0,3)}
+function todayLine(){const d=new Date();return LINES[(d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate())%LINES.length]}
+function randLine(){return LINES[Math.floor(Math.random()*LINES.length)]}
+function tagsHtml(l){return l.themes.map(t=>`<span class="tag" data-t="${t}">${tname(t)}</span>`).join('')}
+function ltHtml(l){return (l.lineType||[]).map(x=>`<span class="tag lt">${x}</span>`).join('')}
+function badge(l){if(l.verify==='v')return'<span class="badge v">字幕核校</span>';if(l.zhType==='reference')return'<span class="badge r">中文·参考译文</span>';return'<span class="badge c">字幕整理</span>'}
+function lcard(l){const faved=store.favs.includes(l.id),read=store.read.includes(l.id);return `<article class="lcard ${read?'read':''}" data-d="${l.id}"><div class="lid"><span>${l.id} · ${D(l).year}</span><span class="star ${faved?'on':''}" data-fav="${l.id}">${faved?'★':'☆'}</span></div><div class="lko">${esc(l.ko)}</div><div class="lzh">${esc(l.zh)}${l.zhType==='reference'?' <span style="color:var(--brown);font-size:.68rem">参考译文</span>':''}</div>${store.ko?'<div class="zhrev" data-d="'+l.id+'">轻触显示中文字幕</div>':''}<div class="lmeta"><span class="dr">${D(l).zh}</span><span>·</span><span>${l.char}</span><span style="margin-left:auto"></span>${tagsHtml(l)}</div></article>`}
+function lgrid(list){return `<div class="lgrid">${list.map(lcard).join('')}</div>`}
+function voiceHtml(ko){const parts=ko.match(/[^.!?…]+[.!?…]*/g)||[ko];return parts.map((p,i)=>`<span class="vo" style="animation-delay:${i*0.45}s">${esc(p.trim())}</span>`).join('')}
+function vHome(){const lod=todayLine(),picks=RANK.slice(0,6).map(byId),rec=recForYou();const emo=Object.keys(THEMES).filter(t=>linesByT(t).length).map(t=>`<div class="emo" data-t="${t}"><span class="en">${linesByT(t).length}</span><span class="ez">${THEMES[t].zh}</span><span class="ek">${THEMES[t].ko}</span></div>`).join('');const studies=`<div class="study-grid"><div class="study" data-go="same-emotion"><h4>同一种情绪</h4><span class="sen">Same Emotion</span><p>不同韩剧、不同编剧，怎样写"喜欢""离别""孤独"。</p></div><div class="study" data-go="same-word"><h4>同个韩语词</h4><span class="sen">Same Word</span><p>사랑·잘 살다·처음·눈부시다，在不同场景里的不同感觉。</p></div><div class="study" data-go="subtitle-study"><h4>原文与字幕的距离</h4><span class="sen">Subtitle vs Original</span><p>韩文原意、正式字幕、直译与语气差异。</p></div><div class="study" data-go="characters"><h4>人物成长弧</h4><span class="sen">Character Arc</span><p>用台词本身看一个人怎么说话、怎么改变。</p></div></div>`;const posters=picks.map((l,i)=>`<article class="poster${i===0?' featured':''}" data-d="${l.id}"><div class="no">0${i+1}</div><div class="pko">${esc(l.ko.length>60?l.ko.slice(0,60)+'…':l.ko)}</div><div class="pzh">${esc(l.zh.length>46?l.zh.slice(0,46)+'…':l.zh)}</div>${l.editorNote?`<div class="ped">${esc(l.editorNote)}</div>`:''}<div class="pmeta">${D(l).zh} · ${l.char}</div></article>`).join('');return `<section class="hero"><div class="hero-watermark">말</div><div class="hero-content"><div class="kick">A Private Museum of Korean Drama Lines</div><h1>K-Drama Lines</h1><div class="zht">韩 剧 台 词 私 人 博 物 馆</div><p class="spirit">有些台词只在屏幕上存在几秒，<br>却会在一个人的心里，<em>停留很多年</em>。</p></div><div class="hero-meta"><span>${LINES.length} LINES</span><span>${Object.keys(DRAMAS).length} DRAMAS</span><span>한글 × 中文</span><span>LOCAL ONLY</span><span class="read-progress">已读 ${store.read.length}/${LINES.length}</span></div><div class="hero-act"><button class="btn-p" data-go="rank">进入编辑精选</button><button class="btn-g" data-go="tonight">今晚的一句</button><button class="btn-g" data-go="journey">随机情绪旅程</button></div></section><div class="tonight" data-go="tonight"><div class="lab">TONIGHT'S LINE · 今晚的一句 · ${lod.id}</div><div class="tko">${esc(lod.ko)}</div><div class="tzh">${esc(lod.zh)}</div><div class="tmeta">${D(lod).zh} · ${lod.char} · ${lod.lineType.join(' / ')}</div></div><div class="sh"><h2>编辑精选</h2><span class="sub">Editor's Pick · 不按热度</span><span class="more" data-go="rank">全部 →</span></div><p class="lede">从文学性、人物塑造、情绪力量、语言美感与剧情作用中精选，每句附编辑评语。</p><div class="poster-grid">${posters}</div><div class="sh"><h2>为你而选</h2><span class="sub">Based on your reading</span></div><p class="lede">${store.favs.length?'根据你的收藏与阅读偏好推荐（本地规则，非虚构数据）。':'你还没有收藏，先从编辑精选开始；收藏后这里会按你的偏好推荐。'}</p>${lgrid(rec)}<div class="sh"><h2>按情绪寻找</h2><span class="sub">By Emotion</span></div><p class="lede">不必按剧名找。按你此刻的状态进入：想看爱情、想被治愈、最近有点孤独……</p><div class="emo-grid">${emo}</div><div class="sh"><h2>研究室</h2><span class="sub">Research · 语言与翻译</span></div>${studies}<div class="footer-note">档案凡例：韩文尽量保留剧中原文；中文优先采用通行正式字幕，无法确认者明确标注"参考译文"，绝不以 AI 译文冒充原字幕。仅收录短小台词用于学习欣赏，不复制完整字幕。详见<a data-go="about" style="color:var(--wine);cursor:pointer">「档案凡例」</a>。</div>`}
+function vEmotions(){const list=Object.keys(THEMES).filter(t=>linesByT(t).length);return `<div class="crumb"><span data-go="home">首页</span>/<span>全部主题</span></div><div class="mag-head"><div class="mk">BY EMOTION</div><h2>按情绪与人生主题</h2><div class="mnote">一句台词可以同时属于多个主题，因为情绪本就彼此交叠。点击进入对应主题。</div></div><div class="emo-grid">${list.map(t=>`<div class="emo" data-t="${t}"><span class="en">${linesByT(t).length}</span><span class="ez">${THEMES[t].zh}</span><span class="ek">${THEMES[t].ko}</span></div>`).join('')}</div>`}
+function vEmotion(t){const th=THEMES[t],list=linesByT(t);return `<div class="crumb"><span data-go="home">首页</span>/<span data-go="emotions">主题</span>/<span>${th.zh}</span></div><div class="mag-head"><div class="mk">${th.ko}</div><h2>${th.zh}</h2><div class="mnote">共 ${list.length} 句。同一种情绪，不同的人、不同的剧、不同的说法。</div></div>${list.length?lgrid(list):'<div class="empty"><div class="big">coming soon…</div>本主题正在持续收录中</div>'}`}
+function vRank(){return `<div class="crumb"><span data-go="home">首页</span>/<span>编辑精选</span></div><div class="mag-head"><div class="mk">EDITOR'S PICK</div><h2>经典台词精选榜</h2><div class="mnote">本榜为「编辑精选」，依据文学性、情绪感染力、人物塑造价值与剧情重要性综合挑选，并非真实用户统计，也不按网络热度排序。</div></div>${RANK.map((id,i)=>{const l=byId(id);return `<div class="rank-row" data-d="${id}"><div class="rank-no">${String(i+1).padStart(2,'0')}</div><div class="rank-body"><div class="rk">${esc(l.ko)}</div><div class="rz">${esc(l.zh)} —— ${D(l).zh} · ${l.char}</div>${l.editorNote?`<div style="font-size:.78rem;color:var(--mute);margin-top:.4rem;font-style:italic;line-height:1.8">${esc(l.editorNote)}</div>`:''}</div></div>`}).join('')}`}
+function vDramas(){const cards=Object.keys(DRAMAS).map(k=>{const d=DRAMAS[k],ls=LINES.filter(l=>l.drama===k),chars=[...new Set(ls.map(l=>l.char))].join(' / ');return `<article class="drama-hero" data-k="${k}"><div class="dko">${d.ko}</div><div class="dzh">${d.zh}</div><div class="dmeta">${d.year} · ${d.net} · ${d.genre} · 精选 ${ls.length} 句</div><div class="dstyle">${d.style}</div><div class="dmeta" style="margin-top:.8rem">代表人物语言：${chars||'—'}</div></article>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>按剧集</span></div><div class="mag-head"><div class="mk">BY DRAMA</div><h2>剧集档案</h2><div class="mnote">覆盖爱情、家庭、职场、悬疑、法律、现实等题材，看韩剧如何在不同类型里写人与关系。</div></div>${cards}`}
+function vDrama(k){const d=DRAMAS[k],ls=LINES.filter(l=>l.drama===k),chars=[...new Set(ls.map(l=>l.char))];return `<div class="crumb"><span data-go="home">首页</span>/<span data-go="dramas">剧集</span>/<span>${d.zh}</span></div><div class="drama-hero"><div class="dko">${d.ko}</div><div class="dzh">${d.zh}</div><div class="dmeta">${d.year} · ${d.net} · ${d.genre}</div><div class="dstyle">${d.style}</div></div><div class="dinfo"><div><b>年份</b>${d.year}</div><div><b>播出</b>${d.net}</div><div><b>类型</b>${d.genre}</div><div><b>馆藏</b>${ls.length} 句</div><div><b>人物</b>${chars.join('、')}</div></div><div class="sh"><h2>本剧经典台词</h2><span class="sub">${ls.length} lines</span></div>${lgrid(ls)}`}
+function vCharacters(){const cards=CHARACTERS.map(c=>{const d=DRAMAS[c.drama],ls=LINES.filter(l=>l.drama===c.drama&&l.char===c.name);return `<article class="char-hero" data-c="${c.id}" style="cursor:pointer"><h2>${c.name} <span class="cko">${c.ko}</span> <span style="font-size:.85rem;color:var(--mute);font-weight:400">${d.zh} · ${c.actor} 饰</span></h2><div class="arc">${c.arc}</div><div class="dmeta" style="margin-top:.6rem">馆藏相关台词 ${ls.length} 句 →</div></article>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>按人物</span></div><div class="mag-head"><div class="mk">BY CHARACTER · CHARACTER ARC</div><h2>人物语言档案</h2><div class="mnote">不介绍演员，只追踪一个人"怎么说话"：从开头到结尾，语言如何随命运变化。点击进入人物成长弧。</div></div>${cards}`}
+function vCharacter(id){const c=CHARACTERS.find(x=>x.id===id),d=DRAMAS[c.drama],ls=LINES.filter(l=>l.drama===c.drama&&l.char===c.name);const stages=[{k:'early',n:'早期'},{k:'mid',n:'中期'},{k:'late',n:'后期'}];const tl=stages.map(s=>{const ss=ls.filter(l=>(l.arcStage||'mid')===s.k);if(!ss.length)return'';return `<div class="arc-stage"><div class="as">${s.n}</div>${ss.map(l=>`<div class="at" data-d="${l.id}" style="cursor:pointer">${esc(l.ko)}</div><div style="font-size:.8rem;color:var(--mute);margin:.1rem 0 .6rem">${esc(l.zh)}</div>`).join('')}</div>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span data-go="characters">人物</span>/<span>${c.name}</span></div><div class="char-hero"><h2>${c.name} <span class="cko">${c.ko}</span> <span style="font-size:.85rem;color:var(--mute);font-weight:400">${d.zh} · ${c.actor} 饰</span></h2><div class="arc">${c.arc}</div></div><div class="sh"><h2>人物成长弧</h2><span class="sub">Through Lines · 用台词见证变化</span></div><div class="arc-timeline">${tl||'<p style="color:var(--mute)">该人物台词尚在持续收录中。</p>'}</div>`}
+function vScenes(){const cards=SCENES.map(s=>{const l=byId(s.line);return `<article class="lcard" data-d="${s.line}"><div class="lid"><span>SCENE · ${D(l).zh}</span><span>${l.char}</span></div><h3 style="font-size:1.1rem;margin:.6rem 0">${s.title}</h3><div class="lko" style="font-size:1.02rem">${esc(l.ko)}</div><p style="font-size:.82rem;color:var(--ink-2);margin-top:.3rem;line-height:1.9"><b style="color:var(--wine)">场景：</b>${s.what}</p><p style="font-size:.82rem;color:var(--ink-2);margin-top:.4rem;line-height:1.9"><b style="color:var(--wine)">为何成为名场面：</b>${s.beat}</p><div class="lmeta"><span>点开查看完整 Line Archive →</span></div></article>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>名场面</span></div><div class="mag-head"><div class="mk">SCENE ARCHIVE</div><h2>名场面档案</h2><div class="mnote">不只记录台词，更把它放回那一刻：人物刚经历了什么、面对谁、冲突在哪。仅用必要上下文，不复制连续对白。</div></div><div class="lgrid">${cards}</div>`}
+function vDetail(id){const l=byId(id);if(!l)return'<div class="empty">未找到</div>';markRead(id);const d=D(l);return `<div class="archive"><div class="crumb"><span data-go="home">首页</span>/<span data-k="${l.drama}">${d.zh}</span>/<span>${l.id}</span></div><div class="stage${l.mood?' mood-'+l.mood:''}" data-mood="${l.mood||'quiet-street'}"><div class="stage-id"><span>LINE ARCHIVE · ${l.id}</span>${badge(l)}</div><div class="stage-ko">${voiceHtml(l.ko)}</div><div class="stage-zh" id="stageZh">${esc(l.zh)}${l.zhType==='reference'?' <span style="color:var(--brown);font-size:.7rem">中文为参考译文 · 非官方字幕</span>':''}</div><div style="margin-top:.8rem"><button class="understand" id="undBtn">收起中文字幕</button></div><div class="stage-act"><button class="mbtn ${store.favs.includes(l.id)?'on':''}" data-fav="${l.id}">${store.favs.includes(l.id)?'★ 已收藏':'☆ 收进台词书'}</button><button class="mbtn" data-imm="${l.id}">深度阅读</button><button class="mbtn" data-rand="1">随机下一句 ∿</button></div><div class="ab"><div class="ctx-grid"><div><b>剧名</b>${d.zh}（<span class="ko">${d.ko}</span>）</div><div><b>年份/台</b>${d.year} · ${d.net}</div><div><b>角色</b>${l.char} <span style="color:var(--mute)">/ ${l.actor||'—'}</span></div><div><b>出处</b>${l.ep}</div><div><b>人物关系</b><span class="tag rel">${l.relationship}</span></div><div><b>台词类型</b>${ltHtml(l)}</div></div></div><div class="ab"><h6>Context · 上下文</h6><p><b style="color:var(--ink)">发生前：</b>${l.before}</p><p><b style="color:var(--ink)">发生后：</b>${l.after}</p></div><div class="ab"><h6>Why It Stays · 为什么这句话会留下来</h6><div class="why">${l.whyStays}</div></div>${l.anatomy?`<div class="ab"><h6>Dialogue Anatomy · 台词解剖</h6><div class="anat"><div><b>语言 Language</b><span>${l.anatomy.language}</span></div><div><b>人物 Character</b><span>${l.anatomy.character}</span></div><div><b>情绪 Emotion</b><span>${l.anatomy.emotion}</span></div><div><b>剧情 Plot</b><span>${l.anatomy.plot}</span></div></div></div>`:''}${l.nuance?`<div class="ab"><h6>Korean Nuance · 韩语语感</h6><div class="nuance">${l.nuance}</div></div>`:''}${(l.note||l.subtitleCompare)?`<div class="ab"><h6>Subtitle Notes · 字幕翻译笔记</h6><div class="tnote">${l.note?`<div class="row"><div class="k">直译含义</div><div class="v">${l.note.literal}</div></div><div class="row"><div class="k">正式字幕</div><div class="v">${l.note.official}</div></div><div class="row"><div class="k">为何这样译</div><div class="v">${l.note.why}</div></div>`:''}${l.subtitleCompare?`<div class="subcmp">${l.subtitleCompare.map(v=>`<div class="ver"><b>${v.source}</b>${v.text}<br><span style="color:var(--mute);font-size:.74rem">${v.note}</span></div>`).join('')}</div>`:''}</div></div>`:''}${l.editorNote?`<div class="editorpick"><b>EDITOR'S NOTE</b>${l.editorNote}</div>`:''}${l.law?`<div class="lawnote">${l.law}</div>`:''}<div class="ab"><h6>Themes · 主题</h6><div>${tagsHtml(l)}</div></div><div class="legend"><span>核验：${l.verify==='v'?'已对照公开中韩字幕逐字核校':'韩文为通行原句、中文为通行字幕，建议以正版片源校字'}</span></div></div></div>`}
+function vSection(k){const s=SECTIONS[k],list=LINES.filter(l=>s.ids.some(t=>l.themes.includes(t)));return `<div class="crumb"><span data-go="home">首页</span>/<span>专题</span>/<span>${s.title}</span></div><div class="mag-head"><div class="mk">${s.title}</div><h2>${s.zh}</h2><div class="mnote">${s.desc}</div></div>${k==='law'?'<div class="lawnote" style="margin-bottom:1rem">提示：本专题台词均为影视剧的戏剧化表达，不能作为现实法律判断或结论。</div>':''}${lgrid(list)}`}
+function vSameEmotion(){const cores=['love','loneliness','growth','farewell','healing'];const blocks=cores.map(t=>{const list=linesByT(t);if(!list.length)return'';return `<div class="word-block"><div class="wh"><span class="w">${THEMES[t].zh}</span><span class="wz">${THEMES[t].ko} · ${list.length} 种表达</span></div><div class="cmp-row">${list.slice(0,4).map(l=>`<div class="cr" data-d="${l.id}"><div class="crk">${esc(l.ko)}</div><div class="crz">${esc(l.zh)}</div><div class="crm">${D(l).zh} · ${l.char}</div></div>`).join('')}</div></div>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>同情绪 · 不同韩剧</span></div><div class="mag-head"><div class="mk">SAME EMOTION, DIFFERENT DRAMAS</div><h2>同一种情绪，不同韩剧怎么表达</h2><div class="mnote">把不同作品放在一起横向比较，看不同编剧、不同人物如何写同一种心情。</div></div>${blocks}`}
+function vSameWord(){const blocks=WORDS.map(w=>{const ls=w.ids.map(byId).filter(Boolean);return `<div class="word-block"><div class="wh"><span class="w">${w.word}</span><span class="wz">${w.zh} · ${w.note}</span></div><div class="cmp-row">${ls.map(l=>`<div class="cr" data-d="${l.id}"><div class="crk">${esc(l.ko)}</div><div class="crz">${esc(l.zh)}</div><div class="crm">${D(l).zh} · ${l.char} · ${l.lineType.join('/')}</div></div>`).join('')}</div></div>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>同词不同情绪</span></div><div class="mag-head"><div class="mk">SAME KOREAN WORD, DIFFERENT EMOTION</div><h2>同一个韩语词，在不同场景里的不同感觉</h2><div class="mnote">翻译成中文意思差不多，但语气、关系和情绪已经完全不同——这正是韩语的语境魅力。</div></div>${blocks}`}
+function vSubtitleStudy(){const list=LINES.filter(l=>l.note||l.subtitleCompare);const cards=list.map(l=>`<article class="lcard" data-d="${l.id}"><div class="lid"><span>SUBTITLE STUDY · ${l.id}</span>${badge(l)}</div><div class="lko">${esc(l.ko)}</div><div class="lzh">${esc(l.zh)}</div>${l.note?`<div style="font-size:.78rem;color:var(--ink-2);margin-top:.6rem;line-height:1.8"><b style="color:var(--wine)">直译：</b>${l.note.literal}<br><b style="color:var(--wine)">译法：</b>${l.note.why}</div>`:''}<div class="lmeta"><span class="dr">${D(l).zh}</span></div></article>`).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>原文与字幕的距离</span></div><div class="mag-head"><div class="mk">SUBTITLE vs ORIGINAL</div><h2>原文与字幕之间的距离</h2><div class="mnote">韩文原句、正式中文字幕、直译含义与语气差异。优秀字幕是再创作——这里看它如何在忠实与文学性之间平衡。所有译文均明确来源，不以 AI 译文冒充官方字幕。</div></div><div class="lgrid">${cards}</div>`}
+function vJourney(){const j=JOURNEYS[Math.floor(Math.random()*JOURNEYS.length)];const used=new Set();const stages=j.stages.map(s=>{const pool=linesByT(s.theme).filter(l=>!used.has(l.id));const l=pool[Math.floor(Math.random()*pool.length)]||randLine();used.add(l.id);return{...s,l}});return `<div class="crumb"><span data-go="home">首页</span>/<span>随机情绪旅程</span></div><div class="mag-head"><div class="mk">RANDOM EMOTIONAL JOURNEY</div><h2>${j.name}</h2><div class="mnote">没有特定目标时，让几句台词带你走一段情绪。点击任意一句进入完整档案。</div></div><button class="btn-g" id="jAgain" style="margin-bottom:1.2rem">换一段旅程 ∿</button>${stages.map((s,i)=>`<div class="journey"><div class="js">STEP ${i+1} · ${s.label}</div><div class="lcard" data-d="${s.l.id}" style="cursor:pointer"><div class="lko">${esc(s.l.ko)}</div><div class="lzh">${esc(s.l.zh)}</div><div class="lmeta"><span class="dr">${D(s.l).zh}</span><span>·</span><span>${s.l.char}</span></div></div></div>`).join('')}`}
+function vTonight(){const l=todayLine();return `<div class="imm-full" style="position:static;min-height:80vh"><div class="glow"></div><button class="icon-btn iclose" data-go="home" style="position:absolute">✕</button><div class="inner"><div class="mono" style="color:var(--mute);letter-spacing:.24em;font-size:.7rem">TONIGHT'S LINE · ${l.id}</div><div class="iko" style="margin-top:2rem">${esc(l.ko)}</div><div class="izh">${esc(l.zh)}</div><div class="imeta">${D(l).zh} · ${l.char} · ${l.lineType.join(' / ')}</div><div class="iact"><button class="btn-p" data-d="${l.id}">进入完整档案</button><button class="btn-g" data-go="home">回到发现页</button></div></div></div>`}
+function vFavorites(){const f=store.favs.map(byId).filter(Boolean);if(!f.length)return'<div class="empty"><div class="big">你的台词书还是空的</div><p>读到喜欢的句子，点 ☆ 收进来。它只存在你的浏览器本地，不上传任何数据。</p><button class="btn-p" style="margin-top:1.2rem" data-go="home">去发现一句</button></div>';let list=f;if(S.favFilter==='drama')list=[...f].sort((a,b)=>D(a).zh.localeCompare(D(b).zh));if(S.favFilter==='theme')list=[...f].sort((a,b)=>(a.themes[0]||'').localeCompare(b.themes[0]||''));if(S.favFilter==='tag'){const hasTag=f.filter(l=>(store.tags[l.id]||[]).length);list=hasTag.length?hasTag:f}const filters=[['time','按收藏时间'],['drama','按剧集'],['theme','按主题'],['tag','按私人标签']];const cards=list.map(l=>{const ptags=(store.tags[l.id]||[]).map(t=>`<span class="ptag">${esc(t)} <span data-rmtag="${l.id}|${t}">×</span></span>`).join('');return `<article class="lcard" data-d="${l.id}"><div class="lid"><span>${l.id}</span><span class="star on" data-fav="${l.id}">★</span></div><div class="lko">${esc(l.ko)}</div><div class="lzh">${esc(l.zh)}</div><div class="ptags">${ptags}</div><input class="ptag-input" placeholder="加私人标签，回车保存（如：最近的自己）" data-ptag="${l.id}"><div class="lmeta"><span class="dr">${D(l).zh}</span><span>·</span><span>${l.char}</span><span style="margin-left:auto"></span>${tagsHtml(l)}</div></article>`}).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>我的台词书</span></div><div class="mag-head"><div class="mk">PERSONAL QUOTE BOOK · MEMORY MODE</div><h2>我的台词书</h2><div class="mnote">共 ${f.length} 句，按主题自动整理。可加私人标签，所有内容仅存本地。</div></div><div class="shelf-filter">${filters.map(([k,n])=>`<button class="${S.favFilter===k?'on':''}" data-ff="${k}">${n}</button>`).join('')}<button id="clearFav" style="margin-left:auto;color:var(--wine)">清空</button></div><div class="lgrid">${cards}</div>`}
+function vSearch(q){const k=q.trim().toLowerCase();if(!k)return'<div class="empty">输入关键词开始搜索</div>';const res=LINES.filter(l=>{const d=D(l);return (l.ko+l.zh+d.zh+d.ko+l.char+(l.actor||'')+(l.lineType||[]).join('')+(l.relationship||'')+l.themes.map(tname).join('')).toLowerCase().includes(k)});const hl=s=>{const i=s.toLowerCase().indexOf(k);if(i<0)return esc(s);return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+k.length))+'</mark>'+esc(s.slice(i+k.length))};const cards=res.map(l=>`<article class="lcard" data-d="${l.id}"><div class="lid"><span>${l.id}</span></div><div class="lko">${hl(l.ko)}</div><div class="lzh">${hl(l.zh)}</div><div class="lmeta"><span class="dr">${hl(D(l).zh)}</span>·<span>${hl(l.char)}</span>${ltHtml(l)}</div></article>`).join('');return `<div class="crumb"><span data-go="home">首页</span>/<span>搜索：${esc(q)}</span></div><div class="sh"><h2>搜索结果</h2><span class="sub">${res.length} found · 支持韩文/中文/剧名/角色/主题/台词类型</span></div>${res.length?`<div class="lgrid">${cards}</div>`:'<div class="empty">没有找到，换个关键词试试。</div>'}`}
+function vAbout(){return `<div class="archive"><div class="crumb"><span data-go="home">首页</span>/<span>档案凡例</span></div><div class="mag-head"><div class="mk">EDITORIAL POLICY</div><h2>档案凡例</h2></div><div class="stage${l.mood?' mood-'+l.mood:''}" data-mood="${l.mood||''}"><div class="ab"><h6>一、真实性与核验</h6><p>只收录在剧中真实出现、能在公开字幕与可靠资料中相互印证的短小台词。每条标注：<br><span class="badge v">字幕核校</span> 已对照公开中韩字幕逐字核校；<span class="badge c">字幕整理</span> 韩文为通行原句、中文采用通行正式字幕，建议以正版片源校字；<span class="badge r">参考译文</span> 仅确认韩文、无法锁定正式中文字幕，中文明确标为参考译文，<b>绝不以 AI 译文冒充剧中字幕</b>。</p></div><div class="ab"><h6>二、版权边界</h6><p>仅摘录必要的短小台词用于学习与欣赏，<b>不复制任何剧集的完整字幕或连续长段对白</b>；台词著作权归原权利人。不使用受版权保护的剧照，所有氛围由原创 CSS（纸纹、胶片齿孔、光影、雨丝）构成。</p></div><div class="ab"><h6>三、多标签与不机械分类</h6><p>同一句台词可同时属于爱情、成长与人生，故采用多主题标签，并按"台词表达了什么情绪"而非剧集类型分类。另设台词类型（独白/告别/质问/反转等）与人物关系维度。</p></div><div class="ab"><h6>四、法律题材声明</h6><p>法律、悬疑类台词是戏剧表达，不构成、也不替代现实法律意见。</p></div><div class="ab"><h6>五、你的数据</h6><p>收藏、阅读记录、私人标签、深浅色与韩文模式仅保存在你浏览器的 localStorage，本地存储，无需注册、不联网上传。</p></div><div class="ab"><h6>六、持续收录</h6><p>坚持"少而精"：宁可一百句可靠、有上下文的台词，也不堆砌来源不明的网络语录。标注"来源待核实"的内容暂不进入本馆。</p></div><div class="ab"><h6>七、第二阶段升级说明</h6><p>本版从"资料库"升级为"私人博物馆"：每句补充发生前/发生后/Why It Stays/台词类型/人物关系/场景氛围；精选句增加 Dialogue Anatomy 与字幕翻译比较；新增同情绪跨剧、同词不同情绪、原文与字幕距离、人物成长弧、随机情绪旅程、今晚一句、私人标签与回忆模式、本地推荐与阅读进度。</p></div></div></div>`}
+function render(){const v=$('#view');let h='';switch(S.view){case'home':h=vHome();break;case'emotions':h=vEmotions();break;case'emotion':h=vEmotion(S.filter);break;case'rank':h=vRank();break;case'dramas':h=vDramas();break;case'drama':h=vDrama(S.filter);break;case'characters':h=vCharacters();break;case'character':h=vCharacter(S.filter);break;case'scenes':h=vScenes();break;case'detail':h=vDetail(S.detail);break;case'section':h=vSection(S.filter);break;case'same-emotion':h=vSameEmotion();break;case'same-word':h=vSameWord();break;case'subtitle-study':h=vSubtitleStudy();break;case'journey':h=vJourney();break;case'tonight':h=vTonight();break;case'favorites':h=vFavorites();break;case'search':h=vSearch(S.search);break;case'about':h=vAbout();break}v.innerHTML=h;const lod=todayLine(),topD=Object.keys(DRAMAS).map(k=>({k,n:LINES.filter(l=>l.drama===k).length})).sort((a,b)=>b.n-a.n).slice(0,6);$('#rail').innerHTML=`<div class="rail-card"><h5>Tonight · 今晚</h5><div class="rail-line" data-d="${lod.id}"><span class="ko" style="font-size:.88rem;color:var(--ink)">${esc(lod.ko.slice(0,40))}${lod.ko.length>40?'…':''}</span><small>${D(lod).zh} · ${lod.char}</small></div></div><div class="rail-card"><h5>By Drama · 馆藏</h5>${topD.map(x=>`<div class="rail-line" data-k="${x.k}">${DRAMAS[x.k].zh}<small>${DRAMAS[x.k].year} · ${x.n} 句</small></div>`).join('')}</div><div class="rail-card"><h5>Reading · 阅读</h5><div class="rail-line" id="railKo">가 纯韩文模式：${store.ko?'开启':'关闭'}</div><div class="rail-line" data-go="journey">∿ 随机情绪旅程</div><div class="rail-line" data-go="same-word">가 同词不同情绪</div><div class="rail-line" data-go="about">§ 档案凡例</div><div class="rail-line"><span class="read-progress">已读 ${store.read.length}/${LINES.length}</span></div></div>`;$('#navEmo').innerHTML=Object.keys(THEMES).filter(t=>linesByT(t).length).map(t=>`<div class="navi ${S.view==='emotion'&&S.filter===t?'on':''}" data-t="${t}">${THEMES[t].zh}<span class="c">${linesByT(t).length}</span></div>`).join('');$$('.nav-main button').forEach(b=>b.classList.toggle('on',b.dataset.go===S.view));$$('.navi').forEach(n=>{const g=n.dataset.go;if(g)n.classList.toggle('on',S.view===g)});document.body.classList.toggle('ko-only',store.ko);window.scrollTo({top:0,behavior:'smooth'});const ub=$('#undBtn');if(ub)ub.onclick=()=>{var z=$('#stageZh');z.classList.toggle('hidden-zh');ub.textContent=z.classList.contains('hidden-zh')?'理解这句 · 显示中文字幕':'收起中文字幕'}}
+function go(view,filter){S.view=view;S.filter=filter||null;if(view!=='search')S.search='';$('#sideNav').classList.remove('open');render();_afterRender()}
+function openImm(id){const l=byId(id),d=D(l);const o=document.createElement('div');o.className='imm-full';o.innerHTML=`<div class="glow"></div><button class="icon-btn iclose">✕</button><div class="inner"><div class="mono" style="color:var(--mute);letter-spacing:.24em;font-size:.7rem">DEEP READING · ${l.id}</div><div class="iko" style="margin-top:2rem">${voiceHtml(l.ko)}</div><div class="izh">${esc(l.zh)}</div><p style="margin-top:2rem;color:var(--ink-2);font-size:.9rem;max-width:36em;line-height:2;opacity:0;animation:voIn 1s 2s ease forwards">${l.before}</p><div class="imeta">${d.zh} · ${l.char}${l.actor?' / '+l.actor:''} · ${l.ep}</div><div class="iact"><button class="btn-p" id="immFav">${store.favs.includes(id)?'★ 已收藏':'☆ 收藏'}</button><button class="btn-g" id="immDetail">查看完整档案</button><button class="btn-g" id="immExit">返回</button></div></div>`;document.body.appendChild(o);document.body.style.overflow='hidden';const c=()=>{o.remove();document.body.style.overflow=''};o.querySelector('.iclose').onclick=c;o.querySelector('#immExit').onclick=c;o.querySelector('#immFav').onclick=()=>{toggleFav(id);c();openImm(id)};o.querySelector('#immDetail').onclick=()=>{c();S.view='detail';S.detail=id;render()}}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go],[data-d],[data-t],[data-k],[data-c],[data-fav],[data-imm],[data-rand],[data-ff],[data-rmtag]');if(!t)return;e.preventDefault();if(t.dataset.fav){toggleFav(t.dataset.fav);return}if(t.dataset.imm){openImm(t.dataset.imm);return}if(t.dataset.d){S.view='detail';S.detail=t.dataset.d;render();return}if(t.dataset.t){go('emotion',t.dataset.t);return}if(t.dataset.k){go('drama',t.dataset.k);return}if(t.dataset.c){go('character',t.dataset.c);return}if(t.dataset.rand){const l=randLine();S.detail=l.id;S.view='detail';render();return}if(t.dataset.ff){S.favFilter=t.dataset.ff;render();return}if(t.dataset.rmtag){const[id,tag]=t.dataset.rmtag.split('|');const ts=store.tags;ts[id]=(ts[id]||[]).filter(x=>x!==tag);store.tags=ts;render();return}const g=t.dataset.go;if(!g)return;if(g==='journey'){go('journey');return}if(g.startsWith('sec-')){go('section',g.slice(4));return}if(g==='home'){S={view:'home',filter:null,detail:null,search:'',favFilter:'time'};render();return}go(g)});
+document.addEventListener('click',e=>{if(e.target.id==='clearFav'){store.favs=[];toast('已清空收藏');render()}if(e.target.id==='jAgain'){render()}if(e.target.id==='railKo'){store.ko=!store.ko;toast(store.ko?'纯韩文模式：中文已隐藏':'已显示中文');render()}});
+document.addEventListener('keydown',e=>{const inp=e.target.closest('[data-ptag]');if(inp&&e.key==='Enter'){const id=inp.dataset.ptag,v=inp.value.trim();if(v){const ts=store.tags;ts[id]=[...(ts[id]||[]),v];store.tags=ts;toast('标签已添加');render()}}if(e.key==='Escape'){const o=$('.imm-full');if(o){o.remove();document.body.style.overflow=''}}});
+$('#themeBtn').onclick=()=>{const c=document.documentElement.dataset.theme;const n=c==='light'?'dark':'light';document.documentElement.dataset.theme=n;store.theme=n};
+$('#koBtn').onclick=()=>{store.ko=!store.ko;toast(store.ko?'纯韩文模式开启':'纯韩文模式关闭');render()};
+$('#randBtn').onclick=()=>go('journey');
+$('#favBtn').onclick=()=>go('favorites');
+$('#menuToggle').onclick=()=>$('#sideNav').classList.toggle('open');
+$('.brand').onclick=()=>go('home');
+let st;$('#searchInput').addEventListener('input',e=>{clearTimeout(st);st=setTimeout(()=>{const q=e.target.value.trim();if(q){S.view='search';S.search=q;render()}else if(S.view==='search')go('home')},280)});
+document.documentElement.dataset.theme=store.theme;
+
+// === Interaction Upgrade v3 ===
+function _afterRender(){
+  const v=document.getElementById('view');
+  if(!v)return;
+  v.classList.remove('view-enter');
+  void v.offsetWidth;
+  v.classList.add('view-enter');
+  var idx=0;
+  v.querySelectorAll('.lc,.emo-card,.drama-card,.char-card,.rank-row,.scene-card,.journey-card,.word-block').forEach(function(el){
+    if(!el.classList.contains('reveal')){
+      el.classList.add('reveal');
+      el.style.transitionDelay=(Math.min(idx,10)*35)+'ms';
+      idx++;
+    }
+  });
+  if(window._revealIO){
+    v.querySelectorAll('.reveal:not(.visible)').forEach(function(el){window._revealIO.observe(el)});
+  }
+}
+document.addEventListener('click',function(e){
+  const t=e.target.closest('.lc,.emo-card,.rank-row,.drama-card,.char-card,.scene-card,button,.nav-item,.tag-pill,.journey-card,.word-block');
+  if(!t)return;
+  if(!t.classList.contains('ripple-host'))t.classList.add('ripple-host');
+  const r=document.createElement('span');
+  r.className='ripple';
+  const rect=t.getBoundingClientRect();
+  const size=Math.max(rect.width,rect.height)*1.1;
+  r.style.width=r.style.height=size+'px';
+  r.style.left=(e.clientX-rect.left-size/2)+'px';
+  r.style.top=(e.clientY-rect.top-size/2)+'px';
+  t.appendChild(r);
+  setTimeout(function(){r.remove()},600);
+});
+window._revealIO=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){en.target.classList.add('visible');window._revealIO.unobserve(en.target)}
+  });
+},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+document.addEventListener('click',function(e){
+  const b=e.target.closest('.fav-btn');
+  if(b){b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+});
+go("home");
+
+// Nav scroll state
+window.addEventListener('scroll',function(){
+  var nav=document.querySelector('.nav-main');
+  if(nav){
+    if(window.scrollY>20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+},{passive:true});
+
+_afterRender();
+
+
+// Reading progress bar
+window.addEventListener('scroll',()=>{
+  const bar=document.getElementById('readBar');
+  if(!bar)return;
+  const h=document.documentElement;
+  const scrolled=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  bar.style.width=Math.min(100,Math.max(0,scrolled))+'%';
+},{passive:true});
+</script>
+<div class="grain-overlay"></div>
+</body>
+</html>
