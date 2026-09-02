@@ -3238,15 +3238,6 @@ body{
   }
 }
 
-/* Hide original menu toggle on desktop */
-.icon-btn.menu-toggle{
-  display:none !important;
-}
-@media(max-width:768px){
-  .icon-btn.menu-toggle{
-    display:flex !important;
-  }
-}
 
 /* === v4.9.2 COMPLETE LAYOUT FIX === */
 .shell{
@@ -3317,10 +3308,56 @@ body.ko-only .tzh{
 #view > *,.view-enter > *{max-width:960px !important;margin-left:auto !important;margin-right:auto !important;padding-left:1rem !important;padding-right:1rem !important;}
 .hero{max-width:100% !important;}
 
-/* v4.9.3 Hide mobile drawer on desktop */
-.mobile-drawer,.mobile-drawer-overlay{display:none !important;visibility:hidden !important;}
+
+/* ============ v5.0 MOBILE NAV — CLEAN REWRITE ============ */
+/* 桌面端与移动端共用：侧栏/右栏永远隐藏（顶部导航已含全部入口） */
+#sideNav,#rail{display:none !important;}
+
+/* ---- 桌面端 (>768px)：水平导航显示，汉堡/抽屉隐藏 ---- */
+@media(min-width:769px){
+  .nav-main{display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;}
+  .nav-main button:not(.mobile-menu-btn){display:inline-flex !important;flex-direction:row !important;align-items:center !important;}
+  .nav-main .mobile-menu-btn,#menuToggle{display:none !important;}
+  #mobileDrawer,#mobileDrawerOverlay{display:none !important;}
+}
+
+/* ---- 移动端 (≤768px)：水平导航隐藏，汉堡显示，抽屉可用 ---- */
 @media(max-width:768px){
-  .mobile-drawer{display:block !important;visibility:visible !important;}
+  .nav-main{display:none !important;}
+  #menuToggle{
+    display:flex !important;
+    width:44px !important;height:44px !important;
+    align-items:center !important;justify-content:center !important;
+    font-size:1.35rem !important;
+    margin-left:-.5rem !important;
+  }
+  #mobileDrawer{
+    display:block !important;
+    position:fixed !important;
+    top:0 !important;left:0 !important;bottom:0 !important;
+    width:min(80%,320px) !important;
+    background:var(--paper,#f5f1e8) !important;
+    z-index:2000 !important;
+    transform:translateX(-100%) !important;
+    transition:transform .35s cubic-bezier(.22,.61,.36,1) !important;
+    overflow-y:auto !important;
+    padding:2.2rem 1.5rem !important;
+    box-shadow:4px 0 30px rgba(0,0,0,.18) !important;
+    visibility:visible !important;
+  }
+  #mobileDrawer.open{transform:translateX(0) !important;}
+  #mobileDrawerOverlay{
+    display:block !important;
+    position:fixed !important;
+    inset:0 !important;
+    background:rgba(0,0,0,.45) !important;
+    z-index:1999 !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+    transition:opacity .3s !important;
+    visibility:visible !important;
+  }
+  #mobileDrawerOverlay.open{opacity:1 !important;pointer-events:auto !important;}
 }
 </style>
 
@@ -3536,7 +3573,7 @@ $('#themeBtn').onclick=()=>{const c=document.documentElement.dataset.theme;const
 $('#koBtn').onclick=()=>{store.ko=!store.ko;toast(store.ko?'纯韩文模式开启':'纯韩文模式关闭');render()};
 $('#randBtn').onclick=()=>go('journey');
 $('#favBtn').onclick=()=>go('favorites');
-$('#menuToggle').onclick=()=>$('#sideNav').classList.toggle('open');
+$('#menuToggle').onclick=()=>toggleMobileDrawer();var _mmb=document.querySelector('.mobile-menu-btn');if(_mmb){_mmb.onclick=function(e){e.preventDefault();toggleMobileDrawer();}}
 $('.brand').onclick=()=>go('home');
 let st;$('#searchInput').addEventListener('input',e=>{clearTimeout(st);st=setTimeout(()=>{const q=e.target.value.trim();if(q){S.view='search';S.search=q;render()}else if(S.view==='search')go('home')},280)});
 document.documentElement.dataset.theme=store.theme;
@@ -3660,8 +3697,8 @@ window.addEventListener('scroll',()=>{
 </script>
 <div class="grain-overlay"></div>
 
-<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileDrawer()" style="display:none !important;visibility:hidden !important;"></div>
-<div class="mobile-drawer" id="mobileDrawer" style="display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;">
+<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileDrawer()"></div>
+<div class="mobile-drawer" id="mobileDrawer">
   <div class="drawer-section">
     <div class="drawer-title">导航</div>
     <div class="drawer-link" onclick="go('home');toggleMobileDrawer()">发现</div>
