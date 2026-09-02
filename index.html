@@ -3135,28 +3135,37 @@ body{
   }
 }
 
-/* === v4.8.1 LAYOUT FIX === */
-.shell{
-  grid-template-columns:1fr !important;
-  display:block !important;
+
+/* === CLEAN RESPONSIVE === */
+.shell{display:block !important;max-width:100% !important}
+.sidebar,.right-rail{display:none !important}
+#view{width:100% !important;max-width:100% !important;padding:0 !important}
+#view > section,#view > div{max-width:960px;margin-left:auto;margin-right:auto}
+.hero{max-width:100% !important}
+
+@media(max-width:768px){
+  .topbar{max-height:none !important;overflow:visible !important}
+  .tb-inner{height:auto !important;flex-wrap:wrap !important;gap:.5rem}
+  .nav-main{display:none !important}
+  .mobile-menu-btn{display:flex !important}
+  .searchbox{display:none !important}
+  .search-mobile-toggle{display:flex !important}
+  .hero{min-height:70vh;padding:3rem 1.2rem}
+  .hero h1{font-size:clamp(2.5rem,12vw,4rem)}
+  .hero-meta{gap:1rem;flex-wrap:wrap;justify-content:center}
+  .hero-meta span:not(:last-child)::after{display:none}
+  .hero-act{flex-direction:column;width:100%;max-width:280px}
+  .lgrid,.poster-grid,.study-grid{grid-template-columns:1fr !important}
+  .emo-grid{grid-template-columns:repeat(2,1fr) !important}
+  .stage{padding:2rem 1.3rem}
+  .tonight{padding:2.5rem 1.5rem}
+  .dinfo{grid-template-columns:1fr !important}
+  .sh{padding:2rem 1rem 1rem}
 }
-.sidebar,.right-rail{
-  display:none !important;
-}
-#view{
-  width:100% !important;
-  max-width:100% !important;
-  padding:0 !important;
-}
-/* Content max width for readability */
-#view > *{
-  max-width:960px;
-  margin-left:auto;
-  margin-right:auto;
-}
-/* Hero should be full width */
-.hero{
-  max-width:100% !important;
+
+@media(max-width:480px){
+  .emo-grid{grid-template-columns:1fr !important}
+  .hero h1{font-size:clamp(2rem,11vw,3rem)}
 }
 </style>
 
