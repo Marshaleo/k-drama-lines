@@ -3308,6 +3308,20 @@ body.ko-only .tzh{
   padding-right:1rem !important;
   text-align:center !important;
 }
+
+/* v4.9.3 NUCLEAR LAYOUT FIX - inline styles already applied, this is backup */
+.sidenav,#sideNav{display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;}
+.rail{display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;}
+.shell{display:block !important;grid-template-columns:none !important;}
+#view,.view-enter{display:block !important;width:100% !important;max-width:100% !important;}
+#view > *,.view-enter > *{max-width:960px !important;margin-left:auto !important;margin-right:auto !important;padding-left:1rem !important;padding-right:1rem !important;}
+.hero{max-width:100% !important;}
+
+/* v4.9.3 Hide mobile drawer on desktop */
+.mobile-drawer,.mobile-drawer-overlay{display:none !important;visibility:hidden !important;}
+@media(max-width:768px){
+  .mobile-drawer{display:block !important;visibility:visible !important;}
+}
 </style>
 
 </head>
@@ -3326,8 +3340,8 @@ body.ko-only .tzh{
 <button class="icon-btn" id="favBtn" title="我的台词书">♡</button>
 <button class="icon-btn" id="themeBtn" title="浅色 / 深夜">◐</button>
 </div></div></header>
-<div class="shell">
-<aside class="sidenav" id="sideNav">
+<div class="shell" style="display:block !important;grid-template-columns:none !important;">
+<aside class="sidenav" id="sideNav" style="display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;">
 <h4>Navigate 导航</h4>
 <div class="navi" data-go="home">首页 · 发现</div>
 <div class="navi" data-go="tonight">今晚的一句</div>
@@ -3347,7 +3361,7 @@ body.ko-only .tzh{
 <div id="navEmo"></div>
 </aside>
 <main id="view"></main>
-<aside class="rail" id="rail"></aside>
+<aside class="rail" id="rail" style="display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;"></aside>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -3646,8 +3660,8 @@ window.addEventListener('scroll',()=>{
 </script>
 <div class="grain-overlay"></div>
 
-<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileDrawer()"></div>
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer-overlay" id="mobileDrawerOverlay" onclick="toggleMobileDrawer()" style="display:none !important;visibility:hidden !important;"></div>
+<div class="mobile-drawer" id="mobileDrawer" style="display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;width:0 !important;height:0 !important;overflow:hidden !important;">
   <div class="drawer-section">
     <div class="drawer-title">导航</div>
     <div class="drawer-link" onclick="go('home');toggleMobileDrawer()">发现</div>
